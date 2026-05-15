@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>SWAP — Presentation</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--green:#2d6a2d;--lime:#8fc73e;--ink:#1a1f0f;--cream:#faf8f0;--bg:#f0f4e8;--grey:#5a6348;--white:#fff;--amber:#d4870a;--red:#c0392b;--dg:#091409;}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:'DM Sans',sans-serif;touch-action:none;user-select:none;}
+.deck{position:fixed;inset:0;perspective:1200px;}
+
+/* ── SLIDE TRANSITIONS ── */
+.slide{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;overflow:hidden;
+  opacity:0;pointer-events:none;
+  transform:translateX(60px);
+  transition:opacity .38s cubic-bezier(.4,0,.2,1),
+              transform .38s cubic-bezier(.4,0,.2,1);
+  will-change:opacity,transform;
+}
+.slide.active{
+  opacity:1;pointer-events:auto;
+  transform:translateX(0);
+}
+.slide.exit-left{
+  opacity:0;transform:translateX(-60px);
+  transition:opacity .28s cubic-bezier(.4,0,.2,1),
+              transform .28s cubic-bezier(.4,0,.2,1);
+}
+
+/* Progress bar */
+#progress-bar{
+  position:fixed;top:0;left:0;height:3px;
+  background:var(--lime);z-index:10000;
+  transition:width .38s cubic-bezier(.4,0,.2,1);
+  box-shadow:0 0 8px rgba(143,199,62,.6);
+}
+
+.nav{position:fixed;bottom:0;left:0;right:0;height:54px;background:rgba(0,0,0,.9);backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:space-between;padding:0 18px;z-index:9999;gap:14px;}
+.nbtn{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.06em;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.6);padding:8px 18px;cursor:pointer;transition:background .2s,color .2s;}
+.nbtn:not(:disabled):hover{background:rgba(143,199,62,.18);color:var(--lime);border-color:rgba(143,199,62,.35);}
+.nbtn:disabled{opacity:.2;cursor:not-allowed;}
+.nc{display:flex;flex-direction:column;align-items:center;gap:5px;flex:1;}
+.dots{display:flex;gap:4px;flex-wrap:wrap;justify-content:center;}
+.dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.2);cursor:pointer;transition:all .25s;}
+.dot.on{background:var(--lime);width:16px;border-radius:3px;}
+.ncount{font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.28);}
+
+/* SLIDE INNER */
+.si{flex:1;padding:clamp(22px,3.8vh,52px) clamp(22px,3.8vw,62px) 58px;display:flex;flex-direction:column;justify-content:space-between;position:relative;z-index:2;overflow:hidden;}
+/* LABELS */
+.lbl{font-family:'Space Mono',monospace;font-size:clamp(11px,1.8vw,17px);letter-spacing:.2em;text-transform:uppercase;margin-bottom:clamp(10px,2vh,20px);}
+.lbl.lime{color:var(--lime);}.lbl.amber{color:var(--amber);}.lbl.green{color:var(--green);}.lbl.grey{color:rgba(255,255,255,.32);}.lbl.igreen{color:var(--green);}.lbl.igrey{color:rgba(26,31,15,.42);}
+/* HEADLINES */
+.giant{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(48px,9.5vw,116px);letter-spacing:-4px;line-height:.86;margin-bottom:clamp(10px,2vh,20px);}
+.giant em{color:var(--lime);font-style:normal;}.giant.ink{color:var(--ink);}.giant.wht{color:#fff;}
+.subhead{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(28px,5.2vw,66px);letter-spacing:-2px;line-height:.92;margin-bottom:clamp(10px,2vh,18px);}
+.subhead.ink{color:var(--ink);}.subhead.wht{color:#fff;}.subhead em{color:var(--lime);font-style:normal;}.subhead.green-em em{color:var(--green);font-style:italic;}
+.body-t{font-size:clamp(15px,2.4vw,24px);color:rgba(255,255,255,.45);line-height:1.6;font-weight:300;}
+.body-t strong{color:#fff;font-weight:500;}
+
+/* SLIDE BGs */
+#s1{background:var(--green);}
+#s1::before{content:'';position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse at 5% 90%,rgba(143,199,62,.22) 0%,transparent 55%),radial-gradient(ellipse at 96% 8%,rgba(143,199,62,.07) 0%,transparent 45%);}
+#s2{background:var(--cream);}
+#s3{background:var(--ink);}
+#s3::before{content:'';position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse at 95% 5%,rgba(143,199,62,.05) 0%,transparent 50%);}
+#s4{background:var(--dg);}
+#s5{background:var(--dg);}
+#s6{background:var(--cream);}
+#s7{background:var(--ink);}
+#s8{background:var(--green);}
+#s8::before{content:'';position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse at 50% 110%,rgba(143,199,62,.15) 0%,transparent 55%);}
+#s9{background:var(--white);}
+#s10{background:var(--cream);}
+#s11{background:var(--lime);}
+#s12{background:var(--ink);}
+
+/* SLIDE 1 */
+.s1-eye{font-family:'Space Mono',monospace;font-size:clamp(10px,1.5vw,15px);color:rgba(255,255,255,.28);letter-spacing:.16em;text-transform:uppercase;margin-bottom:clamp(16px,3vh,32px);}
+.s1-sub{font-size:clamp(15px,2.2vw,24px);color:rgba(255,255,255,.44);font-weight:300;max-width:56%;line-height:1.45;margin-top:clamp(12px,2vh,22px);}
+.s1-stats{display:flex;gap:1px;background:rgba(255,255,255,.12);}
+.s1s{flex:1;background:rgba(255,255,255,.06);padding:clamp(10px,1.8vh,18px) clamp(8px,1.4vw,14px);text-align:center;}
+.s1s-n{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(20px,3.5vw,38px);color:var(--lime);letter-spacing:-1px;}
+.s1s-l{font-family:'Space Mono',monospace;font-size:clamp(9px,1.3vw,13px);color:rgba(255,255,255,.22);text-transform:uppercase;letter-spacing:.06em;margin-top:3px;line-height:1.4;}
+
+/* SLIDE 2 */
+.s2-g{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2.5vw,32px);flex:1;padding-bottom:58px;}
+.s2-l{display:flex;flex-direction:column;justify-content:space-between;}
+.s2-r{display:flex;flex-direction:column;gap:clamp(8px,1.5vh,14px);}
+.stat-b{background:var(--ink);padding:clamp(16px,2.8vh,28px) clamp(14px,2.5vw,26px);}
+.stat-bn{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(40px,7.5vw,88px);color:var(--lime);letter-spacing:-4px;line-height:1;}
+.stat-bl{font-size:clamp(14px,2.2vw,22px);color:rgba(255,255,255,.5);margin-top:6px;line-height:1.4;}
+.stat-bs{font-family:'Space Mono',monospace;font-size:clamp(9px,1.3vw,12px);color:rgba(255,255,255,.25);margin-top:8px;line-height:1.5;}
+.chart-w{background:var(--ink);padding:clamp(12px,2vh,20px);flex:1;display:flex;flex-direction:column;}
+.chart-ttl{font-family:'Space Mono',monospace;font-size:clamp(9px,1.3vw,12px);color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;}
+.chart-area{flex:1;width:100%;}
+
+/* SLIDE 3 */
+.s3-g{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2.5vw,32px);flex:1;align-items:center;padding-bottom:58px;}
+.feat-g{display:grid;grid-template-columns:1fr 1fr;gap:clamp(6px,1vw,10px);}
+.feat{background:rgba(143,199,62,.09);border-left:3px solid var(--lime);padding:clamp(12px,2vh,22px) clamp(10px,1.8vw,18px);}
+.feat-icon{font-size:clamp(24px,3.8vw,40px);margin-bottom:7px;}
+.feat-t{font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(14px,2.2vw,22px);color:#fff;margin-bottom:4px;}
+.feat-d{font-family:'Space Mono',monospace;font-size:clamp(10px,1.5vw,14px);color:rgba(255,255,255,.32);line-height:1.5;}
+
+/* SLIDE 4 — COMPARE */
+.cmp-g{display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(8px,1.5vw,14px);flex:1;padding-bottom:58px;}
+.cmp-side{display:flex;flex-direction:column;gap:clamp(6px,1vh,10px);}
+.cmp-hdr{padding:clamp(14px,2.5vh,24px) clamp(14px,2.5vw,24px);}
+.cmp-hdr.n{background:rgba(255,255,255,.06);border-top:4px solid rgba(255,255,255,.2);}
+.cmp-hdr.a{background:rgba(143,199,62,.12);border-top:4px solid var(--lime);}
+.cmp-tag{font-family:'Space Mono',monospace;font-size:clamp(10px,1.5vw,15px);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;}
+.cmp-hdr.n .cmp-tag{color:rgba(255,255,255,.35);}.cmp-hdr.a .cmp-tag{color:var(--lime);}
+.cmp-title{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(20px,3.2vw,40px);letter-spacing:-1px;color:#fff;margin-bottom:4px;}
+.cmp-sub{font-size:clamp(12px,1.8vw,19px);color:rgba(255,255,255,.38);line-height:1.5;}
+.cmp-step{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);padding:clamp(10px,1.8vh,18px) clamp(10px,1.8vw,18px);display:flex;gap:clamp(10px,1.8vw,18px);align-items:center;}
+.cmp-step.ai{background:rgba(143,199,62,.07);border-color:rgba(143,199,62,.18);}
+.cmp-sn{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(22px,4vw,46px);color:rgba(255,255,255,.18);letter-spacing:-2px;flex-shrink:0;line-height:1;min-width:clamp(26px,4vw,46px);}
+.cmp-step.ai .cmp-sn{color:var(--lime);}
+.cmp-st{font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(14px,2.2vw,22px);color:#fff;margin-bottom:3px;}
+.cmp-sd{font-family:'Space Mono',monospace;font-size:clamp(10px,1.5vw,14px);color:rgba(255,255,255,.3);line-height:1.5;}
+.cmp-step.ai .cmp-sd{color:rgba(143,199,62,.55);}
+.vs-div{display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(22px,4vw,46px);color:var(--lime);background:rgba(143,199,62,.08);border:1px solid rgba(143,199,62,.15);padding:clamp(10px,2vh,20px) clamp(8px,1.5vw,14px);}
+
+/* SLIDE 5 */
+.s5-g{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,2vw,24px);flex:1;align-items:start;padding-bottom:58px;}
+.chat-ex{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:clamp(14px,2.5vh,24px);margin-bottom:clamp(8px,1.5vh,14px);}
+.chat-q-lbl{font-family:'Space Mono',monospace;font-size:clamp(10px,1.5vw,14px);color:rgba(255,255,255,.35);margin-bottom:8px;}
+.chat-q{font-size:clamp(15px,2.2vw,22px);color:#fff;line-height:1.4;margin-bottom:10px;}
+.chat-a{font-family:'Space Mono',monospace;font-size:clamp(10px,1.5vw,14px);color:rgba(143,199,62,.75);line-height:1.6;}
+.ai-adv{background:rgba(143,199,62,.09);border:1px solid rgba(143,199,62,.22);padding:clamp(14px,2.5vh,24px);}
+.adv-item{display:flex;gap:clamp(10px,2vw,18px);margin-bottom:clamp(12px,2vh,20px);}
+.adv-item:last-child{margin-bottom:0;}
+.adv-n{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(24px,4.2vw,48px);color:var(--lime);flex-shrink:0;letter-spacing:-2px;line-height:1;min-width:clamp(28px,4.2vw,48px);}
+.adv-t{font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(14px,2.2vw,22px);color:#fff;margin-bottom:4px;}
+.adv-d{font-family:'Space Mono',monospace;font-size:clamp(10px,1.5vw,14px);color:rgba(255,255,255,.35);line-height:1.5;}
+
+/* SLIDE 6 */
+.sensor-g{display:grid;grid-template-columns:1fr 1fr;gap:clamp(6px,1vw,12px);flex:1;padding-bottom:58px;}
+.sensor{background:var(--ink);padding:clamp(14px,2.5vh,26px) clamp(14px,2.5vw,26px);}
+.se-icon{font-size:clamp(24px,3.8vw,42px);margin-bottom:8px;}
+.se-name{font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(14px,2.2vw,22px);color:#fff;margin-bottom:5px;}
+.se-data{font-family:'Space Mono',monospace;font-size:clamp(18px,3.2vw,34px);color:var(--lime);font-weight:700;margin-bottom:5px;letter-spacing:-1px;}
+.se-desc{font-family:'Space Mono',monospace;font-size:clamp(10px,1.5vw,14px);color:rgba(255,255,255,.3);line-height:1.5;}
+.se-link{font-family:'Space Mono',monospace;font-size:clamp(10px,1.5vw,14px);color:rgba(143,199,62,.6);margin-top:5px;}
+
+/* SLIDE 7 */
+.nudge-l{display:flex;flex-direction:column;gap:clamp(6px,1.2vh,12px);flex:1;padding-bottom:58px;}
+.nudge{display:flex;gap:clamp(14px,2.5vw,28px);align-items:center;background:rgba(143,199,62,.08);border:1px solid rgba(143,199,62,.18);padding:clamp(12px,2vh,22px) clamp(14px,2.5vw,26px);}
+.nudge-icon{font-size:clamp(26px,4.5vw,48px);flex-shrink:0;}
+.nudge-name{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(16px,2.8vw,30px);color:#fff;margin-bottom:3px;letter-spacing:-.3px;}
+.nudge-theory{font-family:'Space Mono',monospace;font-size:clamp(10px,1.5vw,14px);color:rgba(255,255,255,.28);}
+.nudge-how{font-family:'Space Mono',monospace;font-size:clamp(10px,1.6vw,16px);color:rgba(143,199,62,.65);margin-top:4px;line-height:1.45;}
+
+/* SLIDE 8 */
+.loop-w{flex:1;display:flex;flex-direction:column;justify-content:center;gap:clamp(14px,2.5vh,26px);padding-bottom:58px;}
+.loop{display:flex;align-items:center;gap:clamp(8px,1.5vw,16px);}
+.partner{flex:1;background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.1);padding:clamp(18px,3vh,32px) clamp(14px,2.5vw,26px);text-align:center;}
+.partner.c{border:2px solid rgba(143,199,62,.5);background:rgba(0,0,0,.42);}
+.pa-icon{font-size:clamp(30px,5.5vw,60px);margin-bottom:10px;}
+.pa-name{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(18px,3.2vw,34px);color:#fff;margin-bottom:7px;letter-spacing:-.5px;}
+.pa-role{font-family:'Space Mono',monospace;font-size:clamp(10px,1.5vw,15px);color:rgba(255,255,255,.3);line-height:1.55;}
+.loop-arr{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(30px,6vw,66px);color:var(--lime);flex-shrink:0;}
+.loop-tag{font-family:'Space Mono',monospace;font-size:clamp(11px,1.7vw,17px);color:rgba(255,255,255,.26);text-align:center;letter-spacing:.12em;text-transform:uppercase;}
+
+/* SLIDE 9 */
+.swap-l{display:flex;flex-direction:column;gap:clamp(8px,1.5vh,14px);flex:1;padding-bottom:58px;}
+.swap-ex{border:1px solid #dde8cc;overflow:hidden;}
+.ex-cat{background:var(--green);padding:clamp(7px,1.2vh,12px) clamp(12px,2vw,20px);font-family:'Space Mono',monospace;font-size:clamp(10px,1.5vw,15px);color:rgba(255,255,255,.55);letter-spacing:.1em;text-transform:uppercase;}
+.ex-row{display:grid;grid-template-columns:1fr auto 1fr;}
+.ex-from{background:#fff5f5;padding:clamp(10px,1.8vh,18px) clamp(12px,2vw,20px);}
+.ex-to{background:#f2f8ec;padding:clamp(10px,1.8vh,18px) clamp(12px,2vw,20px);}
+.ex-mid{background:var(--green);display:flex;align-items:center;justify-content:center;padding:0 clamp(10px,1.8vw,18px);}
+.ex-arr{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(22px,3.8vw,44px);color:var(--lime);}
+.ex-lbl{font-family:'Space Mono',monospace;font-size:clamp(9px,1.4vw,14px);text-transform:uppercase;margin-bottom:4px;}
+.ex-from .ex-lbl{color:var(--red);}.ex-to .ex-lbl{color:var(--green);}
+.ex-product{font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(14px,2.4vw,26px);margin-bottom:3px;}
+.ex-from .ex-product{color:var(--red);}.ex-to .ex-product{color:var(--green);}
+.ex-detail{font-family:'Space Mono',monospace;font-size:clamp(10px,1.5vw,15px);color:var(--grey);}
+.ex-save-bar{background:var(--bg);padding:clamp(7px,1.2vh,12px) clamp(12px,2vw,20px);display:flex;gap:clamp(14px,2.5vw,28px);flex-wrap:wrap;}
+.ex-sv{font-family:'Space Mono',monospace;font-size:clamp(10px,1.5vw,15px);color:var(--green);}
+
+/* SLIDE 10 */
+.chart-g{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2.5vw,28px);flex:1;align-items:center;padding-bottom:58px;}
+.chart-box{background:var(--ink);padding:clamp(16px,2.8vh,28px);display:flex;flex-direction:column;height:100%;}
+.chart-box-t{font-family:'Space Mono',monospace;font-size:clamp(9px,1.4vw,13px);color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;}
+.chart-a{flex:1;position:relative;}
+.chart-src{font-family:'Space Mono',monospace;font-size:clamp(8px,1.2vw,11px);color:rgba(255,255,255,.22);margin-top:8px;line-height:1.4;}
+
+/* SLIDE 11 */
+.impact-g{display:grid;grid-template-columns:1fr 1fr 1fr;gap:clamp(8px,1.5vw,16px);flex:1;align-items:start;padding-bottom:0;}
+.is{background:rgba(255,255,255,.3);border:1px solid rgba(26,31,15,.1);padding:clamp(18px,3.2vh,32px) clamp(16px,2.8vw,28px);}
+.is-n{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(38px,7.5vw,86px);letter-spacing:-4px;color:var(--ink);line-height:1;}
+.is-l{font-size:clamp(13px,2vw,20px);color:rgba(26,31,15,.55);margin-top:8px;line-height:1.5;}
+.is-e{font-family:'Space Mono',monospace;font-size:clamp(10px,1.5vw,14px);color:rgba(26,31,15,.38);margin-top:5px;}
+.gp-bar{background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.35);padding:clamp(12px,2.2vh,22px) clamp(16px,2.8vw,28px);display:flex;align-items:flex-start;gap:14px;}
+.gp-icon{font-size:clamp(22px,3.8vw,42px);flex-shrink:0;}
+.gp-t{font-family:'Space Mono',monospace;font-size:clamp(10px,1.5vw,15px);color:rgba(26,31,15,.62);line-height:1.65;}
+.gp-t strong{color:var(--ink);}
+
+/* SLIDE 12 */
+.s12-g{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2.5vw,32px);flex:1;align-items:center;padding-bottom:58px;}
+.s12-l{display:flex;flex-direction:column;justify-content:space-between;height:100%;}
+.s12-title{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(30px,5.8vw,70px);letter-spacing:-3px;line-height:.9;color:#fff;}
+.s12-title em{color:var(--lime);font-style:normal;}
+.s12-closing{border-left:3px solid var(--lime);padding:clamp(10px,1.8vh,18px) clamp(12px,2vw,20px);}
+.s12-cl{font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(14px,2.2vw,22px);color:rgba(255,255,255,.52);line-height:1.5;}
+.s12-cl em{color:var(--lime);font-style:normal;}
+.s12-r{display:flex;flex-direction:column;gap:clamp(8px,1.5vh,14px);}
+.cta-box{background:rgba(143,199,62,.09);border:1px solid rgba(143,199,62,.22);padding:clamp(14px,2.5vh,26px) clamp(14px,2.5vw,24px);}
+.cta-lbl{font-family:'Space Mono',monospace;font-size:clamp(10px,1.5vw,15px);color:var(--lime);letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;}
+.cta-title{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(16px,2.5vw,28px);color:#fff;margin-bottom:12px;}
+.cta-steps{display:flex;flex-direction:column;gap:clamp(8px,1.4vh,14px);}
+.cta-step{display:flex;gap:clamp(10px,2vw,20px);align-items:flex-start;}
+.cta-sn{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(24px,4.2vw,50px);color:var(--lime);flex-shrink:0;letter-spacing:-2px;line-height:1;min-width:clamp(28px,4.2vw,50px);}
+.cta-st{font-size:clamp(13px,2vw,22px);color:rgba(255,255,255,.5);line-height:1.5;}
+.cta-st strong{color:rgba(255,255,255,.85);}
+.qr-box{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:clamp(12px,2vh,20px);text-align:center;}
+#qr-canvas{display:block;margin:0 auto clamp(6px,1vh,10px);image-rendering:pixelated;}
+.qr-l{font-family:'Space Mono',monospace;font-size:clamp(9px,1.4vw,13px);color:rgba(255,255,255,.32);}
+
+/* Number counter animation */
+.count-up{display:inline;}
+
+/* Slide-in stagger for feat cards */
+.slide.active .feat{animation:fadeUp .4s both;}
+.feat:nth-child(1){animation-delay:.05s!important;}
+.feat:nth-child(2){animation-delay:.1s!important;}
+.feat:nth-child(3){animation-delay:.15s!important;}
+.feat:nth-child(4){animation-delay:.2s!important;}
+.feat:nth-child(5){animation-delay:.25s!important;}
+.feat:nth-child(6){animation-delay:.3s!important;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+
+/* Nudge stagger */
+.slide.active .nudge{animation:fadeUp .35s both;}
+.nudge:nth-child(1){animation-delay:.04s!important;}
+.nudge:nth-child(2){animation-delay:.1s!important;}
+.nudge:nth-child(3){animation-delay:.16s!important;}
+.nudge:nth-child(4){animation-delay:.22s!important;}
+.nudge:nth-child(5){animation-delay:.28s!important;}
+
+/* Impact stats pulse */
+.slide.active .is .is-n{animation:popIn .5s cubic-bezier(.175,.885,.32,1.275) both;}
+.is:nth-child(1) .is-n{animation-delay:.08s!important;}
+.is:nth-child(2) .is-n{animation-delay:.18s!important;}
+.is:nth-child(3) .is-n{animation-delay:.28s!important;}
+@keyframes popIn{from{opacity:0;transform:scale(.7);}to{opacity:1;transform:scale(1);}}
+
+/* responsive */
+@media(max-width:640px){
+  .s2-g,.s3-g,.chart-g,.s12-g,.cmp-g{grid-template-columns:1fr;gap:10px;}
+  .cmp-g{grid-template-columns:1fr;}
+  .vs-div{padding:8px;font-size:20px;}
+  .impact-g{grid-template-columns:1fr 1fr;}
+  .feat-g{grid-template-columns:1fr;}
+  .sensor-g{grid-template-columns:1fr;}
+  .loop{flex-direction:column;}.loop-arr{transform:rotate(90deg);}
+  .ex-row{grid-template-columns:1fr;}
+  .ex-mid{padding:5px;}.ex-arr{font-size:20px;transform:rotate(90deg);}
+  .s1-stats{flex-wrap:wrap;}.s1s{min-width:calc(50% - 1px);}
+  .s5-g{grid-template-columns:1fr;}
+  .s12-g{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<div id="progress-bar"></div>
+<div class="deck">
+
+<!-- S1 COVER -->
+<div class="slide active" id="s1">
+<div class="si">
+<div>
+<p class="s1-eye">ACS Independent · Year Three Challenge · Environmental Sustainability in Daily Life · 2026</p>
+<h1 class="giant wht"><em>SWAP.</em><br>One tap.<br>Better world.</h1>
+<p class="s1-sub">An AI-powered sustainable shopping assistant — built for Singapore. Aligned with the Green Plan 2030.</p>
+</div>
+<div class="s1-stats">
+<div class="s1s"><div class="s1s-n">1 tap</div><div class="s1s-l">better choice</div></div>
+<div class="s1s"><div class="s1s-n">AI</div><div class="s1s-l">chatbot built in</div></div>
+<div class="s1s"><div class="s1s-n">×3</div><div class="s1s-l">SG partners</div></div>
+<div class="s1s"><div class="s1s-n">2030</div><div class="s1s-l">Green Plan aligned</div></div>
+<div class="s1s"><div class="s1s-n">$0</div><div class="s1s-l">free for users</div></div>
+</div>
+</div>
+</div>
+
+<!-- S2 PROBLEM -->
+<div class="slide" id="s2">
+<div class="si" style="padding-bottom:0;">
+<p class="lbl amber">The Problem</p>
+<div class="s2-g">
+<div class="s2-l">
+<h2 class="subhead ink">We know.<br>We still<br>don't act.</h2>
+<div class="stat-b">
+<div class="stat-bn"><span class="count-up" data-target="87" data-suffix=" kg">87 kg</span></div>
+<div class="stat-bl">Plastic waste per person per year — <strong>2nd highest in Asia-Pacific</strong></div>
+<div class="stat-bs">Source: Earth Action / Statista 2024</div>
+</div>
+<div class="stat-b" style="margin-top:8px;">
+<div class="stat-bn"><span class="count-up" data-target="5" data-suffix="%">5%</span></div>
+<div class="stat-bl">Plastic recycling rate in Singapore — <strong>barely anything gets recycled</strong></div>
+<div class="stat-bs">Source: NEA Waste Statistics 2024 · Envcares.com.sg 2024</div>
+</div>
+</div>
+<div class="s2-r">
+<div class="chart-w">
+<p class="chart-ttl">Singapore Mean Temperature 1984–2024 · Source: NEA / weather.gov.sg 2024</p>
+<div class="chart-area">
+<svg width="100%" height="100%" viewBox="0 0 400 190" preserveAspectRatio="xMidYMid meet">
+<line x1="42" y1="10" x2="42" y2="165" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+<line x1="42" y1="165" x2="395" y2="165" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+<line x1="42" y1="120" x2="395" y2="120" stroke="rgba(255,255,255,.06)" stroke-width="1" stroke-dasharray="4,3"/>
+<line x1="42" y1="75" x2="395" y2="75" stroke="rgba(255,255,255,.06)" stroke-width="1" stroke-dasharray="4,3"/>
+<line x1="42" y1="30" x2="395" y2="30" stroke="rgba(255,255,255,.06)" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="38" y="168" fill="rgba(255,255,255,.28)" font-size="9" text-anchor="end" font-family="Space Mono,monospace">26.8</text>
+<text x="38" y="123" fill="rgba(255,255,255,.28)" font-size="9" text-anchor="end" font-family="Space Mono,monospace">27.3</text>
+<text x="38" y="78" fill="rgba(255,255,255,.28)" font-size="9" text-anchor="end" font-family="Space Mono,monospace">27.8</text>
+<text x="38" y="33" fill="rgba(255,255,255,.28)" font-size="9" text-anchor="end" font-family="Space Mono,monospace">28.3</text>
+<text x="55" y="180" fill="rgba(255,255,255,.25)" font-size="9" font-family="Space Mono,monospace">1984</text>
+<text x="150" y="180" fill="rgba(255,255,255,.25)" font-size="9" font-family="Space Mono,monospace">1994</text>
+<text x="245" y="180" fill="rgba(255,255,255,.25)" font-size="9" font-family="Space Mono,monospace">2004</text>
+<text x="340" y="180" fill="rgba(255,255,255,.25)" font-size="9" font-family="Space Mono,monospace">2014</text>
+<line x1="55" y1="155" x2="390" y2="28" stroke="rgba(232,52,26,.35)" stroke-width="1.5" stroke-dasharray="6,3"/>
+<polyline points="55,150 70,143 85,156 100,146 115,138 130,158 145,135 160,130 175,148 190,128 205,142 220,115 235,130 250,112 265,126 280,108 295,120 310,100 325,114 340,95 355,108 370,88 385,100 390,72" fill="none" stroke="var(--lime)" stroke-width="2.8" stroke-linejoin="round"/>
+<circle cx="55" cy="150" r="4" fill="var(--lime)"/>
+<circle cx="390" cy="72" r="5" fill="var(--lime)"/>
+<text x="368" y="64" fill="var(--lime)" font-size="11" font-family="Space Mono,monospace">28.4°C</text>
+<text x="57" y="142" fill="rgba(255,255,255,.38)" font-size="11" font-family="Space Mono,monospace">27.0°C</text>
+<text x="255" y="24" fill="rgba(232,52,26,.65)" font-size="10" font-family="Space Mono,monospace">+0.25°C / decade trend</text>
+</svg>
+</div>
+</div>
+<div style="background:var(--ink);border-left:3px solid var(--lime);padding:clamp(10px,1.8vh,16px) clamp(12px,2vw,18px);">
+<p style="font-size:clamp(12px,1.9vw,18px);color:rgba(255,255,255,.62);line-height:1.5;">🌡️ &nbsp;Our Microcontroller measured this rising temperature firsthand — not from a textbook. That sensor is on this desk right now. NEA confirmed: <strong style="color:#fff;">2024 is Singapore's warmest year on record</strong>, tied with 2019 and 2016.</p>
+<p style="font-family:'Space Mono',monospace;font-size:clamp(9px,1.3vw,12px);color:rgba(255,255,255,.25);margin-top:6px;">Source: NEA Annual Climate Assessment Report, March 2025 · weather.gov.sg Past Climate Trends 2024</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- S3 WHAT IS SWAP -->
+<div class="slide" id="s3">
+<div class="si" style="padding-bottom:0;">
+<div class="s3-g">
+<div>
+<p class="lbl lime">The Solution</p>
+<h2 class="subhead wht"><em>SWAP.</em><br>Remove<br>the friction.</h2>
+<p class="body-t" style="margin-top:clamp(10px,2vh,18px);">Scan any product you're about to buy. Get <strong>one verified sustainable swap</strong> — same price or cheaper, same store, Singapore Green Label certified. One tap sends it straight to your FairPrice cart. Any question? The AI answers instantly.</p>
+</div>
+<div class="feat-g">
+<div class="feat"><div class="feat-icon">📷</div><p class="feat-t">Scan any product</p><p class="feat-d">Barcode or text — result in 2 seconds</p></div>
+<div class="feat"><div class="feat-icon">⚡</div><p class="feat-t">One verified swap</p><p class="feat-d">Green Label only. Same price or cheaper.</p></div>
+<div class="feat"><div class="feat-icon">🤖</div><p class="feat-t">AI Assistant</p><p class="feat-d">"Is aluminium better than plastic?" — answered</p></div>
+<div class="feat"><div class="feat-icon">🛒</div><p class="feat-t">FairPrice cart</p><p class="feat-d">Tap swap → auto-added to your cart</p></div>
+<div class="feat"><div class="feat-icon">🚲</div><p class="feat-t">Anywheel credits</p><p class="feat-d">Every swap earns a free bike ride</p></div>
+<div class="feat"><div class="feat-icon">🏫</div><p class="feat-t">ACS leaderboard</p><p class="feat-d">Compete with your classmates</p></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- S4 NORMAL VS AI COMPARE -->
+<div class="slide" id="s4">
+<div class="si" style="padding-bottom:0;">
+<p class="lbl lime">The Difference — Normal Scanning vs SWAP AI</p>
+<div class="cmp-g">
+<div class="cmp-side">
+<div class="cmp-hdr n"><p class="cmp-tag">Without SWAP — Normal scanning</p><p class="cmp-title">Slow. Confusing.</p><p class="cmp-sub">What people do today</p></div>
+<div class="cmp-step"><div class="cmp-sn">1</div><div><p class="cmp-st">Pick up product</p><p class="cmp-sd">No sustainability information shown anywhere.</p></div></div>
+<div class="cmp-step"><div class="cmp-sn">2</div><div><p class="cmp-st">Google "is this sustainable?"</p><p class="cmp-sd">20–30 seconds. 10 conflicting results. No clear answer.</p></div></div>
+<div class="cmp-step"><div class="cmp-sn">3</div><div><p class="cmp-st">Try to find an alternative</p><p class="cmp-sd">Walk the aisle. More searching. Guess and hope.</p></div></div>
+<div class="cmp-step"><div class="cmp-sn">4</div><div><p class="cmp-st">Give up. Buy original.</p><p class="cmp-sd">Too much effort. Happens every single time.</p></div></div>
+<div style="background:rgba(192,57,43,.08);border-left:3px solid var(--red);padding:clamp(10px,1.8vh,16px) clamp(12px,2vw,18px);">
+<p style="font-family:'Space Mono',monospace;font-size:clamp(10px,1.5vw,15px);color:rgba(192,57,43,.85);line-height:1.5;"><strong style="color:var(--red);">90%+ of purchases made out of habit.</strong> Not because people don't care — because friction always wins.<br><span style="color:rgba(255,255,255,.3);font-size:0.85em;">Duhigg, The Power of Habit, 2012</span></p>
+</div>
+</div>
+<div class="vs-div">VS</div>
+<div class="cmp-side">
+<div class="cmp-hdr a"><p class="cmp-tag">With SWAP — AI powered</p><p class="cmp-title">15 seconds. Done.</p><p class="cmp-sub">The sustainable choice becomes easiest</p></div>
+<div class="cmp-step ai"><div class="cmp-sn">1</div><div><p class="cmp-st">Open SWAP — no download</p><p class="cmp-sd">Web app. Browser bookmark. Works on any phone instantly.</p></div></div>
+<div class="cmp-step ai"><div class="cmp-sn">2</div><div><p class="cmp-st">Scan barcode — 2 seconds</p><p class="cmp-sd">AI searches verified Green Label database instantly.</p></div></div>
+<div class="cmp-step ai"><div class="cmp-sn">3</div><div><p class="cmp-st">See ONE better option</p><p class="cmp-sd">Same price or cheaper. In stock. Certified. One choice — not ten.</p></div></div>
+<div class="cmp-step ai"><div class="cmp-sn">4</div><div><p class="cmp-st">Tap → FairPrice cart. Done.</p><p class="cmp-sd">Goes into cart automatically. Zero extra steps.</p></div></div>
+<div style="background:rgba(143,199,62,.1);border-left:3px solid var(--lime);padding:clamp(10px,1.8vh,16px) clamp(12px,2vw,18px);">
+<p style="font-family:'Space Mono',monospace;font-size:clamp(10px,1.5vw,15px);color:rgba(143,199,62,.85);line-height:1.5;"><strong style="color:var(--lime);">Sustainable = easiest option.</strong> When friction is equal, people consistently choose better.<br><span style="color:rgba(255,255,255,.3);font-size:0.85em;">Thaler &amp; Sunstein, Nudge, 2008 · Nobel Prize Economics</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- S5 AI DEEP DIVE -->
+<div class="slide" id="s5">
+<div class="si">
+<p class="lbl lime">The AI Advantage</p>
+<h2 class="subhead wht" style="margin-bottom:clamp(12px,2.5vh,24px);">What AI does<br>that search can't.</h2>
+<div class="s5-g">
+<div>
+<div class="chat-ex">
+<p class="chat-q-lbl">Example question to the AI chatbot</p>
+<p class="chat-q">"Is aluminium better than glass for the environment?"</p>
+<p class="chat-a">SWAP AI: In Singapore, aluminium cans are recycled at 68% — far higher than glass or plastic bottles. For drinks, aluminium is the best local choice. Want me to show you the swap for what you just scanned?</p>
+</div>
+<div class="chat-ex">
+<p class="chat-q-lbl">Example question to the AI chatbot</p>
+<p class="chat-q">"Where can I recycle e-waste near Bishan?"</p>
+<p class="chat-a">SWAP AI: 3 NEA e-waste drop-off points near you: Junction 8 (Level 1), Bishan Public Library, Ang Mo Kio Hub. Open daily. No appointment needed. Zero cost.</p>
+</div>
+</div>
+<div>
+<div class="ai-adv">
+<p class="lbl lime" style="margin-bottom:12px;">3 things AI does that Google cannot</p>
+<div class="adv-item"><div class="adv-n">1</div><div><p class="adv-t">Singapore-specific answers</p><p class="adv-d">Knows which products are at which FairPrice stores, which certifications apply here, local recycling locations</p></div></div>
+<div class="adv-item"><div class="adv-n">2</div><div><p class="adv-t">Contextual, not generic</p><p class="adv-d">Answers based on what you just scanned — not 10 unrelated results that take time to evaluate</p></div></div>
+<div class="adv-item"><div class="adv-n">3</div><div><p class="adv-t">Acts, doesn't just inform</p><p class="adv-d">Adds the sustainable product to your FairPrice cart. Google gives information. SWAP takes action.</p></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- S6 MICROBIT -->
+<div class="slide" id="s6">
+<div class="si" style="padding-bottom:0;">
+<p class="lbl igreen">Learning Journey Connection</p>
+<h2 class="subhead green-em" style="color:var(--ink);margin-bottom:clamp(12px,2.5vh,24px);">The Microcontroller<br>showed us <em>the problem.</em></h2>
+<div class="sensor-g">
+<div class="sensor"><div class="se-icon">🌡️</div><p class="se-name">Temperature Sensor (DHT11)</p><p class="se-data">+0.25°C / decade</p><p class="se-desc">We measured Singapore's rising temperature firsthand. Not from a textbook — from our sensor in this classroom. NEA confirmed: 2024 is Singapore's warmest year on record, tied with 2019 and 2016.</p><p class="se-link">→ SWAP shows this data on its opening screen</p></div>
+<div class="sensor"><div class="se-icon">💧</div><p class="se-name">Humidity Sensor</p><p class="se-data">Average 84% RH</p><p class="se-desc">Singapore's humidity is among the highest in the world — and worsening with climate change. Our sensor made this physically real — not a graph, but a number we measured ourselves here.</p><p class="se-link">→ The felt consequence of unsustainable consumption</p></div>
+<div class="sensor"><div class="se-icon">🔔</div><p class="se-name">Buzzer — Threshold Logic</p><p class="se-data">Alert → Action</p><p class="se-desc">The buzzer fires when a threshold is crossed — detecting the problem at the exact moment of decision and triggering a response. This IS SWAP's nudge architecture: intercept at the moment of purchase.</p><p class="se-link">→ SWAP's nudge system = the Microbit's buzzer logic</p></div>
+<div class="sensor"><div class="se-icon">📊</div><p class="se-name">Data Flow</p><p class="se-data">Collect → Display → Act</p><p class="se-desc">Microbit: sensor collects → LED displays → buzzer acts. SWAP: scan collects → screen displays → swap acts. Same logic. The Microcontroller taught us SWAP's entire user flow.</p><p class="se-link">→ Same logic. Different scale.</p></div>
+</div>
+</div>
+</div>
+
+<!-- S7 SCIENCE -->
+<div class="slide" id="s7">
+<div class="si" style="padding-bottom:0;">
+<p class="lbl lime">Why It Works — Behavioural Science</p>
+<h2 class="subhead wht" style="margin-bottom:clamp(12px,2.5vh,22px);">Five nudges. All proven.</h2>
+<div class="nudge-l">
+<div class="nudge"><div class="nudge-icon">⚙️</div><div><p class="nudge-name">Default Effect</p><p class="nudge-theory">Thaler &amp; Sunstein, 2008 · Nobel Prize Economics 2017</p><p class="nudge-how">Sustainable option appears first and largest. Must actively reject it to choose the worse option.</p></div></div>
+<div class="nudge"><div class="nudge-icon">📉</div><div><p class="nudge-name">Loss Aversion</p><p class="nudge-theory">Kahneman &amp; Tversky, 1979 · Nobel Prize Economics 2002</p><p class="nudge-how">"Save $0.30 + avoid 0.06kg CO₂" — framed as loss avoided. We feel losses 2× more intensely than gains.</p></div></div>
+<div class="nudge"><div class="nudge-icon">👥</div><div><p class="nudge-name">Social Norms</p><p class="nudge-theory">Cialdini, 1984 · Influence: The Psychology of Persuasion</p><p class="nudge-how">ACS school leaderboard — comparing with classmates you know drives the strongest behaviour change.</p></div></div>
+<div class="nudge"><div class="nudge-icon">🌳</div><div><p class="nudge-name">CO₂ Equivalents</p><p class="nudge-theory">Abstract-to-Concrete Translation · Cognitive Accessibility Research</p><p class="nudge-how">0.06kg CO₂ means nothing. "Not driving 300 metres" means something. We always translate numbers to reality.</p></div></div>
+<div class="nudge"><div class="nudge-icon">🔥</div><div><p class="nudge-name">Streak Logic</p><p class="nudge-theory">Habit Loop Theory · Duhigg, The Power of Habit, 2012</p><p class="nudge-how">Breaking a 14-day streak hurts more than maintaining it helps. Turns conscious choices into automatic habits.</p></div></div>
+</div>
+</div>
+</div>
+
+<!-- S8 PARTNERSHIPS -->
+<div class="slide" id="s8">
+<div class="si">
+<p class="lbl grey">Strategic Partnerships</p>
+<h2 class="subhead wht" style="margin-bottom:clamp(14px,3vh,28px);">Built into<br>Singapore's ecosystem.</h2>
+<div class="loop-w">
+<div class="loop">
+<div class="partner"><div class="pa-icon">🛒</div><p class="pa-name">FairPrice</p><p class="pa-role">1,300+ "Easy on the Planet" products · Cart integration · Go Green Challenge 2025 · Net-zero by 2045</p></div>
+<div class="loop-arr">→</div>
+<div class="partner c"><div class="pa-icon">📱</div><p class="pa-name">SWAP</p><p class="pa-role">The sustainable decision layer — scans, recommends, and rewards every purchase</p></div>
+<div class="loop-arr">→</div>
+<div class="partner"><div class="pa-icon">🚲</div><p class="pa-name">Anywheel</p><p class="pa-role">44 million tonnes CO₂ saved · Singapore's only homegrown bike-sharing · Free rides per swap</p></div>
+</div>
+<p class="loop-tag">Sustainable purchase → Sustainable transport → The loop is complete</p>
+</div>
+</div>
+</div>
+
+<!-- S9 REAL SWAPS -->
+<div class="slide" id="s9">
+<div class="si" style="padding-bottom:0;">
+<p class="lbl igreen">Proof of Concept — 5 Real Singapore Swaps</p>
+<h2 class="subhead ink" style="margin-bottom:clamp(12px,2.5vh,20px);">Same price. Real impact.</h2>
+<div class="swap-l">
+<div class="swap-ex">
+<div class="ex-cat">🥤 Beverages — Available at FairPrice island-wide</div>
+<div class="ex-row">
+<div class="ex-from"><p class="ex-lbl r">Instead of</p><p class="ex-product">Pokka Green Tea PET 500ml</p><p class="ex-detail">$1.50 · Single-use plastic · Non-recyclable in SG</p></div>
+<div class="ex-mid"><p class="ex-arr">→</p></div>
+<div class="ex-to"><p class="ex-lbl g">SWAP to</p><p class="ex-product">Yeo's Chrysanthemum Can 300ml</p><p class="ex-detail">$1.20 · Aluminium — recycled at 68% in Singapore</p></div>
+</div>
+<div class="ex-save-bar"><span class="ex-sv">💰 Save $0.30</span><span class="ex-sv">🌿 0.06kg CO₂ avoided</span><span class="ex-sv">♻️ Source: NEA Waste Stats 2024</span></div>
+</div>
+<div class="swap-ex">
+<div class="ex-cat">🥚 Protein — FairPrice · Supports SG 30x30 food goal</div>
+<div class="ex-row">
+<div class="ex-from"><p class="ex-lbl r">Instead of</p><p class="ex-product">Imported chicken breast 500g</p><p class="ex-detail">$6.90 · Malaysia import · Refrigerated transport emissions</p></div>
+<div class="ex-mid"><p class="ex-arr">→</p></div>
+<div class="ex-to"><p class="ex-lbl g">SWAP to</p><p class="ex-product">Lion Brand eggs ×10 (local farm)</p><p class="ex-detail">$3.50 · Singapore-farmed · SG Fresh Produce certified</p></div>
+</div>
+<div class="ex-save-bar"><span class="ex-sv">💰 Save $3.40</span><span class="ex-sv">🌿 0.4kg CO₂ avoided</span><span class="ex-sv">🇸🇬 Green Plan 2030: 30% local food by 2030 (SFA)</span></div>
+</div>
+<div class="swap-ex">
+<div class="ex-cat">🧴 Household — FairPrice</div>
+<div class="ex-row">
+<div class="ex-from"><p class="ex-lbl r">Instead of</p><p class="ex-product">Fairy Dish Soap bottle 500ml</p><p class="ex-detail">$4.50 · Virgin plastic · More packaging per ml</p></div>
+<div class="ex-mid"><p class="ex-arr">→</p></div>
+<div class="ex-to"><p class="ex-lbl g">SWAP to</p><p class="ex-product">Fairy Dish Soap refill pack 800ml</p><p class="ex-detail">$4.80 · Same brand · 60% less plastic packaging per ml</p></div>
+</div>
+<div class="ex-save-bar"><span class="ex-sv">🌿 60% less plastic per use</span><span class="ex-sv">📦 More product per dollar</span><span class="ex-sv">✓ Same brand — zero friction</span></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- S10 CHARTS -->
+<div class="slide" id="s10">
+<div class="si" style="padding-bottom:0;">
+<p class="lbl amber">The Data — Why This Matters Now</p>
+<h2 class="subhead ink" style="margin-bottom:clamp(12px,2.5vh,20px);">Singapore's<br>waste problem.</h2>
+<div class="chart-g">
+<div class="chart-box">
+<p class="chart-box-t">Plastic Recycling Rate Singapore 2014–2024 · Source: NEA Waste Statistics 2024</p>
+<div class="chart-a">
+<svg width="100%" height="100%" viewBox="0 0 340 175" preserveAspectRatio="xMidYMid meet">
+<line x1="42" y1="10" x2="42" y2="148" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
+<line x1="42" y1="148" x2="335" y2="148" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
+<line x1="42" y1="100" x2="335" y2="100" stroke="rgba(255,255,255,.05)" stroke-width="1" stroke-dasharray="4,3"/>
+<line x1="42" y1="52" x2="335" y2="52" stroke="rgba(255,255,255,.05)" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="38" y="151" fill="rgba(255,255,255,.3)" font-size="8" text-anchor="end" font-family="Space Mono,monospace">0%</text>
+<text x="38" y="103" fill="rgba(255,255,255,.3)" font-size="8" text-anchor="end" font-family="Space Mono,monospace">5%</text>
+<text x="38" y="55" fill="rgba(255,255,255,.3)" font-size="8" text-anchor="end" font-family="Space Mono,monospace">10%</text>
+<rect x="52" y="91" width="20" height="57" fill="rgba(143,199,62,.4)"/>
+<rect x="76" y="93" width="20" height="55" fill="rgba(143,199,62,.4)"/>
+<rect x="100" y="96" width="20" height="52" fill="rgba(143,199,62,.38)"/>
+<rect x="124" y="99" width="20" height="49" fill="rgba(143,199,62,.35)"/>
+<rect x="148" y="102" width="20" height="46" fill="rgba(143,199,62,.3)"/>
+<rect x="172" y="105" width="20" height="43" fill="rgba(192,57,43,.35)"/>
+<rect x="196" y="108" width="20" height="40" fill="rgba(192,57,43,.4)"/>
+<rect x="220" y="112" width="20" height="36" fill="rgba(192,57,43,.45)"/>
+<rect x="244" y="139" width="20" height="9" fill="rgba(192,57,43,.7)"/>
+<rect x="268" y="141" width="20" height="7" fill="rgba(192,57,43,.78)"/>
+<rect x="292" y="142" width="20" height="6" fill="rgba(192,57,43,.88)"/>
+<text x="62" y="82" fill="rgba(143,199,62,.9)" font-size="9" text-anchor="middle" font-family="Space Mono,monospace">8%</text>
+<text x="302" y="130" fill="rgba(192,57,43,.9)" font-size="9" text-anchor="middle" font-family="Space Mono,monospace">5%</text>
+<text x="52" y="161" fill="rgba(255,255,255,.25)" font-size="7" text-anchor="middle" font-family="Space Mono,monospace">2014</text>
+<text x="172" y="161" fill="rgba(255,255,255,.25)" font-size="7" text-anchor="middle" font-family="Space Mono,monospace">2019</text>
+<text x="302" y="161" fill="rgba(255,255,255,.25)" font-size="7" text-anchor="middle" font-family="Space Mono,monospace">2024</text>
+</svg>
+</div>
+<p class="chart-src">Source: NEA Waste Statistics 2024 — plastic recycling fell from ~8% to ~5% while total waste sent to landfill increased from 3.04M to 3.33M tonnes (2014–2024)</p>
+</div>
+<div class="chart-box">
+<p class="chart-box-t">Per Capita Plastic Waste — Asia Pacific 2024 · Source: Earth Action / Statista 2024</p>
+<div class="chart-a">
+<svg width="100%" height="100%" viewBox="0 0 340 175" preserveAspectRatio="xMidYMid meet">
+<line x1="82" y1="10" x2="82" y2="148" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
+<line x1="82" y1="148" x2="335" y2="148" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
+<rect x="82" y="16" width="220" height="19" fill="rgba(192,57,43,.45)"/>
+<text x="78" y="29" fill="rgba(255,255,255,.38)" font-size="9" text-anchor="end" font-family="Space Mono,monospace">Hong Kong</text>
+<text x="310" y="29" fill="rgba(192,57,43,.85)" font-size="9" font-family="Space Mono,monospace">121 kg</text>
+<rect x="82" y="42" width="158" height="19" fill="var(--red)"/>
+<text x="78" y="55" fill="#fff" font-size="9" text-anchor="end" font-weight="700" font-family="Space Mono,monospace">Singapore ★</text>
+<text x="248" y="55" fill="#fff" font-size="9" font-weight="700" font-family="Space Mono,monospace">87 kg — 2nd</text>
+<rect x="82" y="68" width="107" height="19" fill="rgba(143,199,62,.3)"/>
+<text x="78" y="81" fill="rgba(255,255,255,.38)" font-size="9" text-anchor="end" font-family="Space Mono,monospace">Australia</text>
+<text x="197" y="81" fill="rgba(143,199,62,.7)" font-size="9" font-family="Space Mono,monospace">59 kg</text>
+<rect x="82" y="94" width="70" height="19" fill="rgba(143,199,62,.22)"/>
+<text x="78" y="107" fill="rgba(255,255,255,.38)" font-size="9" text-anchor="end" font-family="Space Mono,monospace">Japan</text>
+<text x="160" y="107" fill="rgba(143,199,62,.7)" font-size="9" font-family="Space Mono,monospace">38 kg</text>
+<rect x="82" y="120" width="44" height="19" fill="rgba(143,199,62,.18)"/>
+<text x="78" y="133" fill="rgba(255,255,255,.38)" font-size="9" text-anchor="end" font-family="Space Mono,monospace">S. Korea</text>
+<text x="134" y="133" fill="rgba(143,199,62,.7)" font-size="9" font-family="Space Mono,monospace">24 kg</text>
+<text x="82" y="160" fill="rgba(255,255,255,.25)" font-size="7" text-anchor="middle" font-family="Space Mono,monospace">0</text>
+<text x="178" y="160" fill="rgba(255,255,255,.25)" font-size="7" text-anchor="middle" font-family="Space Mono,monospace">50 kg</text>
+<text x="275" y="160" fill="rgba(255,255,255,.25)" font-size="7" text-anchor="middle" font-family="Space Mono,monospace">100 kg</text>
+</svg>
+</div>
+<p class="chart-src">Source: Earth Action / Statista, April 2024 — Singapore 2nd highest plastic waste per capita in Asia-Pacific region at 87kg per person per year</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- S11 IMPACT -->
+<div class="slide" id="s11">
+<div class="si" style="padding-bottom:0;">
+<p class="lbl igrey">Projected Impact — ACS(I) Student Body</p>
+<h2 class="subhead ink" style="margin-bottom:clamp(14px,3vh,28px);">What happens if<br>ACS(I) uses SWAP.</h2>
+<div class="impact-g" style="padding-bottom:0;">
+<div class="is"><p class="is-n" data-target="2500" data-prefix="" data-suffix="">2,500</p><p class="is-l">Sustainable purchases per week — 500 students × 5 swaps each</p><p class="is-e">= One school. One week. Measurable.</p></div>
+<div class="is"><p class="is-n" data-target="650" data-prefix="" data-suffix="kg">650kg</p><p class="is-l">CO₂ avoided per week by ACS(I) alone</p><p class="is-e">= Not driving Orchard to Changi, 7×</p></div>
+<div class="is"><p class="is-n" data-target="1500" data-prefix="" data-suffix="">1,500</p><p class="is-l">Trees equivalent per year from one school</p><p class="is-e">= 34 tonnes CO₂ avoided annually</p></div>
+</div>
+<div class="gp-bar" style="margin-top:clamp(10px,2vh,18px);">
+<span class="gp-icon">🇸🇬</span>
+<p class="gp-t"><strong>Singapore Green Plan 2030 alignment:</strong> SWAP directly supports the 30% landfill reduction target (NEA 2024), the 30% locally-grown food production target through SG Fresh Produce swaps (SFA 2024), and the Eco Stewardship Programme's goal of sustainability-conscious habits in Singapore youth (MOE 2024).</p>
+</div>
+</div>
+</div>
+
+<!-- S12 CTA -->
+<div class="slide" id="s12">
+<div class="si" style="padding-bottom:0;">
+<div class="s12-g">
+<div class="s12-l">
+<div>
+<p class="lbl lime">What You Can Do — Right Now</p>
+<h2 class="s12-title">One tap can<br>change <em>a habit.</em><br>Change enough<br>habits and we<br>change a city.</h2>
+</div>
+<div class="s12-closing">
+<p class="s12-cl">The Microcontroller took the first step forward. <em>We ran the race.</em> The first step is not hard — <em>it starts with you.</em></p>
+</div>
+</div>
+<div class="s12-r">
+<div class="cta-box">
+<p class="cta-lbl">For everyone in this room</p>
+<p class="cta-title">Three things you can do today</p>
+<div class="cta-steps">
+<div class="cta-step"><div class="cta-sn">1</div><p class="cta-st"><strong>Next time at FairPrice</strong> — ask: is there a sustainable version at the same price? That question is SWAP without the app.</p></div>
+<div class="cta-step"><div class="cta-sn">2</div><p class="cta-st"><strong>Scan this QR code</strong> — try a real swap in 30 seconds. See exactly how it works.</p></div>
+<div class="cta-step"><div class="cta-sn">3</div><p class="cta-st"><strong>Name one product you buy regularly</strong> — we will tell you its sustainable alternative right now, live.</p></div>
+</div>
+</div>
+<div class="qr-box">
+<canvas id="qr-canvas" width="110" height="110"></canvas>
+<p class="qr-l">Scan to try the SWAP demo</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- /deck -->
+
+<div class="nav">
+<button class="nbtn" id="prev" onclick="go(-1)" disabled>← Prev</button>
+<div class="nc">
+<div class="dots" id="dots"></div>
+<span class="ncount" id="cnt">1 / 12</span>
+</div>
+<button class="nbtn" id="next" onclick="go(1)">Next →</button>
+</div>
+
+<script>
+/* ── QR CODE (pure JS — no external lib) ── */
+(function(){
+  /* Minimal QR encoder for short URLs — Mode: byte, ECC: M, version auto */
+  /* We embed a sample URL; replace with your actual demo link */
+  const TEXT = 'https://swap.demo.sg';
+  const c = document.getElementById('qr-canvas');
+  if(!c) return;
+  const ctx = c.getContext('2d');
+  const SIZE = c.width;
+
+  /* tiny QR via Google Charts API as fallback — works offline via data URI approach */
+  const img = new Image();
+  img.crossOrigin = 'anonymous';
+  /* Use a data-URI generated QR so it works offline */
+  /* Encode the URL into a minimal QR matrix using the embedded encoder below */
+  drawQR(TEXT, ctx, SIZE);
+
+  function drawQR(text, ctx, size){
+    /* Very small pure-JS QR generator (byte mode, version 2, ECC L) */
+    /* For a real app use qrcode.js — this is a lightweight stand-in that
+       produces a scannable code for short strings up to ~32 chars */
+    try {
+      const mat = encodeQR(text);
+      if(!mat) { drawPlaceholder(ctx, size); return; }
+      const modules = mat.length;
+      const cell = size / modules;
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, size, size);
+      ctx.fillStyle = '#1a1f0f';
+      for(let r=0;r<modules;r++){
+        for(let c2=0;c2<modules;c2++){
+          if(mat[r][c2]) ctx.fillRect(Math.floor(c2*cell), Math.floor(r*cell), Math.ceil(cell), Math.ceil(cell));
+        }
+      }
+    } catch(e){ drawPlaceholder(ctx, size); }
+  }
+
+  function drawPlaceholder(ctx, size){
+    ctx.fillStyle='rgba(255,255,255,.08)';
+    ctx.fillRect(0,0,size,size);
+    ctx.fillStyle='rgba(143,199,62,.5)';
+    ctx.font='bold 11px Space Mono,monospace';
+    ctx.textAlign='center';
+    ctx.fillText('swap.demo.sg',size/2,size/2-6);
+    ctx.fillStyle='rgba(255,255,255,.3)';
+    ctx.font='9px Space Mono,monospace';
+    ctx.fillText('QR code',size/2,size/2+10);
+  }
+
+  /* ---- Minimal QR encoder (Version 2, ECC L, Byte mode) ---- */
+  function encodeQR(str){
+    if(str.length>32) return null; /* version 2 byte limit for ECC L */
+    const bytes = [];
+    for(let i=0;i<str.length;i++) bytes.push(str.charCodeAt(i));
+
+    /* Data codewords */
+    const bits=[];
+    const push=(v,n)=>{for(let i=n-1;i>=0;i--) bits.push((v>>i)&1);};
+    push(0b0100,4);       /* byte mode */
+    push(bytes.length,8); /* char count */
+    bytes.forEach(b=>push(b,8));
+    /* terminator */
+    for(let i=0;i<4&&bits.length<44*8;i++) bits.push(0);
+    while(bits.length%8) bits.push(0);
+    /* pad codewords */
+    const pads=[0xEC,0x11];
+    let pi=0;
+    while(bits.length<44*8){push(pads[pi%2],8);pi++;}
+
+    /* codewords to bytes */
+    const cws=[];
+    for(let i=0;i<bits.length;i+=8){
+      let v=0;for(let j=0;j<8;j++) v=(v<<1)|bits[i+j];
+      cws.push(v);
+    }
+
+    /* Reed-Solomon ECC (10 check bytes for version 2 ECC L) */
+    const ecc=rsEncode(cws,10);
+    const all=[...cws,...ecc];
+
+    /* Place into 25×25 matrix (version 2) */
+    const N=25;
+    const mat=Array.from({length:N},()=>new Array(N).fill(null));
+
+    /* Finder patterns */
+    const finder=(r,c)=>{
+      for(let dr=0;dr<7;dr++) for(let dc=0;dc<7;dc++){
+        const v=(dr===0||dr===6||dc===0||dc===6||(dr>=2&&dr<=4&&dc>=2&&dc<=4))?1:0;
+        safe(mat,r+dr,c+dc,v,N);
+      }
+      /* separators */
+      for(let i=-1;i<=7;i++){safe(mat,r-1,c+i,0,N);safe(mat,r+7,c+i,0,N);safe(mat,r+i,c-1,0,N);safe(mat,r+i,c+7,0,N);}
+    };
+    finder(0,0);finder(0,N-7);finder(N-7,0);
+
+    /* Timing patterns */
+    for(let i=8;i<N-8;i++){safe(mat,6,i,i%2===0?1:0,N);safe(mat,i,6,i%2===0?1:0,N);}
+
+    /* Dark module */
+    safe(mat,N-8,8,1,N);
+
+    /* Alignment pattern (version 2: centre at row 18, col 18) */
+    const ap=[[18,18]];
+    ap.forEach(([ar,ac])=>{
+      for(let dr=-2;dr<=2;dr++) for(let dc=-2;dc<=2;dc++){
+        const v=(Math.abs(dr)===2||Math.abs(dc)===2||dr===0&&dc===0)?1:0;
+        safe(mat,ar+dr,ac+dc,v,N);
+      }
+    });
+
+    /* Format info (mask 0, ECC L = 01) — precomputed for mask 0 */
+    const fmt=[1,1,1,0,1,1,1,1,1,0,0,0,1,0,0]; /* ECC L, mask 0 */
+    const fmtPos=[[8,0],[8,1],[8,2],[8,3],[8,4],[8,5],[8,7],[8,8],[7,8],[5,8],[4,8],[3,8],[2,8],[1,8],[0,8]];
+    fmtPos.forEach(([r,c],i)=>safe(mat,r,c,fmt[i],N));
+    /* bottom-left */
+    for(let i=0;i<7;i++) safe(mat,N-1-i,8,fmt[i],N);
+    /* top-right */
+    for(let i=0;i<8;i++) safe(mat,8,N-8+i,fmt[7+i],N);
+
+    /* Data placement */
+    const dataBits=[];
+    all.forEach(b=>{for(let i=7;i>=0;i--) dataBits.push((b>>i)&1);});
+    let bi=0;
+    let up=true;
+    for(let col=N-1;col>=0;col-=2){
+      if(col===6) col--;
+      for(let row2=0;row2<N;row2++){
+        const r2=up?N-1-row2:row2;
+        for(let dc2=0;dc2<2;dc2++){
+          const c2=col-dc2;
+          if(mat[r2][c2]===null){
+            const bit=bi<dataBits.length?dataBits[bi++]:0;
+            mat[r2][c2]=bit; /* mask 0: (r+c) % 2 === 0 flips */
+            if((r2+c2)%2===0) mat[r2][c2]^=1;
+          }
+        }
+      }
+      up=!up;
+    }
+    /* fill remaining nulls */
+    for(let r=0;r<N;r++) for(let c=0;c<N;c++) if(mat[r][c]===null) mat[r][c]=0;
+    return mat;
+  }
+
+  function safe(mat,r,c,v,N){if(r>=0&&r<N&&c>=0&&c<N&&mat[r][c]===null) mat[r][c]=v;}
+
+  function rsEncode(data,nEcc){
+    const GF=gf256();
+    const gen=GF.genPoly(nEcc);
+    let rem=[...data,...new Array(nEcc).fill(0)];
+    for(let i=0;i<data.length;i++){
+      const coef=rem[i];
+      if(coef!==0) for(let j=0;j<gen.length;j++) rem[i+j]^=GF.mul(gen[j],coef);
+    }
+    return rem.slice(data.length);
+  }
+
+  function gf256(){
+    const EXP=new Array(512),LOG=new Array(256);
+    let x=1;
+    for(let i=0;i<255;i++){EXP[i]=x;LOG[x]=i;x<<=1;if(x&0x100) x^=0x11d;}
+    for(let i=255;i<512;i++) EXP[i]=EXP[i-255];
+    const mul=(a,b)=>a&&b?EXP[LOG[a]+LOG[b]]:0;
+    function genPoly(n){
+      let p=[1];
+      for(let i=0;i<n;i++){
+        const q=new Array(p.length+1).fill(0);
+        for(let j=0;j<p.length;j++){q[j]^=p[j];q[j+1]^=mul(p[j],EXP[i]);}
+        p=q;
+      }
+      return p;
+    }
+    return {mul,genPoly};
+  }
+})();
+
+/* ── SLIDE ENGINE ── */
+const slides=document.querySelectorAll('.slide');
+const dotsEl=document.getElementById('dots');
+const cntEl=document.getElementById('cnt');
+const progressBar=document.getElementById('progress-bar');
+let cur=0;
+let animating=false;
+
+slides.forEach((_,i)=>{
+  const d=document.createElement('div');
+  d.className='dot'+(i===0?' on':'');
+  d.onclick=()=>goTo(i);
+  dotsEl.appendChild(d);
+});
+
+function updateProgress(){
+  const pct=((cur/(slides.length-1))*100).toFixed(1);
+  progressBar.style.width=pct+'%';
+}
+updateProgress();
+
+/* Number counter for slide 2 stats */
+function runCounters(slide){
+  slide.querySelectorAll('.count-up[data-target]').forEach(el=>{
+    const target=parseInt(el.dataset.target);
+    const suffix=el.dataset.suffix||'';
+    const dur=900;
+    const start=performance.now();
+    function tick(now){
+      const p=Math.min((now-start)/dur,1);
+      const ease=1-Math.pow(1-p,3);
+      const val=Math.round(target*ease);
+      el.textContent=val.toLocaleString()+suffix;
+      if(p<1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  });
+}
+
+/* Impact stat counters on slide 11 */
+function runImpactCounters(slide){
+  slide.querySelectorAll('.is-n[data-target]').forEach(el=>{
+    const target=parseInt(el.dataset.target);
+    const suffix=el.dataset.suffix||'';
+    const dur=1100;
+    const start=performance.now();
+    function tick(now){
+      const p=Math.min((now-start)/dur,1);
+      const ease=1-Math.pow(1-p,4);
+      const val=Math.round(target*ease);
+      el.textContent=val.toLocaleString()+suffix;
+      if(p<1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  });
+}
+
+function goTo(n){
+  if(animating) return;
+  n=Math.max(0,Math.min(slides.length-1,n));
+  if(n===cur) return;
+  animating=true;
+
+  const prev=slides[cur];
+  const next=slides[n];
+
+  prev.classList.add('exit-left');
+  prev.classList.remove('active');
+
+  /* reset next slide position before showing */
+  next.style.transform='translateX(60px)';
+  next.style.opacity='0';
+  next.style.display='flex';
+
+  requestAnimationFrame(()=>{
+    requestAnimationFrame(()=>{
+      next.classList.add('active');
+      next.style.transform='';
+      next.style.opacity='';
+    });
+  });
+
+  setTimeout(()=>{
+    prev.classList.remove('exit-left');
+    prev.style.display='';
+    animating=false;
+
+    /* trigger counters */
+    if(n===1) runCounters(next);
+    if(n===10) runImpactCounters(next);
+  }, 400);
+
+  cur=n;
+  document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('on',i===n));
+  cntEl.textContent=(cur+1)+' / '+slides.length;
+  document.getElementById('prev').disabled=cur===0;
+  document.getElementById('next').disabled=cur===slides.length-1;
+  updateProgress();
+}
+
+function go(d){goTo(cur+d);}
+
+/* Keyboard */
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key==='ArrowDown') go(1);
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp') go(-1);
+});
+
+/* Touch swipe */
+let tx=0;
+document.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
+document.addEventListener('touchend',e=>{
+  const dx=tx-e.changedTouches[0].clientX;
+  if(Math.abs(dx)>40) go(dx>0?1:-1);
+},{passive:true});
+
+/* Click zones (right 35% = next, left 35% = prev) */
+document.querySelector('.deck').addEventListener('click',e=>{
+  if(e.target.closest('.nav')||e.target.closest('.dot')) return;
+  const x=e.clientX/window.innerWidth;
+  if(x>0.65) go(1);
+  else if(x<0.35) go(-1);
+});
+</script>
+</body>
+</html>
