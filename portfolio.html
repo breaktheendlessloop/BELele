@@ -1,186 +1,372 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-SG">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Dr Vincent Nga</title>
-<meta name="description" content="Adj A/Prof Vincent Nga, Head of Neurosurgery at National University Hospital, Singapore: what he treats, honours, teaching, research and publications.">
+<meta name="description" content="Dr Vincent Nga, Head of Neurosurgery at National University Hospital, Singapore. Brain, spine, skull base and pituitary surgery for adults and children. How to get an appointment, research by topic, and a press kit.">
+<meta name="theme-color" content="#f6f5f2">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Dr Vincent Nga · Head of Neurosurgery, NUH Singapore">
+<meta property="og:description" content="Neurosurgeon for adults and children: brain, spine, skull base and pituitary tumours. Head of Neurosurgery, National University Hospital, Singapore.">
+<meta property="og:locale" content="en_SG">
+<meta property="profile:first_name" content="Vincent">
+<meta property="profile:last_name" content="Nga">
+<meta name="twitter:card" content="summary_large_image">
+<!-- TODO once hosting is chosen, add (with the real domain):
+  <link rel="canonical" href="https://DOMAIN/">
+  <meta property="og:url" content="https://DOMAIN/">
+  <meta property="og:image" content="https://DOMAIN/og.jpg">  1200x630 image
+-->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23f6f5f2'/%3E%3Ctext x='4' y='22' font-family='Arial' font-weight='700' font-size='15' fill='%2314171c'%3EVN%3C/text%3E%3Ccircle cx='26' cy='21' r='3' fill='%23e2571e'/%3E%3C/svg%3E">
 <!--
   Sources: NUH "Find a Doctor" profile and biosketch, NUS Discovery profile
   (uid 11097), Poets&Quants for Execs 2023 Best & Brightest EMBA feature,
   the 9th Asian Leksell Gamma Knife Society Meeting 2025 committee page,
-  and The Straits Times (June 2024, January 2026).
+  ResearchGate profile, and The Straits Times (June 2024, January 2026).
+  CLIENT TODO: the two original Straits Times article URLs.
 -->
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","name":"Vincent Nga","alternateName":"Vincent Nga Diong Weng","honorificPrefix":"Adj A/Prof","jobTitle":"Head of Neurosurgery","worksFor":[{"@type":"Hospital","name":"National University Hospital","url":"https://www.nuh.com.sg/","telephone":"+65 6772 5083","address":{"@type":"PostalAddress","addressCountry":"SG"}},{"@type":"Hospital","name":"Alexandra Hospital"}],"affiliation":{"@type":"CollegeOrUniversity","name":"NUS Yong Loo Lin School of Medicine"},"alumniOf":{"@type":"CollegeOrUniversity","name":"National University of Singapore"},"hasCredential":[{"@type":"EducationalOccupationalCredential","name":"MBBS"},{"@type":"EducationalOccupationalCredential","name":"MRCS (Edin)"},{"@type":"EducationalOccupationalCredential","name":"FRCSEd (Surgical Neurology)"},{"@type":"EducationalOccupationalCredential","name":"FAMS (Neurosurgery)"},{"@type":"EducationalOccupationalCredential","name":"Executive MBA"}],"knowsLanguage":["en","ms","zh"],"knowsAbout":["Neurosurgery","Endoscopic endonasal skull base surgery","Pituitary tumours","Brain and spine tumours","Paediatric neurosurgery","Moyamoya disease","Chronic subdural haematoma"],"sameAs":["https://www.nuh.com.sg/care-at-nuh/find-a-doctor/doctor-details/Vincent_Nga","https://discovery.nus.edu.sg/11097-vincent-diong-weng-nga","https://orcid.org/0000-0001-5256-5669","https://scholar.google.com/citations?user=MfhG808AAAAJ","https://www.researchgate.net/profile/Vincent-Nga","https://www.linkedin.com/in/vincent-nga-862188210/"]}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
-/* Layout: a clinical CV on warm white. Big name and portrait up top, then a
-   left label rail with content on the right, ruled lines instead of boxes. */
+/* Layout: a surgeon's case file on warm white. Ruled index lines, numbered figures
+   (brain map, career route, research by topic) and one orange accent. */
 :root{
-  --paper:#f6f5f2; --ink:#14171c; --ink-2:#3b4048; --muted:#5d626a; --rule:rgba(20,23,28,.14);
-  --accent:#e2571e; --accent-ink:#b5440f; --band:#fbe9df; --band-rule:rgba(226,87,30,.3);
-  --sans:"Bricolage Grotesque",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --paper:#f6f5f2; --white:#ffffff; --ink:#14171c; --ink-2:#3b4048; --muted:#5d626a; --rule:rgba(20,23,28,.14);
+  --accent:#e2571e; --accent-ink:#b5440f; --accent-deep:#953509; --band:#fbe9df; --band-rule:rgba(226,87,30,.3);
+  --tint:rgba(226,87,30,.16);
+  --sans:"Bricolage Grotesque",ui-sans-serif,system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --ease:cubic-bezier(.2,.7,.2,1);
   color-scheme:light;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:72px}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
 body{background:var(--paper);color:var(--ink-2);font:17px/1.6 var(--sans);font-optical-sizing:auto;-webkit-font-smoothing:antialiased}
 ::selection{background:var(--accent);color:#fff}
 a{color:var(--ink);text-decoration-color:var(--accent);text-underline-offset:3px}
 a:hover{color:var(--accent-ink)}
-h1,h2,h3{font-family:var(--sans);color:var(--ink);font-weight:600;line-height:1.08;letter-spacing:-.02em;text-wrap:balance}
+a[target="_blank"]::after{content:" ↗";font-size:.85em}
+h1,h2,h3{color:var(--ink);font-weight:600;line-height:1.08;letter-spacing:-.02em;text-wrap:balance}
 em{font-style:normal;color:var(--accent-ink);font-weight:600}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .wrap{max-width:1240px;margin:0 auto;padding-inline:16px}
 @media(min-width:720px){.wrap{padding-inline:40px}}
-.skip{position:absolute;left:16px;top:-80px;background:var(--accent-ink);color:#fff;padding:12px 16px;font:500 13px var(--mono);z-index:20;text-decoration:none}
+.skip{position:absolute;left:16px;top:-80px;background:var(--accent-ink);color:#fff;padding:12px 16px;font:500 13px var(--mono);z-index:30;text-decoration:none}
 .skip:focus{top:8px;color:#fff}
+.mono,.label,.eyebrow,.fig,.tag{font-family:var(--mono);font-weight:500;letter-spacing:.07em;text-transform:uppercase}
+.label{font-size:12.5px;color:var(--muted)}
+.eyebrow{font-size:12.5px;color:var(--accent-ink)}
+.tag{display:block;font-size:12px;color:var(--muted);margin-bottom:10px}
+.fig{font-size:12px;color:var(--muted);border-top:1px solid var(--ink);padding-top:10px;margin-bottom:20px;display:flex;justify-content:space-between;gap:12px}
 
 /* nav */
-nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
-nav .wrap{display:flex;align-items:center;gap:12px 28px;min-height:60px}
+nav.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paper) 94%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
+nav.top .wrap{display:flex;align-items:center;gap:8px 24px;min-height:60px;flex-wrap:wrap}
 .brand{font-weight:700;font-size:18px;letter-spacing:-.01em;text-decoration:none;color:var(--ink);white-space:nowrap;margin-right:auto}
 .brand span{color:var(--accent)}
-.links{display:flex;gap:24px;overflow-x:auto;scrollbar-width:none}
-.links::-webkit-scrollbar{display:none}
-.links a{font:500 12.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-decoration:none;white-space:nowrap;padding:12px 0}
-.links a:hover{color:var(--ink)}
+.links{display:flex;gap:22px}
+.links a{font:500 12.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-decoration:none;white-space:nowrap;padding:12px 0;border-bottom:2px solid transparent}
+.links a:hover,.links a[aria-current]{color:var(--ink);border-bottom-color:var(--accent)}
 .nav-cta{font:500 12.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:12px 16px;min-height:44px;display:inline-flex;align-items:center;background:var(--accent-ink);color:#fff;text-decoration:none;white-space:nowrap}
-.nav-cta:hover{background:#953509;color:#fff}
-@media(max-width:1023px){
-  nav{background:var(--paper);backdrop-filter:none}
-  nav .wrap{flex-wrap:wrap;padding-top:8px}
-  .links{order:3;width:100%;gap:22px;-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}
-  html{scroll-padding-top:116px}
+.nav-cta:hover{background:var(--accent-deep);color:#fff}
+@media(max-width:899px){
+  nav.top{background:var(--paper);backdrop-filter:none}
+  nav.top .wrap{padding-top:8px}
+  .links{order:3;width:100%;justify-content:space-between;gap:12px}
+  .links a{font-size:11.5px;letter-spacing:.03em}
+  html{scroll-padding-top:112px}
 }
 
 /* hero */
-.hero{padding-top:56px}
-.hero-grid{display:grid;gap:32px;align-items:start}
-@media(min-width:900px){.hero-grid{grid-template-columns:1.1fr .9fr;gap:64px}}
-.label{font:500 12.5px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.label b{color:var(--accent);font-weight:500}
-.hero h1{font-size:clamp(64px,12vw,176px);font-weight:700;letter-spacing:-.055em;line-height:.86;margin:24px 0 28px -.04em}
-.hero h1 span{color:var(--accent)}
-.hero-sub{font-size:clamp(22px,2.5vw,30px);line-height:1.25;color:var(--ink);letter-spacing:-.01em;max-width:26ch}
-.hero p.lede{margin-top:18px;max-width:46ch;font-size:19px}
-.cta{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:14px 22px;font:500 13px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
-.btn.primary{background:var(--accent-ink);border-color:var(--accent-ink);color:#fff}
-.btn.primary:hover{background:#953509;border-color:#953509;color:#fff}
-.btn.ghost:hover{border-color:var(--accent-ink);color:var(--accent-ink)}
-.creds{font-size:15px;font-weight:500;color:var(--ink-2);margin-top:24px;max-width:46ch;line-height:1.55}
-.hero-photo{margin:56px 0 0;background:var(--band);padding:20px 20px 0}
-.hero-photo img{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:1048/1064;object-fit:cover;mix-blend-mode:multiply}
+.hero{padding-top:36px;position:relative}
+.hero-grid{display:grid;gap:40px;align-items:start}
+@media(min-width:900px){.hero-grid{grid-template-columns:1.15fr .85fr;gap:64px}}
+.hero h1{font-size:clamp(56px,9vw,128px);font-weight:700;letter-spacing:-.055em;line-height:.88;margin:22px 0 24px -.04em}
+.hero h1 .pre{display:block;font-size:.3em;letter-spacing:-.02em;line-height:1;margin:0 0 .25em .14em;color:var(--ink-2);font-weight:600}
+.hero h1 .dot{color:var(--accent)}
+.hero-sub{font-size:clamp(21px,2.4vw,28px);line-height:1.25;color:var(--ink);letter-spacing:-.01em;max-width:28ch}
+.hero .lede{margin-top:14px;max-width:46ch;font-size:18px}
+.hero-photo{margin:40px 0 0;background:var(--band);padding:20px 20px 0}
+.hero-photo img{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:640/650;object-fit:cover;mix-blend-mode:multiply}
 .hero-photo figcaption{display:flex;justify-content:space-between;gap:12px;font-size:14px;color:var(--ink-2);padding:12px 0 14px;border-top:1px solid var(--band-rule)}
 @media(max-width:899px){
-  .hero{padding-top:28px}
-  .hero-photo{order:-1;margin:0;max-width:200px;padding:12px 12px 0}
+  .hero{padding-top:24px}
+  .hero-photo{position:absolute;top:20px;right:16px;width:92px;margin:0;padding:6px 6px 0}
   .hero-photo figcaption{display:none}
+  .hero h1{margin-top:18px}
 }
+.chooser{margin-top:20px;border-bottom:1px solid var(--ink)}
+.chooser a{display:grid;grid-template-columns:44px 1fr 24px;align-items:center;min-height:64px;padding:14px 0;border-top:1px solid var(--ink);text-decoration:none;transition:background .16s var(--ease),padding .16s var(--ease),box-shadow .16s var(--ease)}
+.chooser .n{font:500 12.5px var(--mono);color:var(--accent-ink)}
+.chooser b{display:block;font-size:clamp(20px,2.1vw,25px);font-weight:600;letter-spacing:-.02em;color:var(--ink);line-height:1.2}
+.chooser small{display:block;font-size:15px;color:var(--muted);line-height:1.4;margin-top:2px}
+.chooser .ar{font-size:20px;color:var(--accent-ink);transition:transform .16s var(--ease)}
+.chooser a:hover,.chooser a:focus-visible{background:var(--band);box-shadow:inset 3px 0 var(--accent);padding-left:12px}
+.chooser a:hover .ar{transform:translateX(6px)}
+.creds{font-size:15px;font-weight:500;color:var(--ink-2);margin-top:20px;max-width:52ch;line-height:1.55}
 .stats{display:grid;grid-template-columns:repeat(2,1fr);margin-top:56px;border-top:1px solid var(--ink)}
 @media(min-width:720px){.stats{grid-template-columns:repeat(4,1fr)}}
-.stat{padding:22px 20px 26px 0;border-bottom:1px solid var(--rule);min-width:0}
+.stat{padding:20px 20px 24px 0;border-bottom:1px solid var(--rule);min-width:0;text-decoration:none;display:block}
 @media(min-width:720px){.stat{border-bottom:0}.stat+.stat{border-left:1px solid var(--rule);padding-left:20px}}
 .stat b{display:block;font-size:clamp(36px,4.4vw,56px);font-weight:600;letter-spacing:-.04em;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
 .stat:first-child b{color:var(--accent)}
 .stat span{display:block;font-size:15px;line-height:1.45;color:var(--ink-2);margin-top:10px;max-width:26ch}
 
 /* sections */
-section{padding-top:128px}
-.sec-head{display:grid;gap:12px 40px;margin-bottom:40px;padding-top:18px;border-top:1px solid var(--ink)}
+section{padding-top:120px}
+.sec-head{display:grid;gap:12px 40px;margin-bottom:40px;padding-top:18px;border-top:1px solid var(--ink);position:relative}
+.sec-head::before{content:"";position:absolute;left:0;top:-2px;height:3px;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.sec-head.is-target::before{transform:scaleX(1)}
 @media(min-width:900px){.sec-head{grid-template-columns:240px 1fr}.sec-head>*:not(.eyebrow){grid-column:2}}
-.eyebrow{font:500 12.5px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink)}
-.sec-head h2{font-size:clamp(32px,3.6vw,48px);letter-spacing:-.03em;line-height:1.05;max-width:22ch}
+.sec-head h2{font-size:clamp(32px,3.6vw,50px);letter-spacing:-.03em;line-height:1.04;max-width:22ch}
 .sec-head p{font-size:19px;max-width:60ch}
-.grid{display:grid;gap:44px 36px}
+.band{background:var(--band);padding-block:104px;margin-top:120px}
+.band .sec-head{border-top-color:var(--ink)}
+.grid{display:grid;gap:40px 36px}
 @media(min-width:720px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}}
-.card{border-top:1px solid var(--rule);padding-top:20px;min-width:0}
+.card{border-top:1px solid var(--rule);padding-top:18px;min-width:0}
+.band .card{border-top-color:var(--band-rule)}
 .card h3{font-size:24px;letter-spacing:-.02em;line-height:1.15;margin-bottom:10px}
 .card p{font-size:16.5px}
 .card p+p{margin-top:10px}
-.tag{display:block;font:500 12.5px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
-.rail{display:grid;gap:32px}
-@media(min-width:900px){.rail{grid-template-columns:240px 1fr;column-gap:40px}.rail>*{grid-column:2}}
-
-/* lists */
+.back{display:inline-flex;align-items:center;min-height:48px;margin-top:32px;font:500 12.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--accent-ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px 20px;font:500 13px/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;text-decoration:none;border:1px solid var(--ink);color:var(--ink);background:transparent}
+.btn.solid{background:var(--accent-ink);border-color:var(--accent-ink);color:#fff}
+.btn.solid:hover{background:var(--accent-deep);border-color:var(--accent-deep);color:#fff}
+.btn:not(.solid):hover{border-color:var(--accent-ink);color:var(--accent-ink)}
 .list{list-style:none;border-top:1px solid var(--rule)}
-.list li{padding:16px 0;border-bottom:1px solid var(--rule);display:grid;gap:2px 24px;color:var(--ink);font-size:17px}
+.list li{padding:14px 0;border-bottom:1px solid var(--rule);display:grid;gap:2px 24px;color:var(--ink);font-size:16.5px}
 @media(min-width:720px){.list li{grid-template-columns:1fr 1fr}}
 .list li span{font-size:15px;line-height:1.5;color:var(--muted)}
-.sub-h{font-size:clamp(24px,2.6vw,32px);letter-spacing:-.03em;margin-bottom:20px}
+.band .list,.band .list li{border-color:var(--band-rule)}
 
-/* about */
-.about-cols{display:grid;gap:20px 40px}
-@media(min-width:720px){.about-cols{grid-template-columns:1fr 1fr}}
-.chips{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:16px;color:var(--ink)}
-.chips span:before{content:"— ";color:var(--accent)}
+/* map */
+.map-grid{display:grid;gap:28px}
+@media(min-width:900px){.map-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start}.map-fig{position:sticky;top:92px}}
+.seg{display:inline-flex;border:1px solid var(--ink)}
+.seg button{min-height:44px;padding:10px 18px;font:500 12.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+.seg button[aria-pressed="true"]{background:var(--accent-ink);color:#fff}
+.map-fig svg{display:block;width:100%;max-width:440px;height:auto;margin:16px auto 0}
+.map-fig .line{fill:none;stroke:var(--ink);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.map-fig .faint{fill:none;stroke:var(--rule);stroke-width:1;stroke-linecap:round}
+.map-fig .vessel{fill:none;stroke:var(--muted);stroke-width:1.5;stroke-linecap:round}
+.map-fig .vert{fill:var(--paper);stroke:var(--ink);stroke-width:1.2}
+.map-fig .route{fill:none;stroke:var(--accent-ink);stroke-width:1.2;stroke-dasharray:2 4}
+.region{cursor:pointer;outline:none}
+.region .shape{fill:transparent;stroke:transparent;stroke-width:2;transition:fill .18s var(--ease),stroke .18s var(--ease)}
+.region .hit{fill:#000;fill-opacity:0;stroke:#000;stroke-opacity:0}
+.region:hover .shape,.region:focus-visible .shape{fill:var(--band);stroke:var(--accent)}
+.region.on .shape{fill:var(--tint);stroke:var(--accent-ink)}
+.pin circle{fill:var(--paper);stroke:var(--ink);stroke-width:1.2}
+.pin text{font:500 11px var(--mono);fill:var(--ink);text-anchor:middle;dominant-baseline:central}
+.region.on .pin circle{fill:var(--accent);stroke:var(--accent)}
+.region.on .pin text{fill:#fff}
+.tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 20px;border-top:1px solid var(--ink)}
+@media(min-width:900px){.tabs{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.tabs button{text-align:left;padding:12px 0 14px;border-bottom:1px solid var(--rule);min-height:64px;display:grid;grid-template-columns:28px 1fr;align-items:start;gap:0 8px}
+.tabs .num{font:500 12px var(--mono);color:var(--muted);padding-top:3px}
+.tabs b{font-size:16px;font-weight:600;color:var(--ink);line-height:1.25}
+.tabs small{display:block;grid-column:2;font:500 11px/1.4 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+.tabs button[aria-selected="true"]{border-bottom:3px solid var(--accent)}
+.tabs button[aria-selected="true"] .num,.tabs button[aria-selected="true"] b{color:var(--accent-ink)}
+.panel{padding-top:28px}
+.js .panel[hidden]{display:none}
+.panel h3{font-size:clamp(26px,2.6vw,32px);margin-bottom:12px}
+.panel p{font-size:18px;max-width:52ch}
+.panel .child{display:none}
+.mode-child .panel .child{display:block}
+.mode-child .panel .adult{display:none}
+.panel .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.kids{display:none;margin-top:28px;padding:20px;background:var(--band);border-top:3px solid var(--accent)}
+.mode-child .kids{display:block}
+.kids h3{font-size:20px;margin-bottom:6px}
+.kids p{font-size:16px}
+.no-js-note{font-size:15px;color:var(--muted);margin-top:8px}
 
-/* bands */
-.band{background:var(--band);padding-block:112px;margin-top:128px}
-.band .sec-head{border-top-color:var(--band-rule)}
-.band .card{border-top-color:var(--band-rule)}
-#news .card h3{font-size:clamp(24px,2.4vw,30px)}
-.pull{font-size:clamp(20px,2.2vw,26px);font-weight:500;letter-spacing:-.015em;line-height:1.3;color:var(--ink);padding-left:18px;border-left:3px solid var(--accent);margin:20px 0}
-.small{font-size:15px;margin-top:12px}
-.quote blockquote{font-size:clamp(28px,4vw,52px);font-weight:500;letter-spacing:-.03em;line-height:1.12;max-width:26ch;color:var(--ink)}
-.quote blockquote:before{content:"“";color:var(--accent)}
-.quote cite{display:block;margin-top:24px;font:500 12.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-style:normal}
+/* patients */
+.pat{display:grid;gap:40px}
+@media(min-width:900px){.pat{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:64px}}
+.lang{display:inline-flex;border:1px solid var(--ink);margin-bottom:24px}
+.lang button{min-height:44px;padding:10px 16px;font-weight:600;font-size:15px;color:var(--ink)}
+.lang button[aria-pressed="true"]{background:var(--accent-ink);color:#fff}
+.trust{display:grid;grid-template-columns:72px 1fr;gap:16px;align-items:start}
+.trust img{width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center 20%;background:var(--white)}
+.trust p{font-size:18px;color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+.chips span{font:500 12px var(--mono);letter-spacing:.04em;text-transform:uppercase;border:1px solid var(--band-rule);padding:5px 9px;color:var(--ink-2);background:var(--white)}
+.who{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.steps{list-style:none;counter-reset:s;border-top:1px solid var(--ink)}
+.steps li{counter-increment:s;display:grid;grid-template-columns:56px 1fr;gap:4px 12px;padding:20px 0;border-bottom:1px solid var(--band-rule)}
+.steps li::before{content:counter(s);font-size:44px;font-weight:600;letter-spacing:-.04em;line-height:1;color:var(--accent-ink);grid-row:span 3}
+.steps h3{font-size:20px;margin-bottom:6px}
+.steps p{font-size:18px}
+.call{display:flex;align-items:center;justify-content:center;min-height:56px;background:var(--accent-ink);color:#fff;text-decoration:none;font-size:22px;font-weight:600;letter-spacing:-.01em;margin-top:8px}
+.call:hover{background:var(--accent-deep);color:#fff}
+.say{font-size:19px;font-weight:600;color:var(--ink);background:var(--white);border:1px solid var(--band-rule);padding:14px 16px;margin:8px 0 10px}
+.after{font-size:17px;margin-top:20px}
+.safety{font-size:15px;color:var(--muted);margin-top:14px;padding-top:14px;border-top:1px solid var(--band-rule)}
+[data-l]{display:none}
+body:not(.l-zh):not(.l-ms) [data-l="en"],.l-zh [data-l="zh"],.l-ms [data-l="ms"]{display:revert}
 
-/* honours */
-.honours li{grid-template-columns:auto 1fr}
-@media(min-width:720px){.honours li{grid-template-columns:120px 1fr 1fr}}
-.honours .yr{font-weight:600;color:var(--accent-ink);font-variant-numeric:tabular-nums}
-.honours b{font-weight:600}
+/* stories */
+.pull{font-size:clamp(19px,2vw,24px);font-weight:500;letter-spacing:-.015em;line-height:1.3;color:var(--ink);padding-left:16px;border-left:3px solid var(--accent);margin:18px 0}
+.small{font-size:15px;margin-top:10px}
+.closing{font-size:17px;color:var(--muted);margin-top:36px}
+.quote{padding-block:96px 0}
+.quote blockquote{font-size:clamp(28px,4vw,50px);font-weight:500;letter-spacing:-.03em;line-height:1.12;max-width:26ch;color:var(--ink)}
+.quote cite{display:block;margin-top:22px;font:500 12.5px var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-style:normal}
 
-/* timeline */
-.timeline{border-top:1px solid var(--rule)}
-.t-item{display:grid;gap:6px 40px;padding:26px 0;border-bottom:1px solid var(--rule)}
-@media(min-width:900px){.t-item{grid-template-columns:240px 1fr 1fr;align-items:baseline}}
-.t-year{font-size:clamp(26px,2.4vw,34px);font-weight:600;letter-spacing:-.03em;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
-.t-now .t-year{color:var(--accent-ink)}
-.t-item h3{font-size:21px;letter-spacing:-.02em;line-height:1.25}
-.t-item p{font-size:16.5px;max-width:52ch}
+/* journey */
+.route-wrap{position:sticky;top:60px;z-index:5;background:var(--paper);padding-block:10px 6px;border-bottom:1px solid var(--rule)}
+@media(max-width:899px){.route-wrap{top:104px}}
+.route-wrap svg{display:block;width:100%;height:auto}
+.route-wrap .axis{stroke:var(--rule);stroke-width:1}
+.route-wrap .tick{font:500 10px var(--mono);fill:var(--muted);text-anchor:middle}
+.route-wrap .path{fill:none;stroke:var(--accent-ink);stroke-width:2.2;stroke-linecap:round}
+.route-wrap .ghost{fill:none;stroke:var(--rule);stroke-width:1.5;stroke-dasharray:3 5}
+.route-wrap .branch{fill:none;stroke:var(--muted);stroke-width:1.5;stroke-dasharray:3 5}
+.route-wrap .stop circle{fill:var(--paper);stroke:var(--ink);stroke-width:1.6;transition:fill .3s var(--ease),stroke .3s var(--ease)}
+.route-wrap .stop.on circle{fill:var(--accent);stroke:var(--accent)}
+.route-wrap .stop text{font:600 15px var(--sans);fill:var(--ink)}
+.route-wrap .stop .code{font:500 15px var(--mono);display:none}
+.route-wrap .stop.on text{fill:var(--accent-ink)}
+.route-wrap .bl{font:500 12px var(--mono);fill:var(--muted)}
+@media(max-width:719px){.route-wrap .stop .full,.route-wrap .tick,.route-wrap .bl{display:none}.route-wrap .stop .code{display:inline;font-size:30px}.route-wrap .stop circle{r:12}}
+.stops{list-style:none;margin-top:24px}
+.stops li{display:grid;gap:6px 40px;padding:28px 0 28px 20px;border-left:2px solid var(--rule);border-bottom:1px solid var(--rule);transition:border-color .4s var(--ease)}
+.stops li.on{border-left-color:var(--accent)}
+@media(min-width:900px){.stops li{grid-template-columns:200px 1fr 1fr;align-items:baseline}}
+.stops .yr{font-size:clamp(26px,2.6vw,36px);font-weight:600;letter-spacing:-.03em;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+.stops li.on .yr{color:var(--accent-ink)}
+.stops .yr small{display:block;font:500 12px var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.stops h3{font-size:22px;line-height:1.2}
+.stops p{font-size:16.5px}
+.stops ul{list-style:none;font-size:16px}
+.stops ul li{display:block;padding:6px 0 6px 18px;border:0;position:relative;transition:none}
+.stops ul li::before{content:"";position:absolute;left:0;top:15px;width:8px;height:2px;background:var(--accent)}
+details.full{margin-top:28px;border-top:1px solid var(--ink)}
+details.full summary{cursor:pointer;min-height:56px;display:flex;align-items:center;font:500 13px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink)}
+details.full .grid{padding:12px 0 8px}
+details.full h3{font-size:20px;margin-bottom:12px}
 
-/* publications */
-.pub-tools{display:flex;flex-direction:column;gap:16px;margin-bottom:8px}
-.pub-tools input{width:100%;font:inherit;font-size:18px;padding:16px 0;border:0;border-bottom:1px solid var(--ink);background:transparent;color:var(--ink);border-radius:0}
-.pub-tools input::placeholder{color:var(--muted)}
-.pub-tools input:focus{outline:none;border-bottom-color:var(--accent)}
-.pub-filters{display:flex;flex-wrap:wrap;gap:8px}
-.pub-filters button{font:500 12.5px/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;min-height:44px;padding:12px 16px;border:1px solid var(--rule);background:transparent;color:var(--ink-2);cursor:pointer;border-radius:0;white-space:nowrap}
-.pub-filters button:hover{border-color:var(--ink)}
-.pub-filters button.on{background:var(--accent-ink);color:#fff;border-color:var(--accent-ink)}
-@media(max-width:719px){.pub-filters{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}}
-.pub-year{font-size:40px;font-weight:600;letter-spacing:-.04em;margin:48px 0 0;padding-bottom:10px;border-bottom:1px solid var(--ink);display:flex;align-items:baseline;gap:14px}
+/* doctors */
+.doc-grid{display:grid;gap:36px}
+@media(min-width:720px){.doc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:1100px){.doc-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.doc-grid h3{font-size:20px;margin-bottom:12px;padding-top:14px;border-top:3px solid var(--accent)}
+.doc-grid p,.doc-grid li{font-size:16px}
+.doc-grid ul{list-style:none}
+.doc-grid ul li{border-bottom:1px solid var(--band-rule)}
+.doc-grid ul a{display:flex;justify-content:space-between;gap:8px;min-height:44px;align-items:center;text-decoration:none;color:var(--ink)}
+.doc-grid ul a:hover{color:var(--accent-ink)}
+.doc-grid ul a .c{font:500 12.5px var(--mono);color:var(--muted)}
+.tel-big{display:block;font-size:28px;font-weight:600;letter-spacing:-.02em;margin:10px 0 6px;text-decoration:none}
+.cred{display:flex;flex-wrap:wrap;gap:16px 36px;border-block:1px solid var(--band-rule);padding:22px 0;margin-top:48px}
+.cred div{min-width:0}
+.cred dt{font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.cred dd{font-size:16px;color:var(--ink)}
+.train{display:grid;gap:32px;margin-top:48px}
+@media(min-width:900px){.train{grid-template-columns:1fr 1fr;gap:56px}}
+.train h3{font-size:24px;margin-bottom:12px}
+
+/* research */
+.topics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 20px}
+@media(min-width:720px){.topics{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.topic{text-align:left;border-top:1px solid var(--rule);padding:18px 12px 22px 0;min-height:132px;display:flex;flex-direction:column;gap:4px}
+.topic .c{font-size:clamp(38px,4vw,54px);font-weight:600;letter-spacing:-.04em;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+.topic b{font-size:16.5px;font-weight:600;color:var(--ink);line-height:1.25}
+.topic small{font-size:14px;color:var(--muted);line-height:1.4}
+.topic .bar{height:3px;background:var(--band);margin-top:auto}
+.topic .bar i{display:block;height:100%;background:var(--accent);width:var(--w)}
+.topic:hover b{color:var(--accent-ink)}
+.topic[aria-pressed="true"]{border-top:3px solid var(--accent)}
+.topic[aria-pressed="true"] .c{color:var(--accent-ink)}
+.years{overflow-x:auto;margin:28px 0 8px;padding-bottom:6px}
+.years svg{display:block;height:auto}
+.years .blk{fill:var(--band);transition:fill .3s var(--ease)}
+.years .blk.hit{fill:var(--accent)}
+.years text{font:500 10px var(--mono);fill:var(--muted);text-anchor:middle}
+.tools{display:grid;gap:14px;margin-top:28px}
+@media(min-width:900px){.tools{grid-template-columns:1fr auto auto;align-items:end}}
+.tools input[type=search]{width:100%;font:inherit;font-size:18px;padding:14px 0;border:0;border-bottom:1px solid var(--ink);background:transparent;color:var(--ink);border-radius:0}
+.tools input[type=search]:focus{outline:none;box-shadow:0 2px 0 var(--accent-ink)}
+.tools select{font:inherit;font-size:16px;min-height:48px;padding:10px 12px;border:1px solid var(--ink);background:var(--white);color:var(--ink);border-radius:0}
+.tools label.chk{display:inline-flex;align-items:center;gap:10px;min-height:48px;font-size:16px;color:var(--ink);cursor:pointer}
+.tools input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent-ink)}
+.count{font-size:15px;color:var(--muted);padding-top:18px}
+.count button{color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px;min-height:32px}
+.pub-year{font-size:38px;font-weight:600;letter-spacing:-.04em;margin:44px 0 0;padding-bottom:10px;border-bottom:1px solid var(--ink);display:flex;align-items:baseline;gap:14px}
 .pub-year small{font-size:14px;font-weight:400;color:var(--muted);letter-spacing:0}
-.pub{display:grid;gap:4px;padding:16px 0;border-bottom:1px solid var(--rule)}
-@media(min-width:900px){.pub{grid-template-columns:1fr 300px;gap:32px;align-items:baseline}}
+.pub{display:grid;gap:6px;padding:16px 0;border-bottom:1px solid var(--rule)}
+@media(min-width:900px){.pub{grid-template-columns:minmax(0,1fr) 300px;gap:32px;align-items:baseline}}
 .pub a,.pub .t{font-size:17px;font-weight:500;color:var(--ink);line-height:1.38}
-.pub a{text-decoration:underline;text-decoration-color:var(--rule);text-decoration-thickness:1px;text-underline-offset:4px}
+.pub a{text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:4px}
 .pub a:hover{color:var(--accent-ink);text-decoration-color:var(--accent)}
 .pub .m{font-size:14.5px;line-height:1.45;color:var(--muted)}
-.pub .k{display:block;font:500 12px/1.5 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
-.pub-count{color:var(--muted);font-size:15px;padding-top:20px}
-.more{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 28px}
-.more a{font:500 12.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;min-height:44px;display:inline-flex;align-items:center;padding:12px 16px;border:1px solid var(--rule);color:var(--ink)}
-.more a:hover{border-color:var(--accent-ink);color:var(--accent-ink)}
-#puball{margin-top:32px}
+.pub .k{display:block;font:500 11.5px/1.6 var(--mono);letter-spacing:.04em;text-transform:uppercase}
+.pub .chipr{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.pub .chipr button{font:500 11px var(--mono);letter-spacing:.03em;text-transform:uppercase;border:1px solid var(--band-rule);padding:4px 7px;color:var(--ink-2);min-height:28px}
+.pub .chipr button:hover{border-color:var(--accent-ink);color:var(--accent-ink)}
+#pubmore{margin-top:28px}
+.prof{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+
+/* organisers */
+.org{display:grid;gap:40px}
+@media(min-width:1000px){.org{grid-template-columns:5fr 7fr;gap:64px}}
+.facts{border-top:1px solid var(--ink)}
+.facts div{padding:14px 0;border-bottom:1px solid var(--band-rule)}
+.facts dt{font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.facts dd{font-size:19px;font-weight:600;color:var(--ink);line-height:1.3;letter-spacing:-.01em}
+.blk-h{font:500 12.5px var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--accent-ink);border-top:1px solid var(--ink);padding-top:12px;margin:36px 0 14px}
+.blk-h:first-child{margin-top:0}
+.innov{display:grid;grid-template-columns:96px 1fr;gap:20px;align-items:start}
+.innov svg{width:96px;height:96px}
+.innov h3{font-size:22px;margin-bottom:8px}
+.rel{list-style:none;margin-top:14px}
+.rel li{display:grid;grid-template-columns:52px 1fr;gap:8px;padding:8px 0;border-bottom:1px solid var(--band-rule);font-size:15px}
+.rel li span{font:500 12.5px var(--mono);color:var(--muted)}
+.ladder{list-style:none}
+.ladder li{display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--band-rule);font-size:16px;color:var(--ink)}
+.ladder i{font:500 11px/1 var(--mono);font-style:normal;letter-spacing:.06em;color:var(--accent-ink);border:1px solid var(--accent-ink);padding:5px 6px;text-align:center}
+.ladder span{color:var(--muted);display:block;font-size:15px}
+.kit{display:grid;gap:24px;margin-top:56px}
+@media(min-width:1000px){.kit{grid-template-columns:1.4fr .8fr 1fr}}
+.box{background:var(--white);border:1px solid var(--rule);padding:24px;min-width:0}
+.box.hot{border:2px solid var(--accent)}
+.box h3{font-size:20px;margin-bottom:10px}
+.bio-tabs{display:flex;gap:0;border:1px solid var(--ink);margin-bottom:16px;width:max-content;max-width:100%}
+.bio-tabs button{min-height:40px;padding:8px 12px;font:500 12px var(--mono);letter-spacing:.05em;text-transform:uppercase}
+.bio-tabs button[aria-selected="true"]{background:var(--accent-ink);color:#fff}
+#bio-text{font-size:16.5px;line-height:1.6;color:var(--ink)}
+.copyrow{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:16px}
+.copied{font:500 12.5px var(--mono);color:var(--accent-ink)}
+.head img{display:block;width:100%;max-width:240px;aspect-ratio:640/650;object-fit:cover;background:var(--band);mix-blend-mode:multiply}
+.head figcaption{font-size:14px;color:var(--muted);margin-top:10px}
+.mail{display:block;font-size:clamp(20px,2vw,24px);font-weight:600;letter-spacing:-.01em;margin:10px 0 4px;word-break:break-all}
+.press{display:grid;gap:24px;margin-top:40px}
+@media(min-width:900px){.press{grid-template-columns:1fr 1fr}}
+.press div{border-top:1px solid var(--band-rule);padding-top:14px}
+.press h3{font-size:20px;margin-bottom:6px}
 
 /* footer */
-footer{background:var(--band);padding-block:96px 48px;margin-top:128px;font-size:16px}
-footer .big-sign{font-size:clamp(48px,8vw,112px);font-weight:700;letter-spacing:-.05em;line-height:.92;margin-bottom:24px}
+footer{padding-block:104px 48px;margin-top:120px;border-top:1px solid var(--ink)}
+footer .big-sign{font-size:clamp(48px,8vw,112px);font-weight:700;letter-spacing:-.05em;line-height:.92;margin-bottom:48px}
 footer .big-sign span{color:var(--accent)}
-footer .intro{font-size:19px;color:var(--ink);max-width:52ch;margin-bottom:48px}
-footer .cols{display:grid;gap:32px;border-top:1px solid var(--band-rule);padding-top:28px}
-@media(min-width:720px){footer .cols{grid-template-columns:2fr 1fr 1fr}}
-footer h3{font:500 12.5px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
-footer ul{list-style:none}
-footer li a{display:inline-flex;align-items:center;min-height:44px}
-footer .big-num{font-size:clamp(26px,3vw,36px);font-weight:600;letter-spacing:-.02em}
-footer .fine{margin-top:48px;padding-top:20px;border-top:1px solid var(--band-rule);font-size:14px;color:var(--muted)}
+.fcols{display:grid;gap:40px}
+@media(min-width:900px){.fcols{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.fcols>div{border-top:3px solid var(--accent);padding-top:18px;min-width:0}
+.fcols h3{font-size:22px;margin-bottom:8px}
+.fcols p{font-size:16px}
+.fcols ul{list-style:none;margin-top:8px}
+.fcols li a{display:inline-flex;align-items:center;min-height:44px}
+.fcols .tel-big{font-size:clamp(26px,3vw,34px)}
+.fine{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);font-size:14px;color:var(--muted)}
 
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible,.region:focus-visible{outline:2px solid var(--accent-ink);outline-offset:3px}
 @media(max-width:719px){
   section{padding-top:72px}
   .sec-head{margin-bottom:28px}
@@ -188,76 +374,235 @@ footer .fine{margin-top:48px;padding-top:20px;border-top:1px solid var(--band-ru
   footer{padding-block:64px 40px;margin-top:72px}
   .grid{gap:32px}
 }
-a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--accent-ink);outline-offset:3px}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms!important;animation:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
-<body>
-<a class="skip" href="#expertise">Skip to content</a>
+<body class="mode-adult l-en">
+<a class="skip" href="#treats">Skip to content</a>
+<a class="skip" href="#contact">Skip to contact</a>
 
-<nav aria-label="Sections">
+<nav class="top" aria-label="Main">
   <div class="wrap">
-    <a class="brand" href="#top">Vincent Nga<span>.</span></a>
+    <a class="brand" href="#top">Dr Vincent Nga<span>.</span></a>
     <div class="links">
-      <a href="#expertise">What he treats</a>
-      <a href="#news">News</a>
-      <a href="#about">About</a>
-      <a href="#honours">Honours</a>
-      <a href="#teaching">Teaching</a>
+      <a href="#treats">What he treats</a>
+      <a href="#journey">Journey</a>
       <a href="#research">Research</a>
-      <a href="#publications">Publications</a>
+      <a href="#organisers">Press kit</a>
     </div>
-    <a class="nav-cta" href="#contact">Appointments</a>
+    <a class="nav-cta" id="navcta" href="#patients">Appointments</a>
   </div>
 </nav>
 
+<main id="main">
 <header class="hero" id="top">
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <div class="label"><b>●</b> Neurosurgeon · Singapore</div>
-        <h1>Vincent<br>Nga<span>.</span></h1>
+        <div class="label"><span style="color:var(--accent)">●</span> Neurosurgeon · Singapore</div>
+        <h1><span class="pre">Dr</span>Vincent<br>Nga<span class="dot">.</span></h1>
         <p class="hero-sub"><em>Head of Neurosurgery,</em> National University Hospital, Singapore</p>
         <p class="lede">He operates on adults and children with brain, spine, skull base and pituitary tumours.</p>
-        <div class="cta">
-          <a class="btn primary" href="#contact">Appointments →</a>
-          <a class="btn ghost" href="#expertise">What he treats</a>
-        </div>
+        <p class="label" id="who-l" style="margin-top:22px">I am…</p>
+        <nav class="chooser" aria-labelledby="who-l">
+          <a href="#patients" data-aud="patient"><span class="n">01</span><span><b>A patient or family member</b><small>How to get an appointment at NUH, and what he treats</small></span><span class="ar">→</span></a>
+          <a href="#doctors" data-aud="doctor"><span class="n">02</span><span><b>A doctor</b><small>Referrals, clinics and his papers by topic</small></span><span class="ar">→</span></a>
+          <a href="#organisers" data-aud="company"><span class="n">03</span><span><b>A company, organiser or journalist</b><small>Bio, photo, meetings he has organised, and how to reach him</small></span><span class="ar">→</span></a>
+        </nav>
         <p class="creds">Adj A/Prof · MBBS (S'pore) · MRCS (Edin) · FRCSEd (Surgical Neurology) · FAMS (Neurosurgery) · MBA</p>
       </div>
       <figure class="hero-photo">
-        <img src="images/vincent-nga.jpg" width="1048" height="1064" alt="Adj A/Prof Vincent Nga, Head of Neurosurgery, NUH">
+        <img src="images/vincent-nga.webp" width="640" height="650" alt="Dr Vincent Nga, Head of Neurosurgery, NUH" fetchpriority="high">
         <figcaption><span>Head, Division of Neurosurgery</span><span>NUH · Singapore</span></figcaption>
       </figure>
     </div>
     <div class="stats">
       <div class="stat"><b>1st</b><span>Endowed neurosurgery professorship in Singapore, which he helped establish</span></div>
       <div class="stat"><b>2</b><span>Hospitals whose neurosurgery he leads: NUH and Alexandra Hospital</span></div>
-      <div class="stat"><b>132</b><span>Publications on his NUS research record</span></div>
+      <a class="stat" href="#research"><b data-total>126</b><span>Papers listed here by topic, 132 on his NUS research record</span></a>
       <div class="stat"><b>10+</b><span>Years as a specialist neurosurgeon</span></div>
     </div>
   </div>
 </header>
 
-<section id="expertise">
+<section id="treats">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">Expertise</div>
-      <h2>What he treats</h2>
-      <p>Complex brain and spine conditions in adults and children, with a particular interest in minimally invasive surgery.</p>
+      <div class="eyebrow">What he treats</div>
+      <h2>What he treats, and where</h2>
+      <p>Tap an area to see what he treats there. Doctors can follow each area to his published research.</p>
     </div>
-    <div class="grid g3">
-      <div class="card"><span class="tag">Endoscopic endonasal surgery</span><h3>Pituitary &amp; skull base tumours</h3><p>Surgery through the nose, without an external cut, for pituitary tumours, craniopharyngioma, skull base meningioma and chordoma.</p></div>
-      <div class="card"><span class="tag">Neuro-oncology</span><h3>Brain &amp; spine tumours in adults</h3><p>Tumour surgery planned with oncology colleagues at the National University Cancer Institute, Singapore.</p></div>
-      <div class="card"><span class="tag">Paediatric neurosurgery</span><h3>Children's brain &amp; spine conditions</h3><p>Brain and spinal tumours, epilepsy, neurovascular conditions, and craniofacial and congenital malformations.</p></div>
-      <div class="card"><span class="tag">Spine surgery</span><h3>Complex spine conditions</h3><p>Spine surgery as a Senior Consultant at the National University Spine Institute.</p></div>
-      <div class="card"><span class="tag">Neurovascular surgery</span><h3>Moyamoya disease &amp; AVMs</h3><p>Revascularisation surgery for moyamoya disease, and treatment of arteriovenous malformations.</p></div>
-      <div class="card"><span class="tag">Neurotrauma</span><h3>Head injury &amp; subdural haematoma</h3><p>Head injuries and chronic subdural haematoma, the condition his patented burr hole cover was designed for.</p></div>
+    <div class="map-grid">
+      <div class="map-fig">
+        <div class="fig"><span>Fig. 1 · Brain and spine</span><span>Side view</span></div>
+        <div class="seg" role="group" aria-label="Show conditions for">
+          <button type="button" data-mode="adult" aria-pressed="true">Adults</button>
+          <button type="button" data-mode="child" aria-pressed="false">Children</button>
+        </div>
+        <svg viewBox="0 0 420 600" aria-hidden="true">
+          <!-- spine -->
+          <g class="region" data-r="spine">
+            <rect class="shape" x="186" y="372" width="84" height="222" rx="6"/>
+            <g>
+              <rect class="vert" x="194" y="378" width="30" height="13" rx="4"/><rect class="vert" x="195" y="394" width="30" height="13" rx="4"/><rect class="vert" x="196" y="410" width="30" height="13" rx="4"/><rect class="vert" x="197" y="426" width="30" height="13" rx="4"/><rect class="vert" x="198" y="442" width="30" height="13" rx="4"/><rect class="vert" x="199" y="458" width="30" height="13" rx="4"/><rect class="vert" x="199" y="474" width="30" height="13" rx="4"/><rect class="vert" x="199" y="490" width="30" height="13" rx="4"/><rect class="vert" x="198" y="506" width="30" height="13" rx="4"/><rect class="vert" x="197" y="522" width="30" height="13" rx="4"/><rect class="vert" x="196" y="538" width="30" height="13" rx="4"/><rect class="vert" x="195" y="554" width="30" height="13" rx="4"/><rect class="vert" x="194" y="570" width="30" height="13" rx="4"/>
+              <path class="line" d="M236 372 C236 450 238 520 236 596 M258 372 C258 450 260 520 258 596"/>
+            </g>
+            <rect class="hit" x="180" y="372" width="100" height="228"/>
+            <g class="pin"><circle cx="300" cy="490" r="11"/><text x="300" y="490">6</text></g>
+            <path class="faint" d="M262 490 L289 490"/>
+          </g>
+          <!-- head outline and face -->
+          <path class="line" d="M96 252 C74 172 128 64 236 56 C336 50 398 120 396 214 C394 266 374 300 346 324 C330 338 314 352 300 372"/>
+          <path class="line" d="M96 252 C92 270 86 288 72 306 L86 314 C90 322 86 332 92 340 C88 348 92 356 100 360 C110 378 140 386 170 382 C186 380 194 372 196 360"/>
+          <!-- skull band (region) -->
+          <g class="region" data-r="skull">
+            <path class="shape" d="M104 236 C88 168 136 76 236 68 C328 62 384 124 382 212" style="fill:none;stroke-width:12;stroke-linecap:round"/>
+            <path class="hit" d="M104 236 C88 168 136 76 236 68 C328 62 384 124 382 212" style="fill:none;stroke-width:26"/>
+            <g class="pin"><circle cx="150" cy="66" r="11"/><text x="150" y="66">5</text></g>
+          </g>
+          <!-- brain -->
+          <g class="region" data-r="brain">
+            <path class="shape" d="M114 246 C102 172 146 98 234 90 C318 84 368 138 366 208 C364 246 344 268 312 274 C286 278 268 268 254 260 C226 260 204 266 176 266 C146 266 120 262 114 246 Z"/>
+            <path class="line" d="M114 246 C102 172 146 98 234 90 C318 84 368 138 366 208 C364 246 344 268 312 274 C286 278 268 268 254 260 C226 260 204 266 176 266 C146 266 120 262 114 246 Z"/>
+            <path class="faint" d="M150 150 C176 132 200 140 214 122 M236 104 C246 130 270 128 280 112 M300 128 C296 152 322 164 340 158 M138 202 C162 196 182 210 204 196 M224 166 C248 176 272 168 290 182 M310 196 C326 210 344 206 356 220 M182 238 C206 228 226 240 246 232"/>
+            <path class="hit" d="M114 246 C102 172 146 98 234 90 C318 84 368 138 366 208 C364 246 344 268 312 274 C286 278 268 268 254 260 C226 260 204 266 176 266 C146 266 120 262 114 246 Z"/>
+            <g class="pin"><circle cx="232" cy="172" r="11"/><text x="232" y="172">2</text></g>
+          </g>
+          <!-- cerebellum (drawn, part of brain region visually) -->
+          <path class="line" d="M276 288 C290 272 336 272 354 290 C362 310 342 330 312 330 C288 330 272 314 276 288 Z"/>
+          <path class="faint" d="M286 300 C304 292 330 294 346 302 M284 312 C304 306 330 308 344 314"/>
+          <!-- brainstem -->
+          <g class="region" data-r="brainstem">
+            <path class="shape" d="M232 258 C230 300 236 336 236 372 L258 372 C258 336 266 300 266 262 Z"/>
+            <path class="line" d="M234 262 C232 300 236 336 236 372 M264 262 C264 300 258 336 258 372"/>
+            <path class="hit" d="M226 254 L272 254 L266 376 L230 376 Z"/>
+            <g class="pin"><circle cx="292" cy="352" r="11"/><text x="292" y="352">3</text></g>
+            <path class="faint" d="M262 352 L281 352"/>
+          </g>
+          <!-- vessels -->
+          <g class="region" data-r="vessels">
+            <path class="shape" d="M214 440 C206 400 206 340 210 306 C212 290 206 280 198 276 M210 300 C226 270 250 236 262 196" style="fill:none;stroke-width:9;stroke-linecap:round"/>
+            <path class="vessel" d="M214 440 C206 400 206 340 210 306 C212 290 206 280 198 276 M210 300 C226 270 250 236 262 196 M262 196 C272 180 290 176 306 180"/>
+            <path class="hit" d="M214 440 C206 400 206 340 210 306 M210 300 C226 270 250 236 262 196" style="fill:none;stroke-width:24"/>
+            <g class="pin"><circle cx="176" cy="420" r="11"/><text x="176" y="420">4</text></g>
+            <path class="faint" d="M187 420 L206 420"/>
+          </g>
+          <!-- skull base / pituitary -->
+          <g class="region" data-r="skullbase">
+            <ellipse class="shape" cx="176" cy="284" rx="46" ry="20"/>
+            <path class="route" d="M80 308 C120 300 160 290 190 280"/>
+            <path class="line" d="M190 268 C198 266 204 274 200 282 C196 290 186 288 186 280 C186 274 188 270 190 268 Z" style="fill:var(--paper)"/>
+            <ellipse class="hit" cx="168" cy="286" rx="62" ry="26"/>
+            <g class="pin"><circle cx="138" cy="326" r="11"/><text x="138" y="326">1</text></g>
+          </g>
+        </svg>
+      </div>
+      <div class="map-side">
+        <div class="tabs" role="tablist" aria-label="Areas of the brain and spine">
+          <button type="button" role="tab" id="tab-skullbase" aria-controls="panel-skullbase" aria-selected="true" data-r="skullbase"><span class="num">01</span><span><b>Base of the skull</b></span><small>Pituitary &amp; skull base</small></button>
+          <button type="button" role="tab" id="tab-brain" aria-controls="panel-brain" aria-selected="false" tabindex="-1" data-r="brain"><span class="num">02</span><span><b>The brain</b></span><small>Neuro-oncology</small></button>
+          <button type="button" role="tab" id="tab-brainstem" aria-controls="panel-brainstem" aria-selected="false" tabindex="-1" data-r="brainstem"><span class="num">03</span><span><b>Brainstem</b></span><small>Brainstem tumours</small></button>
+          <button type="button" role="tab" id="tab-vessels" aria-controls="panel-vessels" aria-selected="false" tabindex="-1" data-r="vessels"><span class="num">04</span><span><b>Blood vessels</b></span><small>Moyamoya &amp; AVM</small></button>
+          <button type="button" role="tab" id="tab-skull" aria-controls="panel-skull" aria-selected="false" tabindex="-1" data-r="skull"><span class="num">05</span><span><b>Skull &amp; head injury</b></span><small>Neurotrauma · craniofacial</small></button>
+          <button type="button" role="tab" id="tab-spine" aria-controls="panel-spine" aria-selected="false" tabindex="-1" data-r="spine"><span class="num">06</span><span><b>Spine</b></span><small>Complex spine</small></button>
+        </div>
+
+        <div class="panel" role="tabpanel" id="panel-skullbase" aria-labelledby="tab-skullbase" tabindex="-1">
+          <span class="tag">Pituitary &amp; skull base · endoscopic endonasal surgery</span>
+          <h3>Behind the nose, at the base of the skull</h3>
+          <p class="adult">Pituitary tumours, craniopharyngioma, skull base meningioma and chordoma. He operates through the nose with an endoscope, without an external cut. He also organises the NUH Advanced Skull Base Masterclass.</p>
+          <p class="child">The same surgery through the nose is used for skull base tumours in children, who are seen at the Paediatric Brain &amp; Spine Clinic he co-founded.</p>
+          <div class="acts"><a class="btn solid" href="#patients">Ask NUH for an appointment →</a><a class="btn" href="#research" data-topic="skull">Research: <span data-count="skull">12</span> papers →</a></div>
+        </div>
+        <div class="panel" role="tabpanel" id="panel-brain" aria-labelledby="tab-brain" tabindex="-1">
+          <span class="tag">Cerebral hemispheres · neuro-oncology</span>
+          <h3>The brain</h3>
+          <p class="adult">Brain tumours in adults. He aims to remove as much tumour as is safely possible while protecting function. Surgery is planned with cancer specialists at the National University Cancer Institute, Singapore, through the NUH Brain Tumour Multidisciplinary Clinic he leads.</p>
+          <p class="child">Brain tumours and epilepsy in children. At the Paediatric Brain &amp; Spine Clinic, children see the brain surgeon, the cancer doctor and the radiation doctor together.</p>
+          <div class="acts"><a class="btn solid" href="#patients">Ask NUH for an appointment →</a><a class="btn" href="#research" data-topic="tumour">Research: <span data-count="tumour">55</span> papers →</a></div>
+        </div>
+        <div class="panel" role="tabpanel" id="panel-brainstem" aria-labelledby="tab-brainstem" tabindex="-1">
+          <span class="tag">Brainstem tumours</span>
+          <h3>The brainstem</h3>
+          <p class="adult">Tumours in and around the brainstem, which controls breathing, swallowing and movement. His published work includes Gamma Knife treatment of brainstem metastases.</p>
+          <p class="child">Brain tumours in children, including babies. Baby E was born in 2022 with a high-grade glioma in her brainstem. After his team’s biopsy, the tumour shrank by half within six months. <a href="#stories">Read her story →</a></p>
+          <div class="acts"><a class="btn solid" href="#patients">Ask NUH for an appointment →</a><a class="btn" href="#research" data-topic="paeds">Children: <span data-count="paeds">31</span> papers →</a></div>
+        </div>
+        <div class="panel" role="tabpanel" id="panel-vessels" aria-labelledby="tab-vessels" tabindex="-1">
+          <span class="tag">Neurovascular · moyamoya &amp; AVM</span>
+          <h3>Blood vessels of the brain</h3>
+          <p class="adult">Moyamoya disease, treated with surgery that restores blood flow to the brain (revascularisation). He also treats arteriovenous malformations (AVMs), which are tangles of abnormal blood vessels.</p>
+          <p class="child">Neurovascular conditions in children, including moyamoya disease, treated with revascularisation surgery.</p>
+          <div class="acts"><a class="btn solid" href="#patients">Ask NUH for an appointment →</a><a class="btn" href="#research" data-topic="vascular">Research: <span data-count="vascular">29</span> papers →</a></div>
+        </div>
+        <div class="panel" role="tabpanel" id="panel-skull" aria-labelledby="tab-skull" tabindex="-1">
+          <span class="tag">Neurotrauma · craniofacial</span>
+          <h3>The skull, and the space beneath it</h3>
+          <p class="adult">Head injury and chronic subdural haematoma, where blood collects under the skull and presses on the brain. He designed a patented burr hole cover used in this operation.</p>
+          <p class="child">Craniofacial and congenital malformations of the skull. He was the neurosurgeon on the NUH team in a 20-year Crouzon syndrome story. <a href="#stories">Read the story →</a></p>
+          <div class="acts"><a class="btn solid" href="#patients">Ask NUH for an appointment →</a><a class="btn" href="#research" data-topic="trauma">Research: <span data-count="trauma">18</span> papers →</a></div>
+        </div>
+        <div class="panel" role="tabpanel" id="panel-spine" aria-labelledby="tab-spine" tabindex="-1">
+          <span class="tag">Complex spine · spinal tumours</span>
+          <h3>The spine</h3>
+          <p class="adult">Complex spine conditions and spinal tumours. He is a Senior Consultant at the National University Spine Institute.</p>
+          <p class="child">Spinal conditions and spinal tumours in children, including congenital conditions, through the Paediatric Brain &amp; Spine Clinic.</p>
+          <div class="acts"><a class="btn solid" href="#patients">Ask NUH for an appointment →</a><a class="btn" href="#research" data-topic="spine">Research: <span data-count="spine">8</span> papers →</a></div>
+        </div>
+
+        <div class="kids">
+          <span class="tag">Paediatric neurosurgery fellowship · SickKids Toronto</span>
+          <h3>For children: the Paediatric Brain &amp; Spine Clinic</h3>
+          <p>Since September 2021, children with brain and spinal tumours see paediatric neurosurgeons, oncologists and radiation oncologists together, in one clinic at NUH. Dr Nga co-founded and runs it.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="news" class="band">
+<section id="patients" class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">For patients &amp; families</div>
+      <h2><span data-l="en">How to get an appointment</span><span data-l="zh" lang="zh-Hans">如何预约</span><span data-l="ms" lang="ms">Cara membuat temu janji</span></h2>
+    </div>
+    <div class="pat">
+      <div>
+        <div class="lang" role="group" aria-label="Language">
+          <button type="button" data-lang="en" aria-pressed="true">English</button>
+          <button type="button" data-lang="zh" aria-pressed="false" lang="zh-Hans">中文</button>
+          <button type="button" data-lang="ms" aria-pressed="false" lang="ms">Bahasa Melayu</button>
+        </div>
+        <div class="trust">
+          <img src="images/vincent-nga.webp" width="72" height="72" alt="">
+          <p><span data-l="en">Dr Vincent Nga is the Head of Neurosurgery at National University Hospital, Singapore. He operates on adults and children with brain, spine, skull base and pituitary conditions.</span><span data-l="zh" lang="zh-Hans">Vincent Nga 医生是新加坡国立大学医院（NUH）神经外科主任，为成人和儿童进行脑部、脊椎、颅底及脑垂体疾病的手术。</span><span data-l="ms" lang="ms">Dr Vincent Nga ialah Ketua Neurosurgeri di National University Hospital (NUH), Singapura. Beliau menjalankan pembedahan untuk orang dewasa dan kanak-kanak yang mempunyai masalah otak, tulang belakang, dasar tengkorak dan kelenjar pituitari.</span></p>
+        </div>
+        <div class="chips"><span>NUH Singapore</span><span><span data-l="en">Adults &amp; children</span><span data-l="zh" lang="zh-Hans">成人与儿童</span><span data-l="ms" lang="ms">Dewasa &amp; kanak-kanak</span></span><span>English · Melayu · 华语</span></div>
+        <a href="https://www.nuh.com.sg/care-at-nuh/find-a-doctor/doctor-details/Vincent_Nga" target="_blank" rel="noopener"><span data-l="en">Check his NUH doctor profile</span><span data-l="zh" lang="zh-Hans">查看他在 NUH 的医生简介</span><span data-l="ms" lang="ms">Lihat profil doktor beliau di NUH</span></a>
+        <div class="who">
+          <a class="btn" href="#treats" data-mode-link="child"><span data-l="en">My child needs help</span><span data-l="zh" lang="zh-Hans">我的孩子需要帮助</span><span data-l="ms" lang="ms">Anak saya perlukan bantuan</span></a>
+          <a class="btn" href="#treats" data-mode-link="adult"><span data-l="en">An adult needs help</span><span data-l="zh" lang="zh-Hans">成人需要帮助</span><span data-l="ms" lang="ms">Orang dewasa perlukan bantuan</span></a>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:18px;margin-bottom:16px;color:var(--ink)"><span data-l="en">Dr Nga sees patients at National University Hospital (NUH), Singapore. NUH arranges all appointments.</span><span data-l="zh" lang="zh-Hans">Nga 医生在新加坡国立大学医院（NUH）看诊。所有预约均由 NUH 安排。</span><span data-l="ms" lang="ms">Dr Nga merawat pesakit di National University Hospital (NUH), Singapura. Semua temu janji diatur oleh NUH.</span></p>
+        <ol class="steps">
+          <li><h3><span data-l="en">Call NUH</span><span data-l="zh" lang="zh-Hans">致电 NUH</span><span data-l="ms" lang="ms">Telefon NUH</span></h3><a class="call" href="tel:+6567725083">+65 6772 5083</a></li>
+          <li><h3><span data-l="en">Or email</span><span data-l="zh" lang="zh-Hans">或发送电邮</span><span data-l="ms" lang="ms">Atau e-mel</span></h3><p><a href="mailto:usc@nuhs.edu.sg?subject=Appointment%20request%3A%20Dr%20Vincent%20Nga%2C%20Neurosurgery">usc@nuhs.edu.sg</a></p><p style="font-size:16px"><span data-l="en">General questions:</span><span data-l="zh" lang="zh-Hans">一般询问：</span><span data-l="ms" lang="ms">Pertanyaan umum:</span> <a href="mailto:contactus@nuhs.edu.sg">contactus@nuhs.edu.sg</a></p></li>
+          <li><h3><span data-l="en">Say this</span><span data-l="zh" lang="zh-Hans">您可以这样说</span><span data-l="ms" lang="ms">Katakan ini</span></h3>
+            <p class="say" id="say"><span data-l="en">“I would like an appointment with Dr Vincent Nga, Neurosurgery.”</span><span data-l="zh" lang="zh-Hans">“我想预约神经外科的 Dr Vincent Nga（Nga 医生）。”</span><span data-l="ms" lang="ms">“Saya ingin membuat temu janji dengan Dr Vincent Nga, Neurosurgeri.”</span></p>
+            <div class="copyrow"><button type="button" class="btn" id="copysay"><span data-l="en">Copy this sentence</span><span data-l="zh" lang="zh-Hans">复制这句话</span><span data-l="ms" lang="ms">Salin ayat ini</span></button><span class="copied" id="saydone" aria-live="polite"></span></div>
+          </li>
+        </ol>
+        <p class="after"><span data-l="en">Dr Nga speaks English, Malay and Mandarin. If you are not sure whether you need a referral letter, ask NUH when you call.</span><span data-l="zh" lang="zh-Hans">Nga 医生会说英语、马来语和华语。如果不确定是否需要转介信，请在致电时询问 NUH。</span><span data-l="ms" lang="ms">Dr Nga boleh bertutur dalam bahasa Inggeris, Melayu dan Mandarin. Jika anda tidak pasti sama ada surat rujukan diperlukan, tanya NUH semasa menelefon.</span></p>
+        <p class="safety"><span data-l="en">Emergency? Call 995 or go to the nearest Emergency Department. This website does not give medical advice.</span><span data-l="zh" lang="zh-Hans">紧急情况？请拨打 995 或前往最近的急诊部。本网站不提供医疗建议。</span><span data-l="ms" lang="ms">Kecemasan? Hubungi 995 atau pergi ke Jabatan Kecemasan yang terdekat. Laman web ini tidak memberi nasihat perubatan.</span></p>
+      </div>
+    </div>
+    <a class="back" href="#top">Back to choices ↑</a>
+  </div>
+</section>
+
+<section id="stories">
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">In the news</div>
@@ -275,123 +620,17 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
       <article class="card">
         <span class="tag">The Straits Times · January 2026</span>
         <h3>Saving face: 20 years of craniofacial care</h3>
-        <p>A young man with Crouzon syndrome, a rare condition that fuses the skull’s growth joints too early, has had four major operations since he was 18 months old. Adj A/Prof Nga was the neurosurgeon on the NUH team that reshaped his skull as an adult, and he monitored his brain development over the years.</p>
+        <p>A young man with Crouzon syndrome, a rare condition that fuses the skull’s growth joints too early, has had four major operations since he was 18 months old. Dr Nga was the neurosurgeon on the NUH team that reshaped his skull as an adult, and he monitored his brain development over the years.</p>
         <p class="pull">“Any injury to the dura or the blood channels within it could be catastrophic.”</p>
         <p class="small">The patient, now 23, is training for his first half-marathon.</p>
       </article>
     </div>
+    <p class="closing">Every patient is different. Your NUH team will explain your own options.</p>
   </div>
-</section>
-
-<section id="innovation">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">Innovation</div>
-      <h2>Better recovery, better care</h2>
-    </div>
-    <div class="grid g3">
-      <div class="card"><span class="tag">Design patent</span><h3>A new burr hole cover</h3><p>His burr hole cover lets surgeons place a drain easily after draining a chronic subdural haematoma. Data show it improves how the scar looks and how patients feel and function. It is commercialised and available internationally.</p></div>
-      <div class="card"><span class="tag">Since September 2021</span><h3>Paediatric Brain &amp; Spine Clinic</h3><p>He co-founded and runs a one-stop clinic where paediatric neurosurgeons, oncologists and radiation oncologists see children with brain and spinal tumours together.</p></div>
-      <div class="card"><span class="tag">Multidisciplinary</span><h3>NUH Brain Tumour Clinic</h3><p>He leads the Adult and Paediatric NUH Brain Tumour Multidisciplinary Clinic, which brings a patient’s specialists together in one place.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="about">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">About</div>
-      <h2>From Sitiawan, Malaysia, to Head of Neurosurgery at NUH</h2>
-    </div>
-    <div class="rail">
-      <div class="about-cols">
-        <p>He graduated from the NUS Yong Loo Lin School of Medicine in 2007 and trained in general surgery and neurosurgery at NUH. An Academic Medicine Development Award then took him to Addenbrooke's Hospital, Cambridge, for two years, followed by a paediatric neurosurgery fellowship at The Hospital for Sick Children (SickKids), Toronto.</p>
-        <p>He leads the NUH Brain Tumour Multidisciplinary Clinic and completed the NUS Executive MBA in 2023. He played a key role in establishing the Ellen Siow Professorship in Neurosurgery, Singapore's first endowed professorship in the field, made possible by the Siow family.</p>
-      </div>
-      <div><div class="tag">Languages</div><div class="chips"><span>English</span><span>Malay</span><span>Mandarin (spoken)</span></div></div>
-    </div>
-  </div>
-</section>
-
-<section class="quote band" aria-label="In his words">
-  <div class="wrap">
-    <blockquote>To see them pull through their darkest moment and recover from their cancer, stroke or head injury, it is immensely rewarding.”</blockquote>
-    <cite>Adj A/Prof Vincent Nga</cite>
-  </div>
-</section>
-
-<section id="honours">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">Honours</div>
-      <h2>Accolades &amp; milestones</h2>
-    </div>
-    <div class="rail">
-      <ul class="list honours">
-        <li><span class="yr">Philanthropy</span><b>Ellen Siow Professorship in Neurosurgery</b><span>Singapore’s first endowed professorship in neurosurgery, which he helped establish</span></li>
-        <li><span class="yr">2023</span><b>Poets&amp;Quants Best &amp; Brightest Executive MBA</b><span>One of the year’s standout EMBA graduates worldwide, NUS Business School</span></li>
-        <li><span class="yr">2016</span><b>FRCSEd (Surgical Neurology)</b><span>Fellow of the Royal College of Surgeons of Edinburgh</span></li>
-        <li><span class="yr">2014</span><b>Academic Medicine Development Award</b><span>Funded two years of advanced training at Addenbrooke’s Hospital, Cambridge</span></li>
-        <li><span class="yr">Innovation</span><b>Design patent, commercialised worldwide</b><span>Burr hole cover for drain placement after chronic subdural haematoma</span></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section id="teaching">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">Teaching</div>
-      <h2>Training the next generation</h2>
-      <p>As Head of Neurosurgery at NUH, he shapes how neurosurgeons are trained in Singapore, with rigorous clinical standards and teamwork across specialties.</p>
-    </div>
-    <div class="grid g2">
-      <div class="card"><span class="tag">Medical school &amp; residency</span><h3>NUS Yong Loo Lin School of Medicine</h3><p>He teaches and mentors medical students and residents, and guides trainees as they subspecialise in endoscopic skull base surgery and complex brain and spine tumour surgery.</p></div>
-      <div class="card"><span class="tag">Regional training</span><h3>From assisted to independent</h3><p>Under his guidance, neurosurgeons at Dr. Sardjito Hospital in Yogyakarta, Indonesia, progressed from assisted training to performing complex endoscopic skull base surgery on their own. Mentorship continues in awake surgery and brain mapping.</p></div>
-    </div>
-    <div class="rail" style="margin-top:48px">
-      <div>
-        <h3 class="sub-h">Masterclasses &amp; meetings</h3>
-        <ul class="list">
-          <li>NUH Advanced Skull Base Masterclass <span>Organiser</span></li>
-          <li>International Surgical Oncology Symposium <span>Organiser, with the National University Cancer Institute, Singapore</span></li>
-          <li>9th Meeting of the Asian Leksell Gamma Knife Society <span>Co-chair, Local Organising Committee · 2025</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="leadership">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">Leadership</div>
-      <h2>Societies &amp; service</h2>
-    </div>
-    <div class="grid g2">
-      <ul class="list">
-        <li>President <span>Clinical Neuroscience Society, Singapore</span></li>
-        <li>President, Founder &amp; Director <span>Singapore Society for NeuroOncology</span></li>
-        <li>Board Member <span>Asian Society of NeuroEndoscopic Neurosurgery</span></li>
-        <li>Board Member <span>Chapter of Neurosurgeons, College of Surgeons, Academy of Medicine, Singapore</span></li>
-        <li>Executive Committee Member <span>World Federation of Neurosurgical Societies</span></li>
-      </ul>
-      <div class="card"><span class="tag">Global health</span><h3>An ICU for a remote Indian village</h3><p>With support from his EMBA classmates, he helped raise funds for an intensive care unit in a village in India.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="research">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">Research</div>
-      <h2>Research interests</h2>
-      <p>His research focuses on complex brain and spine tumours, especially gliomas and skull base and pituitary conditions.</p>
-    </div>
-    <div class="grid g3">
-      <div class="card"><span class="tag">Genomics</span><h3>What drives brain tumours</h3><p>The molecular and genetic drivers of tumours such as craniopharyngiomas, ependymomas and rare skull base lesions, and bringing long-read sequencing into treatment decisions.</p></div>
-      <div class="card"><span class="tag">Surgical oncology</span><h3>Maximal safe resection</h3><p>Removing as much tumour as is safely possible while preserving function, in adults and children.</p></div>
-      <div class="card"><span class="tag">Outcomes</span><h3>Access to care in Southeast Asia</h3><p>Patient-reported outcomes, health economics and system changes that widen access to advanced neurosurgery in the region.</p></div>
+  <div class="quote">
+    <div class="wrap">
+      <blockquote>“To see them pull through their darkest moment and recover from their cancer, stroke or head injury, it is immensely rewarding.”</blockquote>
+      <cite>Dr Vincent Nga</cite>
     </div>
   </div>
 </section>
@@ -400,110 +639,284 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">Journey</div>
-      <h2>Career in brief</h2>
+      <h2>From Sitiawan to Head of Neurosurgery</h2>
+      <p>Scroll to follow his training across three continents and back to Singapore.</p>
     </div>
-    <div class="timeline">
-      <div class="t-item"><div class="t-year">2007</div><h3>MBBS, National University of Singapore</h3><p>Began general surgical, then neurosurgical, training at NUH.</p></div>
-      <div class="t-item"><div class="t-year">2014</div><h3>Academic Medicine Development Award</h3><p>Two years of training at Addenbrooke’s Hospital, Cambridge.</p></div>
-      <div class="t-item"><div class="t-year">2016</div><h3>FRCSEd &amp; SickKids fellowship</h3><p>Clinical Fellowship in Paediatric Neurosurgery, University of Toronto.</p></div>
-      <div class="t-item"><div class="t-year">2021</div><h3>Paediatric Brain &amp; Spine Clinic</h3><p>Co-founded a one-stop clinic for children with brain and spinal tumours.</p></div>
-      <div class="t-item"><div class="t-year">2023</div><h3>Senior Consultant · NUS Executive MBA</h3><p>Named a Poets&amp;Quants Best &amp; Brightest Executive MBA.</p></div>
-      <div class="t-item"><div class="t-year">2025</div><h3>Adjunct Associate Professor, NUS</h3><p>Assistant Professor from 2022. Co-chaired the 9th Asian Leksell Gamma Knife Society meeting.</p></div>
-      <div class="t-item t-now"><div class="t-year">Today</div><h3>Head of Neurosurgery, NUH &amp; Alexandra Hospital</h3><p>Operating, teaching and building regional partnerships.</p></div>
+    <div class="route-wrap">
+      <div class="fig" style="margin-bottom:6px"><span>Fig. 2 · Career, by longitude</span><span>Positions by longitude</span></div>
+      <svg id="routesvg" viewBox="0 0 1000 230" role="img" aria-labelledby="route-t">
+        <title id="route-t">Career route: Sitiawan, Malaysia; Singapore, NUS and NUH; Cambridge, Addenbrooke's Hospital; Toronto, SickKids; Head of Neurosurgery, NUH, with mentoring in Yogyakarta, Indonesia</title>
+        <line class="axis" x1="30" y1="196" x2="975" y2="196"/>
+        <g id="ticks"></g>
+        <path class="ghost" id="rghost"/>
+        <path class="path" id="rpath" pathLength="1"/>
+        <path class="branch" d="M910 170 Q925 186 940 182"/>
+        <text class="bl" x="948" y="216" text-anchor="end">Mentoring · Yogyakarta</text>
+        <g id="rstops"></g>
+      </svg>
     </div>
+    <ol class="stops" id="stops">
+      <li data-i="0"><div class="yr">Early years<small>Sitiawan, Malaysia</small></div><h3>Where his story begins</h3><p>He grew up in Sitiawan, Perak, Malaysia.</p></li>
+      <li data-i="1"><div class="yr">2007<small>Singapore · NUS &amp; NUH</small></div><h3>MBBS, National University of Singapore</h3><p>General surgical, then neurosurgical, training at NUH. MRCS (Edinburgh) in 2011 and specialist accreditation in neurosurgery in 2015.</p></li>
+      <li data-i="2"><div class="yr">2014<small>Cambridge · Addenbrooke’s</small></div><h3>Academic Medicine Development Award</h3><p>The award funded two years of advanced training in paediatric neurosurgery, neuro-oncology, neurovascular, neurotrauma and complex spine surgery.</p></li>
+      <li data-i="3"><div class="yr">2016<small>Toronto · SickKids</small></div><h3>Paediatric neurosurgery fellowship</h3><p>Clinical Fellowship in Paediatric Neurosurgery at The Hospital for Sick Children, University of Toronto. FRCSEd (Surgical Neurology) the same year.</p></li>
+      <li data-i="4"><div class="yr">Today<small>Singapore · NUH</small></div><h3>Head of Neurosurgery, NUH &amp; Alexandra Hospital</h3>
+        <ul>
+          <li>Co-founded the Paediatric Brain &amp; Spine Clinic (2021)</li>
+          <li>NUS Executive MBA, named a Poets&amp;Quants Best &amp; Brightest EMBA (2023)</li>
+          <li>Adjunct Associate Professor, NUS (2025); co-chair, 9th Asian Leksell Gamma Knife Society meeting</li>
+          <li>Helped establish the Ellen Siow Professorship, Singapore’s first endowed professorship in neurosurgery</li>
+          <li>Designed a patented burr hole cover, now commercialised internationally</li>
+          <li>Mentors neurosurgeons at Dr. Sardjito Hospital, Yogyakarta, Indonesia</li>
+        </ul>
+      </li>
+    </ol>
+    <details class="full">
+      <summary>Full appointments &amp; qualifications</summary>
+      <div class="grid g2">
+        <div>
+          <h3>Current designations</h3>
+          <ul class="list">
+            <li>Head of Division &amp; Senior Consultant, Neurosurgery <span>National University Hospital</span></li>
+            <li>Head &amp; Senior Consultant, General Surgery (Neurosurgery) <span>Alexandra Hospital</span></li>
+            <li>Senior Consultant, Surgical Oncology <span>National University Cancer Institute, Singapore</span></li>
+            <li>Senior Consultant <span>National University Spine Institute, NUHS</span></li>
+            <li>Adjunct Associate Professor, Department of Surgery <span>NUS Yong Loo Lin School of Medicine</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Degrees &amp; fellowships</h3>
+          <ul class="list">
+            <li>MBBS <span>National University of Singapore · 2007</span></li>
+            <li>MRCS <span>Royal College of Surgeons of Edinburgh · 2011</span></li>
+            <li>Specialist Accreditation, Neurosurgery <span>MOH &amp; Singapore Medical Council · 2015</span></li>
+            <li>FRCSEd (Surgical Neurology) <span>Royal College of Surgeons of Edinburgh · 2016</span></li>
+            <li>Clinical Fellowship, Paediatric Neurosurgery <span>SickKids, University of Toronto · 2016</span></li>
+            <li>FAMS (Neurosurgery) <span>Academy of Medicine, Singapore</span></li>
+            <li>Executive MBA <span>NUS Business School · 2023</span></li>
+          </ul>
+        </div>
+      </div>
+    </details>
   </div>
 </section>
 
-<section id="roles">
-  <div class="wrap">
-    <div class="grid g2">
-      <div>
-        <div class="eyebrow" style="margin-bottom:10px">Appointments</div>
-        <h2 class="sub-h">Current designations</h2>
-        <ul class="list">
-          <li>Head of Division &amp; Senior Consultant, Neurosurgery <span>National University Hospital</span></li>
-          <li>Head &amp; Senior Consultant, General Surgery (Neurosurgery) <span>Alexandra Hospital</span></li>
-          <li>Senior Consultant, Surgical Oncology <span>National University Cancer Institute, Singapore</span></li>
-          <li>Senior Consultant <span>National University Spine Institute, NUHS</span></li>
-          <li>Adjunct Associate Professor, Department of Surgery <span>NUS Yong Loo Lin School of Medicine</span></li>
-        </ul>
-      </div>
-      <div>
-        <div class="eyebrow" style="margin-bottom:10px">Qualifications</div>
-        <h2 class="sub-h">Degrees &amp; fellowships</h2>
-        <ul class="list">
-          <li>MBBS <span>National University of Singapore · 2007</span></li>
-          <li>MRCS <span>Royal College of Surgeons of Edinburgh · 2011</span></li>
-          <li>Specialist Accreditation, Neurosurgery <span>MOH &amp; Singapore Medical Council · 2015</span></li>
-          <li>FRCSEd (Surgical Neurology) <span>Royal College of Surgeons of Edinburgh · 2016</span></li>
-          <li>Clinical Fellowship, Paediatric Neurosurgery <span>SickKids, University of Toronto · 2016</span></li>
-          <li>FAMS (Neurosurgery) <span>Academy of Medicine, Singapore</span></li>
-          <li>Executive MBA <span>NUS Business School · 2023</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="publications">
+<section id="doctors" class="band">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">Publications</div>
-      <h2>Recent publications</h2>
-      <p>His NUS research record lists 132 publications, cited more than 840 times on ResearchGate. The two most recent years are shown below. Search, or open the full list.</p>
+      <div class="eyebrow">For referrers, peers &amp; trainees</div>
+      <h2>For doctors</h2>
     </div>
-    <div class="more">
-      <a href="https://discovery.nus.edu.sg/11097-vincent-diong-weng-nga" target="_blank" rel="noopener">NUS profile →</a>
-      <a href="https://orcid.org/0000-0001-5256-5669" target="_blank" rel="noopener">ORCID →</a>
-      <a href="https://scholar.google.com/citations?user=MfhG808AAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar →</a>
-      <a href="https://www.researchgate.net/profile/Vincent-Nga" target="_blank" rel="noopener">ResearchGate →</a>
-    </div>
-    <div class="pub-tools">
-      <input id="pubq" type="search" placeholder="Search all papers, e.g. moyamoya, pituitary, Gamma Knife" aria-label="Search all publications">
-      <div class="pub-filters" role="group" aria-label="Filter by type">
-        <button type="button" data-f="all" class="on" aria-pressed="true">All <span id="c-all"></span></button>
-        <button type="button" data-f="J" aria-pressed="false">Journal articles <span id="c-J"></span></button>
-        <button type="button" data-f="C" aria-pressed="false">Conference abstracts <span id="c-C"></span></button>
-        <button type="button" data-f="O" aria-pressed="false">Preprints &amp; other <span id="c-O"></span></button>
-      </div>
-    </div>
-    <p id="pubcount" class="pub-count" role="status" aria-live="polite"></p>
-    <div id="publist"></div>
-    <button type="button" id="puball" class="btn ghost"></button>
-  </div>
-</section>
-
-<footer id="contact">
-  <div class="wrap">
-    <h2 class="big-sign">Appointments<span>.</span></h2>
-    <p class="intro">For appointments and enquiries, contact the Division of Neurosurgery at National University Hospital, Singapore.</p>
-    <div class="cols">
+    <div class="doc-grid">
       <div>
-        <h3>Phone &amp; email</h3>
-        <p class="big-num"><a href="tel:+6567725083">+65 6772 5083</a></p>
+        <h3>Refer a patient</h3>
+        <p>Referrals and clinical enquiries go through the Division of Neurosurgery, National University Hospital.</p>
+        <a class="tel-big" href="tel:+6567725083">+65 6772 5083</a>
         <ul>
           <li><a href="mailto:usc@nuhs.edu.sg">usc@nuhs.edu.sg</a></li>
           <li><a href="mailto:contactus@nuhs.edu.sg">contactus@nuhs.edu.sg</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3>Find out more</h3>
-        <ul>
           <li><a href="https://www.nuh.com.sg/care-at-nuh/find-a-doctor/doctor-details/Vincent_Nga" target="_blank" rel="noopener">NUH doctor profile</a></li>
-          <li><a href="https://www.nuh.com.sg/neurosurgery" target="_blank" rel="noopener">NUH Neurosurgery</a></li>
-          <li><a href="https://www.ncis.com.sg/" target="_blank" rel="noopener">National University Cancer Institute</a></li>
         </ul>
       </div>
       <div>
-        <h3>Connect</h3>
+        <h3>Subspecialties</h3>
         <ul>
-          <li><a href="https://www.linkedin.com/in/vincent-nga-862188210/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="https://orcid.org/0000-0001-5256-5669" target="_blank" rel="noopener">ORCID</a></li>
-          <li><a href="https://discovery.nus.edu.sg/11097-vincent-diong-weng-nga" target="_blank" rel="noopener">NUS profile</a></li>
+          <li><a href="#treats" data-region="skullbase">Endoscopic endonasal skull base <span class="c">→</span></a></li>
+          <li><a href="#treats" data-region="brain">Neuro-oncology <span class="c">→</span></a></li>
+          <li><a href="#treats" data-region="brainstem" data-mode-link="child">Paediatric neurosurgery <span class="c">→</span></a></li>
+          <li><a href="#treats" data-region="spine">Complex spine <span class="c">→</span></a></li>
+          <li><a href="#treats" data-region="vessels">Moyamoya &amp; AVM <span class="c">→</span></a></li>
+          <li><a href="#treats" data-region="skull">Neurotrauma &amp; chronic SDH <span class="c">→</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Multidisciplinary clinics</h3>
+        <p><b style="color:var(--ink)">NUH Brain Tumour Multidisciplinary Clinic</b>, adult and paediatric, which he leads.</p>
+        <p style="margin-top:12px"><b style="color:var(--ink)">Paediatric Brain &amp; Spine Clinic</b>, co-founded in 2021 with paediatric oncology and radiation oncology.</p>
+      </div>
+      <div>
+        <h3>Research by topic</h3>
+        <ul id="doc-topics"></ul>
+      </div>
+    </div>
+    <dl class="cred">
+      <div><dt>MBBS</dt><dd>NUS 2007</dd></div>
+      <div><dt>MRCS</dt><dd>Edinburgh 2011</dd></div>
+      <div><dt>Specialist accreditation</dt><dd>MOH &amp; SMC 2015</dd></div>
+      <div><dt>FRCSEd (Surg Neurol)</dt><dd>2016</dd></div>
+      <div><dt>Fellowship</dt><dd>Paediatric neurosurgery, SickKids 2016</dd></div>
+      <div><dt>FAMS</dt><dd>Neurosurgery</dd></div>
+      <div><dt>Academic</dt><dd>Adj A/Prof, NUS Yong Loo Lin School of Medicine</dd></div>
+      <div><dt>Senior Consultant</dt><dd>NUH · NCIS Surgical Oncology · NU Spine Institute</dd></div>
+    </dl>
+    <div class="train">
+      <div>
+        <h3>Training with the NUH Division of Neurosurgery</h3>
+        <p>He teaches and mentors NUS medical students and residents, and guides trainees as they subspecialise in endoscopic skull base surgery and complex brain and spine tumour surgery.</p>
+        <p style="margin-top:12px">At Dr. Sardjito Hospital, Yogyakarta, neurosurgeons progressed under his guidance from assisted training to performing complex endoscopic skull base surgery on their own. Mentorship continues in awake surgery and brain mapping.</p>
+        <p style="margin-top:16px"><a href="#research" data-topic="system">His papers on training &amp; health systems (<span data-count="system">22</span>) →</a></p>
+      </div>
+      <div>
+        <h3>Meetings he organises</h3>
+        <ul class="list">
+          <li>NUH Advanced Skull Base Masterclass <span>Organiser</span></li>
+          <li>International Surgical Oncology Symposium <span>Organiser, with the National University Cancer Institute, Singapore</span></li>
+          <li>9th Meeting of the Asian Leksell Gamma Knife Society <span>Co-chair, Local Organising Committee · 2025</span></li>
         </ul>
       </div>
     </div>
-    <div class="fine">© 2026 Vincent Nga Diong Weng</div>
+    <a class="back" href="#top">Back to choices ↑</a>
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Research</div>
+      <h2>What he publishes on</h2>
+      <p>His research focuses on complex brain and spine tumours, especially gliomas and skull base and pituitary conditions, alongside access to care in Southeast Asia. All <span data-total>126</span> papers listed here, 2012 to 2026, out of 132 on his NUS research record. Topics come from keywords in each title, so a paper can sit under more than one.</p>
+    </div>
+    <div class="fig"><span>Fig. 3 · Papers by topic</span><span>Tap a topic to filter</span></div>
+    <div class="topics" id="topics"></div>
+    <div class="years" aria-hidden="true"><svg id="yearsvg"></svg></div>
+    <div class="tools">
+      <div><label class="vh" for="pubq">Search all papers</label><input id="pubq" type="search" placeholder="Search all papers, e.g. moyamoya, pituitary, Gamma Knife"></div>
+      <div><label class="vh" for="ptype">Type</label><select id="ptype"></select></div>
+      <label class="chk"><input type="checkbox" id="artonly"> Journal articles only</label>
+    </div>
+    <p class="count" id="pubcount" role="status" aria-live="polite"></p>
+    <div id="publist"></div>
+    <button type="button" class="btn" id="pubmore" hidden></button>
+    <div class="prof">
+      <a class="btn" href="https://discovery.nus.edu.sg/11097-vincent-diong-weng-nga" target="_blank" rel="noopener">NUS profile</a>
+      <a class="btn" href="https://orcid.org/0000-0001-5256-5669" target="_blank" rel="noopener">ORCID</a>
+      <a class="btn" href="https://scholar.google.com/citations?user=MfhG808AAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+      <a class="btn" href="https://www.researchgate.net/profile/Vincent-Nga" target="_blank" rel="noopener">ResearchGate</a>
+    </div>
+    <noscript><p class="count">The full list is also on his <a href="https://discovery.nus.edu.sg/11097-vincent-diong-weng-nga">NUS profile</a> and <a href="https://orcid.org/0000-0001-5256-5669">ORCID</a>.</p></noscript>
+  </div>
+</section>
+
+<section id="organisers" class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">For companies, organisers &amp; media</div>
+      <h2>Everything you need, on one screen</h2>
+      <p>A ready-to-use bio and photo, and a direct line for speaking, collaboration and media enquiries.</p>
+    </div>
+    <div class="org">
+      <dl class="facts">
+        <div><dt>Role</dt><dd>Head of Neurosurgery, National University Hospital, Singapore</dd></div>
+        <div><dt>Also leads</dt><dd>Neurosurgery, Alexandra Hospital</dd></div>
+        <div><dt>Academic</dt><dd>Adjunct Associate Professor, NUS Yong Loo Lin School of Medicine</dd></div>
+        <div><dt>Focus</dt><dd>Brain, spine, skull base and pituitary tumours, in adults and children</dd></div>
+        <div><dt>Innovation</dt><dd>Design-patented burr hole cover, commercialised internationally</dd></div>
+        <div><dt>Research</dt><dd><span data-total>126</span> papers, cited 840+ times on ResearchGate</dd></div>
+        <div><dt>Languages</dt><dd>English, Malay, Mandarin (spoken)</dd></div>
+      </dl>
+      <div>
+        <div class="blk-h">Innovation · design patent</div>
+        <div class="innov">
+          <svg viewBox="0 0 96 96" aria-hidden="true"><path d="M10 70 C6 36 30 12 52 10 C74 8 90 28 88 52" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"/><path d="M10 70 C24 58 30 52 36 50" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"/><circle cx="72" cy="22" r="9" fill="var(--accent)"/><path d="M72 31 L70 60" stroke="var(--accent-ink)" stroke-width="2" stroke-dasharray="3 4"/></svg>
+          <div>
+            <h3>A burr hole cover, from idea to international market</h3>
+            <p>He designed a burr hole cover that lets surgeons place a drain easily after draining a chronic subdural haematoma. Data show it improves how the scar looks and how patients feel and function. It is design-patented, commercialised and available internationally.</p>
+          </div>
+        </div>
+        <p class="tag" style="margin-top:18px">Related research on burr holes and cranial implants</p>
+        <ul class="rel" id="relpubs"></ul>
+        <div class="blk-h">Leadership</div>
+        <ul class="ladder">
+          <li><i>Global</i><div>Executive Committee Member<span>World Federation of Neurosurgical Societies</span></div></li>
+          <li><i>Regional</i><div>Board Member<span>Asian Society of NeuroEndoscopic Neurosurgery</span></div></li>
+          <li><i>National</i><div>President<span>Clinical Neuroscience Society, Singapore</span></div></li>
+          <li><i>National</i><div>President, Founder &amp; Director<span>Singapore Society for NeuroOncology</span></div></li>
+          <li><i>National</i><div>Board Member<span>Chapter of Neurosurgeons, College of Surgeons, Academy of Medicine, Singapore</span></div></li>
+        </ul>
+        <div class="blk-h">Meetings he has organised</div>
+        <ul class="list">
+          <li>9th Meeting of the Asian Leksell Gamma Knife Society <span>Co-chair, Local Organising Committee · 2025</span></li>
+          <li>NUH Advanced Skull Base Masterclass <span>Organiser</span></li>
+          <li>International Surgical Oncology Symposium <span>Organiser, with the National University Cancer Institute, Singapore</span></li>
+        </ul>
+        <div class="blk-h">Beyond the hospital</div>
+        <ul class="list">
+          <li>Regional training <span>Mentored neurosurgeons at Dr. Sardjito Hospital, Yogyakarta, to independent endoscopic skull base surgery</span></li>
+          <li>Global health <span>Helped raise funds, with his EMBA classmates, for an intensive care unit in a village in India</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="kit">
+      <div class="box">
+        <h3>Speaker bio</h3>
+        <div class="bio-tabs" role="tablist" aria-label="Bio length">
+          <button type="button" role="tab" aria-selected="true" data-bio="short">Short · 55 words</button>
+          <button type="button" role="tab" aria-selected="false" data-bio="long">Long · 170 words</button>
+        </div>
+        <p id="bio-text" role="tabpanel"></p>
+        <div class="copyrow"><button type="button" class="btn solid" id="copybio">Copy bio</button><span class="copied" id="biodone" aria-live="polite"></span></div>
+      </div>
+      <figure class="box head">
+        <img src="images/vincent-nga.webp" width="640" height="650" alt="Portrait of Dr Vincent Nga">
+        <figcaption id="cap">Adj A/Prof Vincent Nga, Head of Neurosurgery, National University Hospital, Singapore.</figcaption>
+        <div class="copyrow"><button type="button" class="btn" id="copycap">Copy caption</button><span class="copied" id="capdone" aria-live="polite"></span></div>
+        <!-- CLIENT: a high-resolution headshot (2400px+) with photographer credit can be offered here. -->
+      </figure>
+      <div class="box hot" id="organisers-contact">
+        <h3>Speaking, collaboration &amp; media</h3>
+        <p>For conference invitations, industry collaboration and press enquiries.</p>
+        <a class="mail" id="promail" href="mailto:survndw@nus.edu.sg?subject=Enquiry%20for%20Adj%20A%2FProf%20Vincent%20Nga">survndw@nus.edu.sg</a>
+        <div class="copyrow"><button type="button" class="btn" id="copymail">Copy email</button><a class="btn" href="https://www.linkedin.com/in/vincent-nga-862188210/" target="_blank" rel="noopener">LinkedIn</a><span class="copied" id="maildone" aria-live="polite"></span></div>
+        <p style="font-size:14px;color:var(--muted);margin-top:16px">Patients and referring doctors: please contact NUH on +65 6772 5083 or usc@nuhs.edu.sg.</p>
+      </div>
+    </div>
+
+    <div class="press">
+      <div><span class="tag">The Straits Times · June 2024</span><h3>The “miracle baby” with a brainstem tumour</h3><p><a href="#stories">Read the summary →</a> · <a href="https://doi.org/10.1007/s00381-024-06658-4" target="_blank" rel="noopener">Published in Child’s Nervous System</a></p></div>
+      <div><span class="tag">The Straits Times · January 2026</span><h3>Saving face: 20 years of craniofacial care</h3><p><a href="#stories">Read the summary →</a></p></div>
+    </div>
+    <a class="back" href="#top">Back to choices ↑</a>
+  </div>
+</section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2 class="big-sign">Get in touch<span>.</span></h2>
+    <div class="fcols">
+      <div>
+        <h3>Patients &amp; families</h3>
+        <p>Appointments are made through the Division of Neurosurgery, National University Hospital.</p>
+        <a class="tel-big" href="tel:+6567725083">+65 6772 5083</a>
+        <ul>
+          <li><a href="mailto:usc@nuhs.edu.sg">usc@nuhs.edu.sg</a></li>
+          <li><a href="mailto:contactus@nuhs.edu.sg">contactus@nuhs.edu.sg</a></li>
+          <li><a href="https://www.nuh.com.sg/neurosurgery" target="_blank" rel="noopener">NUH Neurosurgery</a></li>
+        </ul>
+        <p style="font-size:14px;color:var(--muted);margin-top:8px">For emergencies, call 995.</p>
+      </div>
+      <div>
+        <h3>Doctors</h3>
+        <p>Referrals and clinical enquiries go through the NUH Division of Neurosurgery, on the same number.</p>
+        <ul>
+          <li><a href="https://www.nuh.com.sg/care-at-nuh/find-a-doctor/doctor-details/Vincent_Nga" target="_blank" rel="noopener">NUH doctor profile</a></li>
+          <li><a href="https://discovery.nus.edu.sg/11097-vincent-diong-weng-nga" target="_blank" rel="noopener">NUS research profile</a></li>
+          <li><a href="https://orcid.org/0000-0001-5256-5669" target="_blank" rel="noopener">ORCID</a></li>
+          <li><a href="https://scholar.google.com/citations?user=MfhG808AAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Companies, organisers &amp; media</h3>
+        <p>Speaking, collaboration and media requests.</p>
+        <ul>
+          <li><a href="mailto:survndw@nus.edu.sg">survndw@nus.edu.sg</a></li>
+          <li><a href="https://www.linkedin.com/in/vincent-nga-862188210/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="#organisers">Press kit: bio &amp; photo</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fine">© 2026 Vincent Nga Diong Weng · Information from his NUH and NUS profiles and published press. This website does not give medical advice.</div>
   </div>
 </footer>
 
@@ -639,33 +1052,229 @@ var PUBS=[
 ];
 
 (function(){
-  var list=document.getElementById('publist'),q=document.getElementById('pubq'),count=document.getElementById('pubcount'),more=document.getElementById('puball');
-  var f='all',expanded=false,latest=PUBS[0][0];
+  document.documentElement.classList.add('js');
+  var body=document.body;
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function $(s,r){return (r||document).querySelector(s)}
+  function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
+  function esc(x){return String(x).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+
+  /* external links: tell screen readers they open a new tab */
+  $$('a[target="_blank"]').forEach(function(a){var s=document.createElement('span');s.className='vh';s.textContent=' (opens in a new tab)';a.appendChild(s)});
+
+  /* copy helper with a select-text fallback */
+  function copy(text,doneEl,label){
+    function ok(){if(doneEl){doneEl.textContent=label||'Copied ✓';setTimeout(function(){doneEl.textContent=''},2200)}}
+    function fallback(){var t=document.createElement('textarea');t.value=text;t.setAttribute('readonly','');t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();try{document.execCommand('copy');ok()}catch(e){if(doneEl)doneEl.textContent='Select the text to copy'}document.body.removeChild(t)}
+    try{navigator.clipboard.writeText(text).then(ok,fallback)}catch(e){fallback()}
+  }
+
+  /* ---------- topics ---------- */
+  var TOPICS=[
+    ['skull','Skull base & pituitary','Craniopharyngioma, Rathke’s cleft cysts, pituitary adenomas',/pituitar|craniopharyngioma|rathke|skull base|schwannoma|chordoma|lactotroph|suprasellar|sellar|endonasal|acromegal/i],
+    ['tumour','Brain & spine tumours','Gliomas, brain metastases, ependymoma, Gamma Knife',/tumou?r|glioma|glioblastoma|\bgbm\b|metasta|meningioma|ependymoma|astrocytoma|neuroepithelial|germ cell|sarcoma|oncolog|myxoma|craniopharyngioma|schwannoma|leptomeningeal|cancer|gamma knife/i],
+    ['vascular','Stroke & vascular','Moyamoya, aneurysmal SAH, intracerebral haemorrhage',/aneurysm|subarachnoid|intracerebral|haemorrhag|hemorrhag|stroke|moyamoya|arteriovenous|fistula|infarct|flow diversion|revasculari|small vessel|\bsich\b|antiplatelet|cerebellar artery/i],
+    ['paeds','Children','Paediatric tumours, hydrocephalus, transitional care',/paediatric|pediatric|child|infant|infantile|congenital|neonatal|prenatal|myeloschisis|hydrocephalus|polymicrogyria|epilepsy|8-year-old|baby|juvenile|transitional care|unusual skull/i],
+    ['trauma','Trauma & subdural haematoma','Chronic subdural haematoma, burr holes, cranioplasty',/subdural|traumatic|trauma|head injur|intracranial pressure|cranioplast|craniectomy|burr.?hole|external ventricular/i],
+    ['spine','Spine','Spinal tumours, Chiari malformation',/spinal|spine|chiari|myeloschisis|psoas/i],
+    ['innov','Innovation & implants','3D-printed implants, machine learning, ultrasound guidance',/3d|polycaprolactone|scaffold|implant|machine learning|support vector|spectroscopy|ultrasound-guided|black bone|cutting guide|ex vivo|transillumination|long-read/i],
+    ['system','Training & health systems','Training, COVID-era care, frailty, advance care planning',/training|education|covid|transitional care|advance care|meta-analyses|triage|caregiver|frailty|sarcopenia|return to work|quality of life|registry|case discussions|service delivery|incidence and mortality|epidemiolog|segregated/i]
+  ];
+  var TL={};TOPICS.forEach(function(t){TL[t[0]]=t[1]});
+  var TAGS=PUBS.map(function(p){
+    var tags=TOPICS.filter(function(t){return t[3].test(p[2])}).map(function(t){return t[0]});
+    if(/Child's Nervous|Paediatrics and Child|Pediatrics/.test(p[3])&&tags.indexOf('paeds')<0)tags.push('paeds');
+    return tags;
+  });
+  var COUNT={};TOPICS.forEach(function(t){COUNT[t[0]]=0});
+  TAGS.forEach(function(ts,i){if(!ts.length)console.warn('Untagged paper:',PUBS[i][2]);ts.forEach(function(k){COUNT[k]++})});
+  $$('[data-count]').forEach(function(e){e.textContent=COUNT[e.getAttribute('data-count')]});
+  $$('[data-total]').forEach(function(e){e.textContent=PUBS.length});
+  var maxC=Math.max.apply(null,TOPICS.map(function(t){return COUNT[t[0]]}));
+
+  /* ---------- brain map ---------- */
+  var tabs=$$('.tabs [role=tab]'),regions=$$('.region');
+  function select(r,focus){
+    tabs.forEach(function(t){var on=t.dataset.r===r;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;if(on&&focus)t.focus()});
+    $$('.panel').forEach(function(p){p.hidden=p.id!=='panel-'+r});
+    regions.forEach(function(g){g.classList.toggle('on',g.dataset.r===r)});
+  }
+  function setMode(m){
+    body.classList.toggle('mode-child',m==='child');body.classList.toggle('mode-adult',m!=='child');
+    $$('[data-mode]').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.mode===m)});
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){select(t.dataset.r)});
+    t.addEventListener('keydown',function(e){
+      var k=e.key,j=null;
+      if(k==='ArrowRight'||k==='ArrowDown')j=(i+1)%tabs.length;
+      else if(k==='ArrowLeft'||k==='ArrowUp')j=(i-1+tabs.length)%tabs.length;
+      else if(k==='Home')j=0;else if(k==='End')j=tabs.length-1;
+      if(j!==null){e.preventDefault();select(tabs[j].dataset.r,true)}
+    });
+  });
+  regions.forEach(function(g){
+    g.addEventListener('click',function(){
+      select(g.dataset.r);
+      if(window.innerWidth<900){var p=$('#panel-'+g.dataset.r),b=p.getBoundingClientRect();if(b.top>window.innerHeight-80||b.bottom<0)p.scrollIntoView({block:'nearest',behavior:reduce?'auto':'smooth'})}
+    });
+  });
+  $$('[data-mode]').forEach(function(b){b.addEventListener('click',function(){setMode(b.dataset.mode)})});
+  $$('[data-mode-link]').forEach(function(a){a.addEventListener('click',function(){setMode(a.getAttribute('data-mode-link'))})});
+  $$('[data-region]').forEach(function(a){a.addEventListener('click',function(){select(a.getAttribute('data-region'))})});
+  select('skullbase');
+
+  /* ---------- patients: language and copy ---------- */
+  $$('[data-lang]').forEach(function(b){b.addEventListener('click',function(){
+    var l=b.dataset.lang;body.classList.remove('l-en','l-zh','l-ms');body.classList.add('l-'+l);
+    $$('[data-lang]').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+  })});
+  $('#copysay').addEventListener('click',function(){
+    var l=(body.className.match(/l-(en|zh|ms)/)||[0,'en'])[1];
+    var txt=$('#say [data-l="'+l+'"]').textContent.replace(/[“”]/g,'');
+    copy(txt,$('#saydone'),{en:'Copied ✓',zh:'已复制 ✓',ms:'Disalin ✓'}[l]);
+  });
+
+  /* ---------- career route ---------- */
+  var svg=$('#routesvg'),rpath=$('#rpath'),NS='http://www.w3.org/2000/svg';
+  var X=function(lon){return 40+(lon+90)*4.488};
+  var ticks=$('#ticks');
+  [[-80,'80°W'],[-40,'40°W'],[0,'0°'],[40,'40°E']].forEach(function(t){
+    var tx=document.createElementNS(NS,'text');tx.setAttribute('class','tick');tx.setAttribute('x',X(t[0]));tx.setAttribute('y',216);tx.textContent=t[1];ticks.appendChild(tx);
+  });
+  var SEG=['M896 150 Q906 156 910 170','M910 170 Q677 20 444 150','M444 150 Q266 60 88 150','M88 150 C300 -30 700 -30 910 170'];
+  var D='M896 150 Q906 156 910 170 Q677 20 444 150 Q266 60 88 150 C300 -30 700 -30 910 170';
+  rpath.setAttribute('d',D);$('#rghost').setAttribute('d',D);
+  var lens=SEG.map(function(d){var p=document.createElementNS(NS,'path');p.setAttribute('d',d);svg.appendChild(p);var L=p.getTotalLength();svg.removeChild(p);return L});
+  var tot=lens.reduce(function(a,b){return a+b},0),cum=[0],acc=0;
+  lens.forEach(function(L){acc+=L;cum.push(acc/tot)});
+  var DOTS=[[896,150,'Sitiawan','ST',-16,'end'],[910,170,'Singapore','SG',16,'end'],[444,150,'Cambridge','CB',-16,'middle'],[88,150,'Toronto','TO',-16,'middle']];
+  var stopG=$('#rstops');
+  DOTS.forEach(function(d,i){
+    var g=document.createElementNS(NS,'g');g.setAttribute('class','stop');g.setAttribute('data-d',i);
+    g.innerHTML='<circle cx="'+d[0]+'" cy="'+d[1]+'" r="7"/><text class="full" x="'+(d[5]==='end'?d[0]-12:d[0])+'" y="'+(d[1]+d[4])+'" text-anchor="'+d[5]+'">'+d[2]+'</text><text class="code" x="'+(d[5]==='end'?d[0]-18:d[0])+'" y="'+(d[1]+(d[4]<0?-22:44))+'" text-anchor="'+d[5]+'">'+d[3]+'</text>';
+    stopG.appendChild(g);
+  });
+  var STOPDOT=[0,1,2,3,1];
+  var lis=$$('#stops > li');
+  function setStop(i){
+    rpath.style.strokeDashoffset=String(1-cum[Math.min(i,4)]);
+    $$('.stop',svg).forEach(function(g){var di=+g.getAttribute('data-d');var reached=STOPDOT.slice(0,i+1).indexOf(di)>-1;g.classList.toggle('on',reached)});
+    lis.forEach(function(li){li.classList.toggle('on',+li.dataset.i<=i)});
+  }
+  rpath.style.strokeDasharray='1';
+  if(!reduce&&'IntersectionObserver' in window){
+    rpath.style.transition='stroke-dashoffset .7s cubic-bezier(.2,.7,.2,1)';
+    setStop(-1);rpath.style.strokeDashoffset='1';
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)setStop(+e.target.dataset.i)})},{rootMargin:'-45% 0px -45% 0px'});
+    lis.forEach(function(li){io.observe(li)});
+  } else setStop(4);
+
+  /* ---------- research explorer ---------- */
+  var st={topic:null,q:'',type:'all',art:false,expanded:false,shown:30};
   var grp=function(t){return t==='J'||t==='C'?t:'O'};
-  var label={J:'Journal',C:'Abstract',P:'Preprint',B:'Book chapter',E:'Correction'};
-  ['all','J','C','O'].forEach(function(k){document.getElementById('c-'+k).textContent=PUBS.filter(function(p){return k==='all'||grp(p[1])===k}).length});
-  function esc(x){return x.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  var LABEL={J:'Journal article',C:'Conference abstract',P:'Preprint',B:'Book chapter',E:'Correction'};
+  var topicsEl=$('#topics');
+  topicsEl.innerHTML=TOPICS.map(function(t){
+    return '<button type="button" class="topic" aria-pressed="false" data-k="'+t[0]+'"><span class="c">'+COUNT[t[0]]+'</span><b>'+esc(t[1])+'</b><small>'+esc(t[2])+'</small><span class="bar"><i style="--w:'+Math.round(COUNT[t[0]]/maxC*100)+'%"></i></span></button>';
+  }).join('');
+  $$('.topic').forEach(function(b){b.addEventListener('click',function(){setTopic(st.topic===b.dataset.k?null:b.dataset.k)})});
+  var docT=$('#doc-topics');
+  docT.innerHTML=TOPICS.map(function(t){return '<li><a href="#research" data-topic="'+t[0]+'">'+esc(t[1])+' <span class="c">'+COUNT[t[0]]+'</span></a></li>'}).join('');
+  var sel=$('#ptype');
+  var tc={all:PUBS.length,J:0,C:0,O:0};PUBS.forEach(function(p){tc[grp(p[1])]++});
+  sel.innerHTML='<option value="all">All types ('+tc.all+')</option><option value="J">Journal articles ('+tc.J+')</option><option value="C">Conference abstracts ('+tc.C+')</option><option value="O">Preprints &amp; other ('+tc.O+')</option>';
+  var years=[];PUBS.forEach(function(p){if(years.indexOf(p[0])<0)years.push(p[0])});years.sort();
+  var latest=years[years.length-1];
+  function matches(p,i){
+    if(st.topic&&TAGS[i].indexOf(st.topic)<0)return false;
+    if(st.art&&p[1]!=='J')return false;
+    if(st.type!=='all'&&grp(p[1])!==st.type)return false;
+    if(st.q&&(p[2]+' '+p[3]).toLowerCase().indexOf(st.q)<0)return false;
+    return true;
+  }
+  var ysvg=$('#yearsvg');
+  (function buildYears(){
+    var byY={};PUBS.forEach(function(p,i){(byY[p[0]]=byY[p[0]]||[]).push(i)});
+    var maxN=Math.max.apply(null,years.map(function(y){return byY[y].length}));
+    var cw=26,gap=8,bh=5,bg=2,H=maxN*(bh+bg)+20,W=years.length*(cw+gap);
+    ysvg.setAttribute('viewBox','0 0 '+W+' '+H);ysvg.setAttribute('width',W);ysvg.setAttribute('height',H);
+    var html='';
+    years.forEach(function(y,c){
+      var x=c*(cw+gap);
+      byY[y].forEach(function(i,k){html+='<rect class="blk" data-i="'+i+'" x="'+x+'" y="'+(H-20-(k+1)*(bh+bg))+'" width="'+cw+'" height="'+bh+'"/>'});
+      html+='<text x="'+(x+cw/2)+'" y="'+(H-6)+'">\''+String(y).slice(2)+'</text>';
+    });
+    ysvg.innerHTML=html;
+  })();
+  var list=$('#publist'),count=$('#pubcount'),more=$('#pubmore');
   function render(){
-    var term=q.value.trim().toLowerCase(),narrowed=!!term||f!=='all';
-    var rows=PUBS.filter(function(p){
-      return (f==='all'||grp(p[1])===f)&&(!term||(p[2]+' '+p[3]).toLowerCase().indexOf(term)>-1)});
-    if(!narrowed&&!expanded) rows=rows.filter(function(p){return p[0]>=latest-1});
-    var counts={},html='',year=null;rows.forEach(function(p){counts[p[0]]=(counts[p[0]]||0)+1});
-    rows.forEach(function(p){
-      if(p[0]!==year){year=p[0];html+='<h3 class="pub-year">'+year+' <small aria-hidden="true">'+counts[year]+(counts[year]>1?' items':' item')+'</small></h3>'}
-      var t=p[4]?'<a href="https://doi.org/'+esc(p[4])+'" target="_blank" rel="noopener">'+esc(p[2])+'</a>':'<span class="t">'+esc(p[2])+'</span>';
-      html+='<div class="pub">'+t+'<div class="m"><span class="k">'+label[p[1]]+'</span>'+esc(p[3])+'</div></div>';
+    var narrowed=!!(st.topic||st.q||st.type!=='all'||st.art);
+    var idx=[];PUBS.forEach(function(p,i){if(matches(p,i))idx.push(i)});
+    $$('.blk',ysvg).forEach(function(r){r.classList.toggle('hit',narrowed&&idx.indexOf(+r.dataset.i)>-1)});
+    $$('.topic').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.k===st.topic)});
+    var rows=idx,limit=null;
+    if(!narrowed&&!st.expanded)rows=idx.filter(function(i){return PUBS[i][0]>=latest-1});
+    else if(rows.length>st.shown){limit=st.shown;rows=rows.slice(0,limit)}
+    var html='',year=null,cnt={};
+    idx.forEach(function(i){cnt[PUBS[i][0]]=(cnt[PUBS[i][0]]||0)+1});
+    rows.forEach(function(i){
+      var p=PUBS[i];
+      if(p[0]!==year){year=p[0];html+='<h3 class="pub-year">'+year+' <small aria-hidden="true">'+cnt[year]+(cnt[year]>1?' items':' item')+'</small></h3>'}
+      var t=p[4]?'<a href="https://doi.org/'+esc(p[4])+'" target="_blank" rel="noopener">'+esc(p[2])+'<span class="vh"> (opens in a new tab)</span></a>':'<span class="t">'+esc(p[2])+'</span>';
+      var chips=TAGS[i].map(function(k){return '<button type="button" data-chip="'+k+'">'+esc(TL[k])+'</button>'}).join('');
+      html+='<div class="pub"><div>'+t+'<div class="chipr">'+chips+'</div></div><div class="m"><span class="k">'+LABEL[p[1]]+'</span>'+esc(p[3])+'</div></div>';
     });
     list.innerHTML=html;
-    count.textContent=rows.length?'Showing '+rows.length+' of '+PUBS.length:'No publications match that search.';
-    more.hidden=narrowed||expanded;
-    more.textContent='Show all '+PUBS.length+' publications (2012 to today)';
+    var parts=['Showing '+rows.length+' of '+PUBS.length];
+    if(st.topic)parts.push(TL[st.topic]);
+    if(st.q)parts.push('“'+st.q+'”');
+    count.innerHTML=(idx.length?esc(parts.join(' · ')):'No papers match. Try a different word or clear the filters.')+(narrowed?' · <button type="button" id="pubclear">Clear filters</button>':'');
+    if(narrowed){var c=$('#pubclear');c.addEventListener('click',function(){st.topic=null;st.q='';st.type='all';st.art=false;st.shown=30;$('#pubq').value='';sel.value='all';$('#artonly').checked=false;render()})}
+    if(!narrowed&&!st.expanded){more.hidden=false;more.textContent='Show all '+PUBS.length+' papers (2012 to today)'}
+    else if(limit){more.hidden=false;more.textContent='Show 30 more ('+(idx.length-limit)+' left)'}
+    else more.hidden=true;
   }
-  document.querySelectorAll('.pub-filters button').forEach(function(b){b.addEventListener('click',function(){
-    document.querySelectorAll('.pub-filters button').forEach(function(x){x.classList.remove('on');x.setAttribute('aria-pressed','false')});
-    b.classList.add('on');b.setAttribute('aria-pressed','true');f=b.dataset.f;render()})});
-  more.addEventListener('click',function(){expanded=true;render()});
-  q.addEventListener('input',render);render();
+  function setTopic(k){st.topic=k;st.shown=30;render()}
+  more.addEventListener('click',function(){if(!st.expanded&&!(st.topic||st.q||st.type!=='all'||st.art)){st.expanded=true;st.shown=1000}else st.shown+=30;render()});
+  list.addEventListener('click',function(e){var b=e.target.closest('[data-chip]');if(b){setTopic(b.dataset.chip);$('#research').scrollIntoView({behavior:reduce?'auto':'smooth'})}});
+  $('#pubq').addEventListener('input',function(e){st.q=e.target.value.trim().toLowerCase();st.shown=30;render()});
+  sel.addEventListener('change',function(){st.type=sel.value;st.shown=30;render()});
+  $('#artonly').addEventListener('change',function(e){st.art=e.target.checked;st.shown=30;render()});
+  document.addEventListener('click',function(e){var a=e.target.closest('a[data-topic]');if(a)setTopic(a.getAttribute('data-topic'))});
+  render();
+
+  /* ---------- organisers ---------- */
+  var rel=PUBS.filter(function(p){return /burr|polycaprolactone/i.test(p[2])});
+  $('#relpubs').innerHTML=rel.map(function(p){
+    var t=p[4]?'<a href="https://doi.org/'+esc(p[4])+'" target="_blank" rel="noopener">'+esc(p[2])+'<span class="vh"> (opens in a new tab)</span></a>':esc(p[2]);
+    return '<li><span>'+p[0]+'</span><div>'+t+'</div></li>';
+  }).join('');
+  var BIO={
+    short:'Adj A/Prof Vincent Nga is Head of Neurosurgery at National University Hospital, Singapore, and leads neurosurgery at Alexandra Hospital. He operates on adults and children with brain, spine, skull base and pituitary tumours. He holds a design patent for a burr hole cover, now commercialised internationally, and is President of the Singapore Society for NeuroOncology.',
+    long:'Adj A/Prof Vincent Nga is Head of the Division of Neurosurgery at National University Hospital (NUH), Singapore, and Head of Neurosurgery at Alexandra Hospital. He is an Adjunct Associate Professor at the NUS Yong Loo Lin School of Medicine and a Senior Consultant at the National University Cancer Institute, Singapore, and the National University Spine Institute. He trained at NUS and NUH, at Addenbrooke’s Hospital, Cambridge, on an Academic Medicine Development Award, and in paediatric neurosurgery at The Hospital for Sick Children (SickKids), Toronto. He is FRCSEd (Surgical Neurology) and holds an NUS Executive MBA. He leads the NUH Brain Tumour Multidisciplinary Clinic and co-founded the Paediatric Brain & Spine Clinic. He designed a patented burr hole cover for chronic subdural haematoma, now commercialised internationally. He is President of the Clinical Neuroscience Society, Singapore, President and founder of the Singapore Society for NeuroOncology, and serves on the Executive Committee of the World Federation of Neurosurgical Societies. He co-chaired the Local Organising Committee of the 9th Asian Leksell Gamma Knife Society Meeting (2025).'
+  };
+  var bioKey='short',bioEl=$('#bio-text');
+  function showBio(k){bioKey=k;bioEl.textContent=BIO[k];$$('[data-bio]').forEach(function(b){b.setAttribute('aria-selected',b.dataset.bio===k)})}
+  $$('[data-bio]').forEach(function(b){b.addEventListener('click',function(){showBio(b.dataset.bio)})});
+  showBio('short');
+  $('#copybio').addEventListener('click',function(){copy(BIO[bioKey],$('#biodone'))});
+  $('#copycap').addEventListener('click',function(){copy($('#cap').textContent,$('#capdone'))});
+  $('#copymail').addEventListener('click',function(){copy('survndw@nus.edu.sg',$('#maildone'))});
+
+  /* ---------- nav: chooser, call-to-action swap, scroll-spy ---------- */
+  var cta=$('#navcta');
+  var CTA={patient:['Appointments','#patients'],doctor:['Refer a patient','#doctors'],company:['Contact','#organisers-contact']};
+  $$('.chooser a').forEach(function(a){a.addEventListener('click',function(){
+    var c=CTA[a.dataset.aud];cta.textContent=c[0];cta.setAttribute('href',c[1]);
+    var h=$(a.getAttribute('href')+' .sec-head');
+    if(h&&!reduce){h.classList.add('is-target');setTimeout(function(){h.classList.remove('is-target')},1400)}
+  })});
+  if('IntersectionObserver' in window){
+    var nl=$$('.links a');
+    var spy=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){nl.forEach(function(a){if(a.getAttribute('href')==='#'+e.target.id)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current')})}})},{rootMargin:'-45% 0px -50% 0px'});
+    ['treats','patients','stories','journey','doctors','research','organisers'].forEach(function(id){var el=document.getElementById(id);if(el)spy.observe(el)});
+  }
 })();
 </script>
 </body>
