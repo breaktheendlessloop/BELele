@@ -109,18 +109,24 @@ section{padding:88px 0;border-bottom:1px solid var(--line)}
 .award .ico{flex:none;width:44px;height:44px;border-radius:12px;background:var(--accent-soft);display:grid;place-items:center;color:var(--gold)}
 .award small{color:var(--gold);font-weight:600;font-size:13px}
 
-.pubs{list-style:none;counter-reset:p}
-.pubs li{counter-increment:p;display:grid;grid-template-columns:44px 1fr;gap:4px 12px;padding:22px 0;border-bottom:1px solid var(--line)}
-.pubs li:first-child{border-top:1px solid var(--line)}
-.pubs li:before{content:counter(p,decimal-leading-zero);font-family:Fraunces,serif;font-size:22px;color:var(--gold);grid-row:span 3}
-.pubs a{font-family:Fraunces,serif;font-size:19px;font-weight:600;color:var(--ink);text-decoration:none;line-height:1.35}
-.pubs a:hover{color:var(--accent)}
-.pubs .au{font-size:14px;color:var(--muted)}
-.pubs .au b{color:var(--ink);font-weight:600}
-.pubs .jn{font-size:14px;color:var(--accent);font-weight:500}
 .more{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
 .more a{font-size:14px;font-weight:600;text-decoration:none;padding:10px 16px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
 
+.pub-tools{display:flex;flex-direction:column;gap:14px;margin-bottom:8px}
+.pub-tools input{width:100%;font:inherit;font-size:15px;padding:12px 16px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.pub-tools input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.pub-filters{display:flex;flex-wrap:wrap;gap:8px}
+.pub-filters button{font:inherit;font-size:13px;font-weight:600;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--muted);cursor:pointer}
+.pub-filters button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.pub-filters span{opacity:.7;font-weight:500}
+.pub-year{font-family:Fraunces,serif;font-size:26px;margin:36px 0 4px;display:flex;align-items:baseline;gap:10px}
+.pub-year small{font-family:Inter,sans-serif;font-size:13px;color:var(--muted);font-weight:500}
+.pub{padding:14px 0;border-bottom:1px solid var(--line)}
+.pub a,.pub .t{font-weight:600;color:var(--ink);text-decoration:none;line-height:1.4}
+.pub a:hover{color:var(--accent)}
+.pub .m{font-size:13px;color:var(--muted);margin-top:3px}
+.pub .k{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--gold);margin-right:8px}
+.pub-empty{color:var(--muted);padding:24px 0}
 footer{padding:56px 0 64px;color:var(--muted);font-size:14px}
 footer .cols{display:grid;gap:28px}
 @media(min-width:720px){footer .cols{grid-template-columns:2fr 1fr 1fr}}
@@ -144,8 +150,9 @@ footer .fine{margin-top:40px;padding-top:20px;border-top:1px solid var(--line)}
       <a href="#innovation">Innovation</a>
       <a href="#journey">Journey</a>
       <a href="#accolades">Accolades</a>
-      <a href="#leadership">Leadership</a>
-      <a href="#events">Events</a>
+      <a href="#research">Research</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#news">News</a>
       <a href="#publications">Publications</a>
       <a href="#contact">Contact</a>
     </div>
@@ -170,7 +177,7 @@ footer .fine{margin-top:40px;padding-top:20px;border-top:1px solid var(--line)}
       <div class="stat"><b>2007</b><span>MBBS, NUS</span></div>
       <div class="stat"><b>10+ yrs</b><span>Specialist neurosurgeon</span></div>
       <div class="stat"><b>1st</b><span>Endowed neurosurgery professorship in Singapore</span></div>
-      <div class="stat"><b>3</b><span>Countries trained in</span></div>
+      <div class="stat"><b>130+</b><span>Publications &amp; abstracts</span></div>
     </div>
   </div>
 </header>
@@ -353,27 +360,91 @@ footer .fine{margin-top:40px;padding-top:20px;border-top:1px solid var(--line)}
   </div>
 </section>
 
-<section id="publications">
+<section id="research">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="eyebrow">Research</div>
-      <h2>Selected publications</h2>
-      <p>His research spans paediatric neurosurgery, neuro-oncology, cerebrovascular disease, subdural haematoma and bioengineered implants. His fields of research are neurosciences, cognitive neuroscience, and oncology and carcinogenesis.</p>
+      <h2>Research interests</h2>
+      <p>His research aims to improve understanding and treatment of complex brain and spine tumours, especially gliomas and skull base and pituitary conditions. It sits where clinical innovation, translational science and surgical outcomes research meet.</p>
     </div>
-    <ol class="pubs reveal">
-      <li><a href="https://pubmed.ncbi.nlm.nih.gov/37074063/" target="_blank" rel="noopener">Risk for brain arteriovenous malformation rupture during pregnancy and puerperium</a><div class="au">Karlsson B, Johansson AV, Jokura H, Petridis A, Yang HC, Yamamoto M, Martinez R, Kawagishi J, Guo WY, Chung WY, Söderman M, <b>Nga V</b></div><div class="jn">Neurosurgery · 2023</div></li>
-      <li><a href="https://pubmed.ncbi.nlm.nih.gov/36359222/" target="_blank" rel="noopener">Clinical outcomes of 3D-printed bioresorbable scaffolds for bone tissue engineering: a pilot study on 126 patients for burrhole covers in subdural hematoma</a><div class="au">Toh EMS, Thenpandiyan AA, Foo ASC, Zhang JJY, Lim MJR, Goh CP, Dinesh N, Vedicherla SV, Yang M, Teo K, Yeo TT, <b>Nga VDW</b></div><div class="jn">Biomedicines · 2022</div></li>
-      <li><a href="https://pubmed.ncbi.nlm.nih.gov/35597064/" target="_blank" rel="noopener">Paediatric brain tumours in Singapore: a 15-year epidemiological and outcome study</a><div class="au">Liu SJ, Aw NMY, Lim MJR, Seow WT, Low DCY, Kimpo MS, Tan EEK, Yeo TT, Low SYY, <b>Nga VDW</b></div><div class="jn">Journal of Clinical Neuroscience · 2022</div></li>
-      <li><a href="https://pubmed.ncbi.nlm.nih.gov/34088580/" target="_blank" rel="noopener">Impact of time to resumption of antithrombotic therapy on outcomes after surgical evacuation of chronic subdural hematoma: a multicenter cohort study</a><div class="au">Zhang JJY, Aw NMY, Tan CH, Lee KS, Chen VHE, Wang S, Dinesh N, Foo ASC, Yang M, Goh CP, et al., Santarius T, <b>Nga VDW</b></div><div class="jn">Journal of Clinical Neuroscience · 2021</div></li>
-      <li><a href="https://pubmed.ncbi.nlm.nih.gov/33581794/" target="_blank" rel="noopener">Predictors of 30-day postoperative systemic complications in geriatric patients undergoing elective brain tumor surgery</a><div class="au">Zhang JJY, Ong JAH, Tan YX, Yeo JYP, Lee KS, Goh CP, Bolem N, Tan CL, Yuan SY, Teo K, Lwin S, Yeo TT, Kirollos RW, <b>Nga VDW</b></div><div class="jn">Journal of Clinical Neuroscience · 2021</div></li>
-      <li><a href="https://pubmed.ncbi.nlm.nih.gov/33246909/" target="_blank" rel="noopener">Revascularisation surgery for paediatric moyamoya disease: the Singapore experience</a><div class="au">Ong JA, Low SY, Seow WT, Goh CP, Yeo TT, Chou N, Low DC, <b>Nga V</b></div><div class="jn">Journal of Clinical Neuroscience · 2020</div></li>
-      <li><a href="https://pubmed.ncbi.nlm.nih.gov/33126222/" target="_blank" rel="noopener">Surgical management of pediatric rolandic arteriovenous malformations: a single-center case series</a><div class="au">Cho N, <b>Nga VDW</b>, Ahmed R, Ku JC, Munarriz PM, Muthusami P, Rutka JT, Dirks P</div><div class="jn">Journal of Neurosurgery: Pediatrics · 2020</div></li>
-    </ol>
+    <div class="grid g3">
+      <div class="card reveal"><span class="tag">01</span><h3>Skull base &amp; pituitary surgery</h3><p>Improving microsurgical and endoscopic endonasal approaches, refining credentialing and training standards, and making surgery safer with better long-term outcomes.</p></div>
+      <div class="card reveal"><span class="tag">02</span><h3>Neuro-oncology &amp; genomics</h3><p>Studying the biology and the molecular and genetic drivers of brain tumours, including craniopharyngiomas, ependymomas and rare skull base lesions. He also works on bringing genomic tools such as long-read sequencing into treatment decisions.</p></div>
+      <div class="card reveal"><span class="tag">03</span><h3>Surgical oncology &amp; complex resections</h3><p>Finding ways to remove as much tumour as is safely possible while preserving function, in both adults and children.</p></div>
+      <div class="card reveal"><span class="tag">04</span><h3>Outcomes &amp; health systems</h3><p>Studying patient-reported outcomes, health economics and system-level changes that widen access to advanced neurosurgical care, particularly in Southeast Asia.</p></div>
+      <div class="card reveal"><span class="tag">05</span><h3>Global neurosurgery</h3><p>Developing sustainable training models with regional partners, focused on local expertise in endoscopic skull base surgery and awake neurosurgery.</p></div>
+      <div class="card reveal" style="background:var(--accent-soft);border-color:transparent"><span class="tag" style="background:var(--surface)">Fields</span><h3>Neurosciences · Cognitive neuroscience · Oncology &amp; carcinogenesis</h3><p>His aim is to combine clinical excellence, scientific discovery and global collaboration to transform neurosurgical cancer care and training across Singapore and the region.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="teaching">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Teaching</div>
+      <h2>Training the next generation</h2>
+      <p>As Head of Neurosurgery at NUH, he has played a central role in shaping how neurosurgeons are trained in Singapore. He emphasises rigorous clinical standards, patient-centred practice and teamwork across specialties.</p>
+    </div>
+    <div class="grid g2">
+      <div class="card reveal"><span class="tag">Undergraduate</span><h3>NUS Yong Loo Lin School of Medicine</h3><p>He teaches and mentors medical students and residents, pairing clinical reasoning with time in the operating theatre to develop future neurosurgeons and physician-leaders.</p></div>
+      <div class="card reveal"><span class="tag">Postgraduate</span><h3>Subspecialty mentorship</h3><p>He guides neurosurgical trainees as they subspecialise, including in endoscopic skull base surgery and complex brain and spine tumour surgery.</p></div>
+      <div class="card reveal"><span class="tag">Masterclasses</span><h3>World-class teaching in Singapore</h3><p>The NUH Advanced Skull Base Masterclass and the International Surgical Oncology Symposium bring global experts together. Local and regional trainees learn world-class surgical techniques from them.</p></div>
+      <div class="card reveal"><span class="tag">Regional</span><h3>From assisted to independent</h3><p>Under his guidance, neurosurgeons at Dr. Sardjito Hospital in Yogyakarta progressed from assisted training to performing complex endoscopic skull base surgery on their own. Mentorship continues in awake surgery and brain-mapping techniques.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="news">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">In the news</div>
+      <h2>Stories from the operating theatre</h2>
+    </div>
+    <div class="grid g2">
+      <article class="card reveal">
+        <span class="tag">The Straits Times · June 2024</span>
+        <h3>The “miracle baby” with a brainstem tumour</h3>
+        <p>Baby E was born in January 2022 with a high-grade glioma in her brainstem, a condition with odds of about one in 100 million. Her parents were told nothing could be done. At NUH, a multidisciplinary team, with Dr Nga as the neurosurgeon in charge, biopsied the tumour when she was about a week old. They worked with experts at SickKids, Toronto.</p>
+        <p>The tumour then did something unexpected: it stopped growing, and within six months it had shrunk by half. Dr Nga believes the biopsy may have triggered her immune system to fight the cancer. At two years old she was thriving, and she may be the first documented child to survive such a tumour.</p>
+        <p style="font-family:Fraunces,serif;font-style:italic;color:var(--ink);margin-top:14px">“While it is not possible to be conclusive, we believe that the tumour regression, in this particular case, is related to the biopsy that was performed.”</p>
+        <p style="font-size:13px;margin-top:12px">The case was later published as <a href="https://doi.org/10.1007/s00381-024-06658-4" target="_blank" rel="noopener">“Rare regression of congenital brainstem high-grade glioma”</a> in Child’s Nervous System.</p>
+      </article>
+      <article class="card reveal">
+        <span class="tag">The Straits Times · January 2026</span>
+        <h3>Saving face: 20 years of craniofacial care</h3>
+        <p>A young man with Crouzon syndrome has had four major operations since he was 18 months old. This rare genetic condition fuses the skull’s growth joints too early and leaves too little room for the growing brain. Adj A/Prof Nga was the neurosurgeon on the NUH team that reshaped his skull as an adult. He also monitored the patient's brain development over the years.</p>
+        <p>He explained that cutting through the skull is one of the most critical steps. The surgeon must avoid the dura, the brain’s protective outer membrane that carries major blood channels.</p>
+        <p style="font-family:Fraunces,serif;font-style:italic;color:var(--ink);margin-top:14px">“Any injury to the dura or the blood channels within it could be catastrophic.”</p>
+        <p style="font-size:13px;margin-top:12px">The patient, now 23, is training for his first half-marathon.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="publications">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Publications</div>
+      <h2>Every paper, from 2012 to today</h2>
+      <p>His NUS research record lists 132 publications, and his work has been cited more than 840 times on ResearchGate. Below, duplicate listings are combined, and each title links to the paper through its DOI.</p>
+    </div>
+    <div class="pub-tools reveal">
+      <input id="pubq" type="search" placeholder="Search titles or journals, e.g. moyamoya, pituitary, Gamma Knife" aria-label="Search publications">
+      <div class="pub-filters" role="group" aria-label="Filter by type">
+        <button data-f="all" class="on">All <span id="c-all"></span></button>
+        <button data-f="J">Journal articles <span id="c-J"></span></button>
+        <button data-f="C">Conference abstracts <span id="c-C"></span></button>
+        <button data-f="O">Preprints &amp; other <span id="c-O"></span></button>
+      </div>
+    </div>
+    <div id="publist" aria-live="polite"></div>
+    <p id="pubempty" class="pub-empty" hidden>No publications match that search.</p>
     <div class="more reveal">
-      <a href="https://orcid.org/0000-0001-5256-5669" target="_blank" rel="noopener">ORCID · full record →</a>
+      <a href="https://discovery.nus.edu.sg/11097-vincent-diong-weng-nga" target="_blank" rel="noopener">NUS research profile →</a>
+      <a href="https://orcid.org/0000-0001-5256-5669" target="_blank" rel="noopener">ORCID →</a>
       <a href="https://scholar.google.com/citations?user=MfhG808AAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar →</a>
-      <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Nga+VDW%5BAuthor%5D" target="_blank" rel="noopener">PubMed →</a>
-      <a href="https://discovery.nus.edu.sg/11097-vincent-diong-weng-nga/grants" target="_blank" rel="noopener">NUS research grants →</a>
+      <a href="https://www.researchgate.net/profile/Vincent-Nga" target="_blank" rel="noopener">ResearchGate →</a>
+      <a href="https://discovery.nus.edu.sg/11097-vincent-diong-weng-nga/grants" target="_blank" rel="noopener">Research grants →</a>
     </div>
   </div>
 </section>
@@ -412,6 +483,157 @@ footer .fine{margin-top:40px;padding-top:20px;border-top:1px solid var(--line)}
 </footer>
 
 <script>
+// [year, type (J journal, C conference abstract, P preprint, B book chapter, E correction), title, journal, DOI]
+var PUBS=[
+[2026,"J","Long-term follow-up of dysembryoplastic neuroepithelial tumour (DNET) with recurrent bleeds: a case report and review of literature","Child's Nervous System","10.1007/s00381-026-07240-w"],
+[2026,"J","Navigating Advanced Illness Goals And Treatment with Digital Engagement (NAVIGATE): a protocol for a randomised controlled trial of a website for caregivers of patients with serious illness","Trials","10.1186/s13063-026-09876-0"],
+[2026,"C","Profile of children with high grade gliomas/diffuse midline gliomas and management trends over the past fifteen years in a single institution","Neuro-Oncology Pediatrics","10.1093/neuped/wuag026.504"],
+[2026,"J","Paediatric Epstein-Barr virus-associated intracranial smooth muscle tumours","Singapore Medical Journal","10.4103/singaporemedj.SMJ-2025-226"],
+[2026,"J","Early cystic enlargement of hypoglossal schwannoma causing brainstem compression post-Gamma Knife radiosurgery: illustrative cases","Journal of Neurosurgery: Case Lessons","10.3171/CASE25933"],
+[2026,"J","Application of a cutting guide to optimize fit of 3D-printed patient-specific implants in reconstruction following resection of osseo-invasive tumors","Cureus","10.7759/cureus.102281"],
+[2026,"J","Cefiderocol as salvage therapy in difficult-to-treat resistant (DTR) Pseudomonas aeruginosa complicated central nervous system infection","Journal of Paediatrics and Child Health","10.1111/jpc.70520"],
+[2026,"J","Endovascular treatment versus microsurgical clipping in elderly patients with aneurysmal subarachnoid hemorrhage: a systematic review and meta-analysis","Neuroradiology","10.1007/s00234-026-04009-5"],
+[2025,"J","Effect of direct revascularization on cerebral vasodilatory reserve in the unoperated hemisphere in Moyamoya disease","Journal of Clinical Neuroscience","10.1016/j.jocn.2025.111645"],
+[2025,"J","Rare regression of congenital brainstem high-grade glioma: case report and literature review","Child's Nervous System","10.1007/s00381-024-06658-4"],
+[2025,"J","Challenges in the management of silent lactotroph pituitary adenoma","JCEM Case Reports","10.1210/jcemcr/luaf241"],
+[2025,"C","Predictors of mortality and clinical outcomes following surgical resection of multiple brain metastases","Neuro-Oncology","10.1093/neuonc/noaf201.1334"],
+[2025,"C","MON-128 Challenges in the management of silent lactotroph pituitary neuroendocrine tumour: a case report and review of literature","Journal of the Endocrine Society","10.1210/jendso/bvaf149.1456"],
+[2025,"J","Presenting characteristics, histological subtypes and outcomes of adult central nervous system tumours: retrospective review of a surgical cohort","Singapore Medical Journal","10.4103/singaporemedj.SMJ-2022-069"],
+[2025,"J","Management of Chiari type 0 malformation: a case study and literature review of surgical approaches, clinical and radiological outcomes","Interdisciplinary Neurosurgery","10.1016/j.inat.2025.102058"],
+[2025,"J","Prevalence and prognostic significance of electrocardiographic left ventricular hypertrophy in patients presenting with hypertensive intracerebral haemorrhage","Journal of Clinical Neuroscience","10.1016/j.jocn.2025.111242"],
+[2025,"J","Improvement in outcomes with ultrasound-guided ventriculoperitoneal shunt insertion","Journal of Clinical Neuroscience","10.1016/j.jocn.2024.111018"],
+[2025,"J","Novel treatment vs. standard of care in melanoma-associated leptomeningeal metastases: a systematic review and network meta-analysis","Chinese Clinical Oncology","10.21037/cco-24-104"],
+[2025,"J","Case discussions in pediatric neurosurgery: a model for improving service delivery and neurosurgery education in Southeast Asia","Neurosurgical Focus","10.3171/2024.12.FOCUS24816"],
+[2025,"J","Knowledge, attitudes and perceptions of advance care planning among specialist healthcare professionals in neurology, neuro-oncology and surgery","Singapore Medical Journal","10.4103/singaporemedj.SMJ-2024-065"],
+[2024,"J","Detecting tumor-associated intracranial hemorrhage using proton magnetic resonance spectroscopy","Neurology International","10.3390/neurolint16060133"],
+[2024,"J","Endovascular coiling versus neurosurgical clipping in the management of aneurysmal subarachnoid haemorrhage in the elderly: a multicenter cohort study","Neurosurgical Review","10.1007/s10143-024-02325-z"],
+[2024,"J","Is two-staged gamma knife surgery a reasonable management option for very large cerebellar metastases? A case series of three patients","Acta Neurochirurgica","10.1007/s00701-024-05974-7"],
+[2024,"J","Surgical management of symptomatic recurrent Rathke's cleft cysts: a systematic review and individual-participant data meta-analysis","Journal of Clinical Neuroscience","10.1016/j.jocn.2024.110917"],
+[2024,"J","The pivotal role of neurosurgeons in transitional care: a comprehensive tertiary healthcare institution's experience","Child's Nervous System","10.1007/s00381-024-06638-8"],
+[2024,"J","The effect of frailty on mortality and functional outcomes in spontaneous intracerebral haemorrhage","Clinical Neurology and Neurosurgery","10.1016/j.clineuro.2024.108539"],
+[2024,"C","AB013. Infantile brainstem high grade glioma: a case report","Chinese Clinical Oncology","10.21037/cco-24-ab013"],
+[2024,"C","AB022. Management of first recurrence or progression of craniopharyngioma after resection alone: a systematic review and individual-participant data meta-analysis","Chinese Clinical Oncology","10.21037/cco-24-ab022"],
+[2024,"C","AB035. Validation of EORTC brain cancer module (EORTC QLQ-BN20) for assessment of health-related quality of life in glioma patients in Singapore","Chinese Clinical Oncology","10.21037/cco-24-ab035"],
+[2024,"C","AB050. Novel treatment vs. standard of care in melanoma-associated leptomeningeal metastases: a systematic review & network meta-analysis","Chinese Clinical Oncology","10.21037/cco-24-ab050"],
+[2024,"C","AB064. Two case reports & review of literature: perioperative surgical management of symptomatic large non-functioning pituitary masses in early pregnancy","Chinese Clinical Oncology","10.21037/cco-24-ab064"],
+[2024,"C","AB088. Spinal cord diffuse midline glioma in adults: a case report and literature review","Chinese Clinical Oncology","10.21037/cco-24-ab088"],
+[2024,"J","Effect of psoas muscle index on early postoperative outcomes in surgically treated spinal tumours in an Asian population","Journal of Clinical Neuroscience","10.1016/j.jocn.2024.06.022"],
+[2024,"E","Author correction: METTL8 links mt-tRNA m3C modification to the HIF1α/RTK/Akt axis to sustain GBM stemness and tumorigenicity","Cell Death & Disease","10.1038/s41419-024-06917-x"],
+[2024,"J","Evaluation of ex vivo drug combination optimization platform in recurrent high grade astrocytic glioma: an interventional, non-randomized, open-label trial protocol","PLOS ONE","10.1371/journal.pone.0307818"],
+[2024,"J","METTL8 links mt-tRNA m3C modification to the HIF1α/RTK/Akt axis to sustain GBM stemness and tumorigenicity","Cell Death & Disease","10.1038/s41419-024-06718-2"],
+[2024,"J","Adjuvant radiotherapy versus observation after gross total resection of WHO grade II ependymoma: a systematic review and individual-participant data meta-analysis","Chinese Clinical Oncology","10.21037/cco-23-136"],
+[2024,"C","707 Associations between inflammatory markers and outcomes in SICH","Neurosurgery","10.1227/neu.0000000000002809_707"],
+[2024,"J","Effect of sarcopenia and frailty on outcomes among patients with brain metastases","Journal of Neuro-Oncology","10.1007/s11060-023-04542-w"],
+[2024,"J","Trends in hemorrhagic stroke incidence and mortality in a National Stroke Registry of a multi-ethnic Asian population","European Stroke Journal","10.1177/23969873231202392"],
+[2024,"J","Prognostication of outcomes in spontaneous intracerebral hemorrhage: a propensity score-matched analysis with support vector machine","World Neurosurgery","10.1016/j.wneu.2023.11.095"],
+[2024,"P","Endovascular coiling versus neurosurgical clipping in the management of aneurysmal subarachnoid haemorrhage in the elderly: a multicenter cohort study (preprint)","Research Square","10.21203/rs.3.rs-3835086/v1"],
+[2024,"J","Is Gamma Knife surgery, omitting adjunct whole brain radiation treatment, feasible for patients with 20 or more brain metastases?","Neuro-Oncology Advances","10.1093/noajnl/vdae047"],
+[2024,"J","Outcomes after surgical revascularization for adult Moyamoya disease: a Southeast Asian tertiary centre experience","Journal of Clinical Neuroscience","10.1016/j.jocn.2023.11.027"],
+[2024,"J","Transitional care in neurosurgery","Neurosurgical Focus","10.3171/2024.6.FOCUS23738"],
+[2023,"J","Antiplatelet therapy in aneurysmal subarachnoid hemorrhage: an updated meta-analysis","Neurosurgical Review","10.1007/s10143-023-02120-2"],
+[2023,"J","Management of first recurrence or progression of craniopharyngioma after resection alone: a systematic review and individual-participant data meta-analysis","Journal of Clinical Neuroscience","10.1016/j.jocn.2023.10.014"],
+[2023,"J","The role of intracranial pressure variability as a predictor of intracranial hypertension and mortality in critically ill patients","Journal of Neurosurgery","10.3171/2023.4.JNS23123"],
+[2023,"J","Intracranial germ cell tumors","Seminars in Neurology","10.1055/s-0043-1776763"],
+[2023,"J","Effect of blood type on mortality among patients with brain metastases","Clinical Neurology and Neurosurgery","10.1016/j.clineuro.2023.107963"],
+[2023,"J","Ischemic and hemorrhagic strokes in young adults: comparison of functional outcomes and return to work after stroke","Clinical Neurology and Neurosurgery","10.1016/j.clineuro.2023.107964"],
+[2023,"J","Risk for brain arteriovenous malformation rupture during pregnancy and puerperium","Neurosurgery","10.1227/neu.0000000000002496"],
+[2023,"C","Trends in hemorrhagic stroke incidence and mortality in a National Stroke Registry of a multi-ethnic Asian population","International Journal of Stroke",""],
+[2023,"J","Management and outcomes of pediatric craniopharyngioma: a 15-year experience in Singapore","World Neurosurgery","10.1016/j.wneu.2023.06.068"],
+[2023,"J","Postsurgical outcomes of nonfunctioning pituitary adenomas: a patient-level meta-analysis","Pituitary","10.1007/s11102-023-01335-2"],
+[2023,"J","Functional and mortality outcomes with medical and surgical therapy in malignant posterior circulation infarcts: a systematic review","Journal of Clinical Medicine","10.3390/jcm12093185"],
+[2023,"J","Risk factors for 30-day postoperative surgical site hematoma requiring evacuation after resection of brain metastases","Clinical Neurology and Neurosurgery","10.1016/j.clineuro.2023.107617"],
+[2023,"J","Characteristics of subarachnoid hemorrhage associated with COVID-19 infection: a systematic review and descriptive analysis","Journal of Stroke and Cerebrovascular Diseases","10.1016/j.jstrokecerebrovasdis.2022.106904"],
+[2023,"P","Association between primary tumour–brain metastasis receptor status mismatch and outcomes in breast cancer brain metastasis","medRxiv","10.1101/2023.01.18.23284724"],
+[2023,"C","Association of cerebral small vessel disease and cognitive impairment in six cognitive domains after spontaneous intracerebral hemorrhage","Brain and Spine","10.1016/j.bas.2023.102023"],
+[2023,"C","The role of intracranial pressure variability as a predictor for intracranial hypertension and mortality in critically ill patients","Brain and Spine","10.1016/j.bas.2023.101879"],
+[2022,"J","A systematic review and meta-analysis of the association between cyproterone acetate and intracranial meningiomas","Scientific Reports","10.1038/s41598-022-05773-z"],
+[2022,"P","Effect of blood type on mortality among patients with brain metastases (preprint)","medRxiv","10.1101/2022.11.22.22282634"],
+[2022,"P","Effect of surgically acquired neurological deficits on mortality among patients with brain metastases","medRxiv","10.1101/2022.11.22.22282635"],
+[2022,"P","Risk factors for 30-day postoperative surgical site hematoma requiring evacuation after resection of brain metastases (preprint)","medRxiv","10.1101/2022.11.22.22282636"],
+[2022,"J","Effect of perioperative seizures on mortality and recurrence in patients with brain metastases","Frontiers in Oncology","10.3389/fonc.2022.1048304"],
+[2022,"J","Clinical outcomes of 3D-printed bioresorbable scaffolds for bone tissue engineering: a pilot study on 126 patients for burrhole covers in subdural hematoma","Biomedicines","10.3390/biomedicines10112702"],
+[2022,"J","Teaching NeuroImage: prenatal diagnosis of limited dorsal myeloschisis","Neurology","10.1212/WNL.0000000000201041"],
+[2022,"J","Diagnosis of hydrocephalus by cranial transillumination","Archives of Disease in Childhood: Fetal and Neonatal Edition","10.1136/archdischild-2021-322430"],
+[2022,"J","Paediatric brain tumours in Singapore: a 15-year epidemiological and outcome study","Journal of Clinical Neuroscience","10.1016/j.jocn.2022.05.006"],
+[2022,"C","Post-traumatic cranial reconstruction using a 3D printed polycaprolactone implant after burr hole trephination","Journal of Neurotrauma (15th International Neurotrauma Symposium)",""],
+[2022,"J","Vagus nerve stimulation for treatment of drug-resistant epilepsy: a systematic review and meta-analysis","Neurosurgical Review","10.1007/s10143-022-01757-9"],
+[2022,"J","Is there any survival benefit from post-operative radiation in brain metastases? A systematic review and meta-analysis of randomized controlled trials","Journal of Clinical Neuroscience","10.1016/j.jocn.2022.03.024"],
+[2022,"J","Tenets for the proper conduct and use of meta-analyses: a practical guide for neurosurgeons","World Neurosurgery","10.1016/j.wneu.2021.09.034"],
+[2022,"C","Comparison of surgical versus medical therapy in malignant posterior circulation infarction: a systematic review and meta-analysis","Stroke","10.1161/str.53.suppl_1.WP123"],
+[2022,"J","Machine learning models prognosticate functional outcomes better than clinical scores in spontaneous intracerebral haemorrhage","Journal of Stroke and Cerebrovascular Diseases","10.1016/j.jstrokecerebrovasdis.2021.106234"],
+[2022,"C","Case report of EBV associated smooth muscle intracranial tumour in a child","WFNOS 2022 Seoul","10.14791/btrt.2022.10.f-1092"],
+[2022,"P","Functional and mortality outcomes with medical and surgical therapy in malignant posterior circulation infarcts: a systematic review (preprint)","Research Square","10.21203/rs.3.rs-2026237/v1"],
+[2022,"C","Papillary craniopharyngioma in an 8-year-old girl with BRAF V600E mutation","WFNOS 2022 Seoul","10.14791/btrt.2022.10.f-1261"],
+[2021,"J","Stereotactic radiosurgery in alveolar soft part sarcoma brain metastases: case series and literature review","Journal of Clinical Neuroscience","10.1016/j.jocn.2021.09.002"],
+[2021,"J","Child with an unusual skull appearance","Journal of Paediatrics and Child Health","10.1111/jpc.1_15364"],
+[2021,"J","Paediatric traumatic brain injury: an approach in primary care","Singapore Medical Journal","10.11622/smedj.2021146"],
+[2021,"C","RADI-06. Gamma knife surgery for brain stem metastases","Neuro-Oncology Advances","10.1093/noajnl/vdab071.076"],
+[2021,"C","RADI-10. Is there any benefit for post-operative radiation in brain metastases? A systematic review and meta-analysis of randomized controlled trials","Neuro-Oncology Advances","10.1093/noajnl/vdab071.080"],
+[2021,"J","Clinical application of “black bone” imaging in paediatric craniofacial disorders","British Journal of Radiology","10.1259/bjr.20200061"],
+[2021,"J","Flow diversion in acute subarachnoid haemorrhage: a single centre five year experience","Journal of Stroke and Cerebrovascular Diseases","10.1016/j.jstrokecerebrovasdis.2021.105910"],
+[2021,"J","Impact of time to resumption of antithrombotic therapy on outcomes after surgical evacuation of chronic subdural hematoma: a multicenter cohort study","Journal of Clinical Neuroscience","10.1016/j.jocn.2021.05.036"],
+[2021,"J","A novel hospital capacity versus clinical justification triage score (CCTS) for prioritization of spinal surgeries in the “new normal state” of the COVID-19 pandemic","European Spine Journal","10.1007/s00586-020-06679-y"],
+[2021,"J","Predictors of 30-day postoperative systemic complications in geriatric patients undergoing elective brain tumor surgery","Journal of Clinical Neuroscience","10.1016/j.jocn.2020.12.023"],
+[2021,"J","In reply to the letter to the editor regarding “Impact of COVID-19 on neurosurgical training in Southeast Asia”","World Neurosurgery","10.1016/j.wneu.2020.11.056"],
+[2021,"J","COVID-19 response measures: a Singapore neurosurgical academic medical centre experience segregated team model to maintain tertiary level neurosurgical care during the COVID-19 outbreak","British Journal of Neurosurgery","10.1080/02688697.2020.1758629"],
+[2021,"J","Performing awake surgeries in times of COVID-19: a Singapore experience","Asian Journal of Neurosurgery","10.4103/ajns.AJNS_61_21"],
+[2021,"J","Surgical management of pediatric rolandic arteriovenous malformations: a single-center case series","Journal of Neurosurgery: Pediatrics","10.3171/2020.6.PEDS18547"],
+[2020,"C","EPID-04. Morbidity in paediatric brain tumours: 17 years’ experience in a tertiary neurosurgical unit","Neuro-Oncology","10.1093/neuonc/noaa222.190"],
+[2020,"C","RARE-01. Management and outcomes of paediatric craniopharyngioma: a 15-year experience in Singapore","Neuro-Oncology","10.1093/neuonc/noaa222.713"],
+[2020,"J","Impact of COVID-19 on neurosurgical training in Southeast Asia","World Neurosurgery","10.1016/j.wneu.2020.08.073"],
+[2020,"J","In reply to the letter to the editor regarding “Impact of COVID-19 on neurosurgical training in Southeast Asia”","World Neurosurgery","10.1016/j.wneu.2020.09.086"],
+[2020,"J","Late diagnosis of multiple cerebral aneurysms a decade after resection of cardiac myxoma","Case Reports in Neurology","10.1159/000505390"],
+[2020,"J","Revascularisation surgery for paediatric moyamoya disease: the Singapore experience","Journal of Clinical Neuroscience","10.1016/j.jocn.2020.11.008"],
+[2020,"J","H3K27M-mutant diffuse midline glioma presenting as synchronous lesions involving pineal and suprasellar region: a case report and literature review","Journal of Clinical Neuroscience","10.1016/j.jocn.2020.09.029"],
+[2020,"J","Coronavirus disease 2019 (COVID-19) response measures: a Singapore neurosurgical academic medical center experience in emerging from the worldwide pandemic","World Neurosurgery","10.1016/j.wneu.2020.07.159"],
+[2020,"J","Development of a prognostic scoring system to predict risk of reoperation for contralateral hematoma growth after unilateral evacuation of bilateral chronic subdural hematoma","Journal of Clinical Neuroscience","10.1016/j.jocn.2020.06.009"],
+[2020,"J","Dissecting distal cerebellar artery aneurysms: options beyond a parent vessel sacrifice","Neurosurgical Review","10.1007/s10143-019-01119-y"],
+[2020,"J","Cranial reconstruction using a polycaprolactone implant after burr hole trephination","Journal of 3D Printing in Medicine","10.2217/3dp-2019-0022"],
+[2020,"J","Paediatric meningiomas in Singapore: case series of a rare entity","Journal of Clinical Neuroscience","10.1016/j.jocn.2020.01.044"],
+[2020,"J","Coexisting moyamoya syndrome and type 1 diabetes mellitus: a case report and review of the literature","Asian Journal of Neurosurgery","10.4103/ajns.AJNS_218_19"],
+[2020,"J","Freehand insertion of external ventricular drainage catheter: evaluation of accuracy in a single center","Asian Journal of Neurosurgery","10.4103/ajns.AJNS_292_19"],
+[2019,"J","Outcomes of subdural versus subperiosteal drain after burr-hole evacuation of chronic subdural hematoma: a multicenter cohort study","World Neurosurgery","10.1016/j.wneu.2019.07.168"],
+[2019,"B","Peripheral nerve tumours","Oxford Textbook of Neurological Surgery (Oxford University Press)",""],
+[2019,"C","Freehand insertion of external ventricular drainage catheter: evaluation of accuracy in a single centre","British Journal of Surgery (ASIT International Surgical Conference)",""],
+[2019,"J","Twenty-three years follow-up after low-dose Gamma Knife surgery of a brainstem juvenile pilocytic astrocytoma: a case report and review of the literature","Child's Nervous System","10.1007/s00381-019-04147-7"],
+[2019,"C","Freehand insertion of external ventricular drainage catheter: evaluation of accuracy in a single centre","Neurosurgery","10.1093/neuros/nyz001.TN2"],
+[2019,"J","Factors predicting outcomes in surgically treated pediatric traumatic brain injury","Asian Journal of Neurosurgery","10.4103/ajns.AJNS_2_19"],
+[2018,"J","The role of surgery in refractory epilepsy secondary to polymicrogyria in the pediatric population","Epilepsia","10.1111/epi.14556"],
+[2018,"J","Intracerebral Flexner-Wintersteiner rosette-rich tumor with somatic RB1 mutation: a CNS embryonal tumor with retinoblastic differentiation","Journal of Neuropathology & Experimental Neurology","10.1093/jnen/nly062"],
+[2018,"J","Spinal extradural cyst: case report and review of literature","World Neurosurgery","10.1016/j.wneu.2018.05.199"],
+[2018,"C","EPID-12. Primary paediatric brain tumors in Singapore: a 17-year Southeast-Asian perspective on epidemiology and outcomes","Neuro-Oncology (ISPNO 2018)","10.1093/neuonc/noy059.245"],
+[2018,"C","Factors in predicting the surgical outcomes of pediatric traumatic brain injury (TBI) patients","British Journal of Surgery (SARS Annual Meeting)",""],
+[2018,"C","Factors predicting outcomes in pediatric traumatic brain injury","WFNS Symposia 2018",""],
+[2018,"C","Intradural spinal tumors: a review of post operative outcomes between intramedullary and extramedullary tumors from a single institution's experience","Neuro-Oncology (BNOS)","10.1093/neuonc/nox238.090"],
+[2018,"J","Intradural spinal tumors: review of postoperative outcomes comparing intramedullary and extramedullary tumors from a single institution's experience","World Neurosurgery","10.1016/j.wneu.2017.09.143"],
+[2016,"J","Is there an optimal time for performing cranioplasties? Results from a prospective multinational study","World Neurosurgery","10.1016/j.wneu.2016.06.081"],
+[2015,"J","Effects of polycaprolactone-based scaffolds on the blood-brain barrier and cerebral inflammation","Tissue Engineering Part A","10.1089/ten.tea.2013.0779"],
+[2014,"J","Intracranial pial arteriovenous fistula in infancy: a case report and literature review","Child's Nervous System","10.1007/s00381-013-2217-2"],
+[2013,"J","Brain tissue interaction with three-dimensional, honeycomb polycaprolactone-based scaffolds designed for cranial reconstruction following traumatic brain injury","Tissue Engineering Part A","10.1089/ten.tea.2012.0733"],
+[2012,"E","Erratum: Mapping the incidence of focal tissue hypoxia after decompressive craniectomy","Brain Injury","10.3109/02699052.2012.696431"]
+];
+
+(function(){
+  var list=document.getElementById('publist'),q=document.getElementById('pubq'),empty=document.getElementById('pubempty'),f='all';
+  var grp=function(t){return t==='J'||t==='C'?t:'O'};
+  var label={J:'Journal',C:'Abstract',P:'Preprint',B:'Book chapter',E:'Correction'};
+  ['all','J','C','O'].forEach(function(k){document.getElementById('c-'+k).textContent=PUBS.filter(function(p){return k==='all'||grp(p[1])===k}).length});
+  function esc(x){return x.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function render(){
+    var term=q.value.trim().toLowerCase(),html='',year=null,rows=PUBS.filter(function(p){
+      return (f==='all'||grp(p[1])===f)&&(!term||(p[2]+' '+p[3]).toLowerCase().indexOf(term)>-1)});
+    var counts={};rows.forEach(function(p){counts[p[0]]=(counts[p[0]]||0)+1});
+    rows.forEach(function(p){
+      if(p[0]!==year){year=p[0];html+='<h3 class="pub-year">'+year+' <small>'+counts[year]+(counts[year]>1?' items':' item')+'</small></h3>'}
+      var t=p[4]?'<a href="https://doi.org/'+esc(p[4])+'" target="_blank" rel="noopener">'+esc(p[2])+'</a>':'<span class="t">'+esc(p[2])+'</span>';
+      html+='<div class="pub">'+t+'<div class="m"><span class="k">'+label[p[1]]+'</span>'+esc(p[3])+'</div></div>';
+    });
+    list.innerHTML=html;empty.hidden=rows.length>0;
+  }
+  document.querySelectorAll('.pub-filters button').forEach(function(b){b.addEventListener('click',function(){
+    document.querySelectorAll('.pub-filters button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');f=b.dataset.f;render()})});
+  q.addEventListener('input',render);render();
+})();
 (function(){
   var els=document.querySelectorAll('.reveal');
   if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
